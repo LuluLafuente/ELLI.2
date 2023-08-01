@@ -61,105 +61,100 @@
                     <img src="<?php echo $_SESSION['u_foto'] ;?>" alt="Imagen de Usuario">
                 </div>
             </div>
-            <div class="details">
-                <div class="Alumnos">
-                    <div class="cardHeader">
-                        <h2>Registro de Parcial</h2>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr id="tabla-personalizada">
-                                <th>Alumno</th>
-                                <th>1º Parcial</th>
-                                <th>2º Parcial</th>
-                                <th>1º Recuperacion</th>
-                                <th>2º Recuperacion</th>
-                                <th>Condicion</th>
-                            </tr>
-                        </thead>
+            <div class="contenido">
+                <h2>Registro de Parcial</h2>
 
-                        <tbody>
-                            <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                            <tr>
-                                <td>
-                                    <p>
-                                        <?php echo $resultado[$i]["alumno"]; ?>
-                                    </p>
-                                </td>
-                                <td>
-                                    <select name="Parcial-Uno" id="Parcial-Uno">
-                                        <?php for ($j = 0; $j < 11; $j++): ?>
-                                        <?php if ($j == 0): ?>
-                                        <option value="#"></option>
-                                        <?php elseif ($j < 11): ?>
-                                        <option value="<?php echo $j; ?>">
-                                            <?php echo $j; ?>
-                                        </option>
-                                        <?php endif; ?>
-                                        <?php endfor; ?>
-                                    </select>
-                                </td>
-                                <td>
-                                    <select name="Parcial-Dos" id="Parcial-Dos">
-                                        <?php for ($j = 0; $j < 11; $j++): ?>
-                                        <?php if ($j == 0): ?>
-                                        <option value="#"></option>
-                                        <?php elseif ($j < 11): ?>
-                                        <option value="<?php echo $j; ?>">
-                                            <?php echo $j; ?>
-                                        </option>
-                                        <?php endif; ?>
-                                        <?php endfor; ?>
-                                    </select>
-                                </td>
-                                <td>
-                                    <select name="Recuperacion-Uno" id="Recuperacion-Uno">
-                                        <?php for ($j = 0; $j < 11; $j++): ?>
-                                        <?php if ($j == 0): ?>
-                                        <option value="#"></option>
-                                        <?php elseif ($j < 11): ?>
-                                        <option value="<?php echo $j; ?>">
-                                            <?php echo $j; ?>
-                                        </option>
-                                        <?php endif; ?>
-                                        <?php endfor; ?>
-                                    </select>
-                                </td>
-                                <td>
-                                    <select name="Recuperacion-Dos" id="Recuperacion-Dos">
-                                        <?php for ($j = 0; $j < 11; $j++): ?>
-                                        <?php if ($j == 0): ?>
-                                        <option value="#"></option>
-                                        <?php elseif ($j < 11): ?>
-                                        <option value="<?php echo $j; ?>">
-                                            <?php echo $j; ?>
-                                        </option>
-                                        <?php endif; ?>
-                                        <?php endfor; ?>
-                                    </select>
-                                </td>
-                                <td>
-                                    <select name="Condicion" id="Condicion">
-                                        <option value="#"></option>
-                                        <option value="reg">Regular</option>
-                                        <option value="lib">Libre</option>
-                                        <option value="pro">Promocion</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <?php endfor; ?>
-                        </tbody>
-                    </table>
-                </div>
+                <table>
+                    <thead>
+                        <tr id="tabla-personalizada">
+                            <th>Alumno</th>
+                            <th>1º Parcial</th>
+                            <th>2º Parcial</th>
+                            <th>1º Recuperacion</th>
+                            <th>2º Recuperacion</th>
+                            <th>Condicion</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                        <tr>
+                            <td>
+                                <p>
+                                    <?php echo $resultado[$i]["alumno"]; ?>
+                                </p>
+                            </td>
+                            <td>
+                                <select name="Parcial-Uno" id="Parcial-Uno">
+                                    <?php for ($j = 0; $j < 11; $j++): ?>
+                                    <?php if ($j == 0): ?>
+                                    <option value="#"></option>
+                                    <?php elseif ($j < 11): ?>
+                                    <option value="<?php echo $j; ?>">
+                                        <?php echo $j; ?>
+                                    </option>
+                                    <?php endif; ?>
+                                    <?php endfor; ?>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="Parcial-Dos" id="Parcial-Dos">
+                                    <?php for ($j = 0; $j < 11; $j++): ?>
+                                    <?php if ($j == 0): ?>
+                                    <option value="#"></option>
+                                    <?php elseif ($j < 11): ?>
+                                    <option value="<?php echo $j; ?>">
+                                        <?php echo $j; ?>
+                                    </option>
+                                    <?php endif; ?>
+                                    <?php endfor; ?>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="Recuperacion-Uno" id="Recuperacion-Uno">
+                                    <?php for ($j = 0; $j < 11; $j++): ?>
+                                    <?php if ($j == 0): ?>
+                                    <option value="#"></option>
+                                    <?php elseif ($j < 11): ?>
+                                    <option value="<?php echo $j; ?>">
+                                        <?php echo $j; ?>
+                                    </option>
+                                    <?php endif; ?>
+                                    <?php endfor; ?>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="Recuperacion-Dos" id="Recuperacion-Dos">
+                                    <?php for ($j = 0; $j < 11; $j++): ?>
+                                    <?php if ($j == 0): ?>
+                                    <option value="#"></option>
+                                    <?php elseif ($j < 11): ?>
+                                    <option value="<?php echo $j; ?>">
+                                        <?php echo $j; ?>
+                                    </option>
+                                    <?php endif; ?>
+                                    <?php endfor; ?>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="Condicion" id="Condicion">
+                                    <option value="#"></option>
+                                    <option value="reg">Regular</option>
+                                    <option value="lib">Libre</option>
+                                    <option value="pro">Promocion</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <?php endfor; ?>
+                    </tbody>
+                </table>
                 <div class="bt-enviar">
                     <button type="submit">Registrar</button>
                 </div>
                 </form>
             </div>
         </div>
-        <!--Fin Main-->
     </div>
-    <!--Fin Container-->
 
     <script src="./js/appAlumno.js"></script>
 </body>

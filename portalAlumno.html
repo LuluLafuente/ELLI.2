@@ -77,20 +77,21 @@
                     <img src="<?php echo $_SESSION['u_foto'] ;?>" alt="Imagen de Usuario">
                 </div>
             </div>
-            <section id="panel-central">
-                <div class="panel-titulo">
-                    <h1>Bienvenido/a
-                        <?php echo $_SESSION["u_nombre"] . ", " . $_SESSION["u_apellido"] ;?>
-                    </h1>
-                </div>
-                <div class="tarjeta">
-                    <p>Elija una opcion del menu lateral para continuar</p>
-                </div>
-            </section>
+            <div class="contenido">
+                <section id="panel-central">
+                    <div class="panel-titulo">
+                        <h1>Bienvenido/a
+                            <?php echo $_SESSION["u_nombre"] . ", " . $_SESSION["u_apellido"] ;?>
+                        </h1>
+                    </div>
+                    <div class="tarjeta">
+                        <p>Elija una opcion del menu lateral para continuar</p>
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
-
-    <br>
+    <script src="js/appAlumno.js"></script>
 </body>
 
 </html>

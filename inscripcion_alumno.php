@@ -24,7 +24,9 @@ $nroAlumnos = 0;
 $conexion = conexionDB();
 
 $nroAlumnos = selectNroDeAlumnosInscriptos($conexion, date('Y'));
+$consulta = selectCarrera($conexion);
 
+$resultado = $consulta->fetchAll();
 // ZONA DE PRUEBAS INICIO
 
 

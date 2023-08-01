@@ -102,6 +102,12 @@
         return $consulta;
     }
 
+    function selectCarrera($con){
+        $consulta = $con->query("SELECT id_carrera, nombre 
+                                   FROM carrera;");
+        return $consulta;
+    }
+
     function selectCarreraAbreviado($con, $nroCarrera){
         $consulta = $con->query("SELECT abreviado
                                    FROM carrera
@@ -110,6 +116,13 @@
         $resultado = $consulta->fetchAll();
 
         return $resultado[0]["abreviado"];
+    }
+
+    function selectAlumnos($con){
+        $consulta = $con->query("SELECT LEGAJO_ALU, CONCAT(nombre,' ',apellido)As Name 
+                                from alumno");
+        return $consulta;
+
     }
 
     function selectNroDeAlumnosInscriptos($con, $anio){

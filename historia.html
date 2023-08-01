@@ -81,61 +81,63 @@
                     <img src="<?php echo $_SESSION['u_foto'] ;?>" alt="Imagen de Usuario">
                 </div>
             </div>
-            <div class="container-Historia">
+            <div class="contenido">
                 <!-- esto se abre al hacer click en historia o estado academico Tablas e  info-->
                 <section class="historia" id="historia">
-                    <div class="acordeon">
-                        <h2>Constancia de Situación Académica Analítica</h2>
-                        <br>
-                        <p>El Instituto Superior de Educación Tecnológica(ISET)- sito en Domingo Garcia 47-, hace
-                            constar que
-                            <?php echo $_SESSION["u_apellido"] . ", ". $_SESSION["u_nombre"];?>
-                            que pertenece a la segunda cohorte de la Carrera de
-                            <?php echo $resultadoPlan[0]["carrera"]; ?>, Resol. Minist.
-                            N°513/5(Med)-2014, tiene las siguientes materias aprobadas:
-                        </p>
-                        <br>
+                    <h2>Constancia de Situación Académica Analítica</h2>
+                    <br>
+                    <p>El Instituto Superior de Educación Tecnológica(ISET)- sito en Domingo Garcia 47-, hace
+                        constar que
+                        <?php echo $_SESSION["u_apellido"] . ", ". $_SESSION["u_nombre"];?>
+                        que pertenece a la segunda cohorte de la Carrera de
+                        <?php echo $resultadoPlan[0]["carrera"]; ?>, Resol. Minist.
+                        N°513/5(Med)-2014, tiene las siguientes materias aprobadas:
+                    </p>
+                    <br>
 
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Asignatura</th>
-                                    <th>Nota</th>
-                                    <th>N° Acta </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <!--Asignaturas-->
-                                        <hr>
-                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                        <?php echo $resultado[$i]['materia']; ?>
-                                        <hr>
-                                        <?php endfor; ?>
-                                    </td>
-                                    <td>
-                                        <!--Notas-->
-                                        <hr>
-                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                        <?php echo $resultado[$i]['final']; ?>
-                                        <hr>
-                                        <?php endfor; ?>
-                                    </td>
-                                    <td>
-                                        <!--Num de Acta-->
-                                        <hr>
-                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                        <?php echo $resultado[$i]['id_acta']; ?>
-                                        <hr>
-                                        <?php endfor; ?>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Asignatura</th>
+                                <th>Nota</th>
+                                <th>N° Acta </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <!--Asignaturas-->
+                                    <hr>
+                                    <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                    <?php echo $resultado[$i]['materia']; ?>
+                                    <hr>
+                                    <?php endfor; ?>
+                                </td>
+                                <td>
+                                    <!--Notas-->
+                                    <hr>
+                                    <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                    <?php echo $resultado[$i]['final']; ?>
+                                    <hr>
+                                    <?php endfor; ?>
+                                </td>
+                                <td>
+                                    <!--Num de Acta-->
+                                    <hr>
+                                    <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                    <?php echo $resultado[$i]['id_acta']; ?>
+                                    <hr>
+                                    <?php endfor; ?>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
             </div>
-            <script src="js/appAlumno.js"></script>
+        </div>
+    </div>
+    
+    <script src="js/appAlumno.js"></script>
 </body>
 
 </html>

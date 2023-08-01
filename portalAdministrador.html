@@ -17,64 +17,64 @@
 
 <body>
     <!--Panel lateral con opciones-->
-    <main>
-        <div class="container">
-            <div class="navigation">
-                <ul>
-                    <li>
-                        <a href="portalAdministrador.php">
-                            <span class="icon"><i class="fa-solid fa-user-tie"></i></span>
-                            <span class="title">
-                                <?php echo $_SESSION["u_nombre"] . ", " . $_SESSION["u_apellido"] ;?>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="inscripcion_docente.php">
-                            <span class="icon"><i class="fa-solid fa-person-chalkboard"></i></span>
-                            <span class="title">Inscripción Docente</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="inscripcion_alumno.php">
-                            <span class="icon"><i class="fa-solid fa-file-circle-plus"></i></span>
-                            <span class="title">Inscripción Alumno</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="icon"><i class="fa-solid fa-chalkboard-user"></i></span>
-                            <span class="title">Inscripción Coordinador</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="ver_notas_examen.php">
-                            <span class="icon"><i class="fa-regular fa-note-sticky"></i></span>
-                            <span class="title">Ver Notas Examenes</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="ver_notas_cursado.php">
-                            <span class="icon"><i class="fa-solid fa-receipt"></i></span>
-                            <span class="title"> Ver Notas Cursado</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="cerrar_sesion.php">
-                            <span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
-                            <span class="title">Cerrar</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!--Menu-->
-            <div class="main">
-                <div class="topbar">
-                    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
-                    <div class="user">
-                        <img src="<?php echo $_SESSION['u_foto'] ;?>" alt="Imagen de Usuario">
-                    </div>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="portalAdministrador.php">
+                        <span class="icon"><i class="fa-solid fa-user-tie"></i></span>
+                        <span class="title">
+                            <?php echo $_SESSION["u_nombre"] . ", " . $_SESSION["u_apellido"] ;?>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="inscripcion_docente.php">
+                        <span class="icon"><i class="fa-solid fa-person-chalkboard"></i></span>
+                        <span class="title">Inscripción Docente</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="inscripcion_alumno.php">
+                        <span class="icon"><i class="fa-solid fa-file-circle-plus"></i></span>
+                        <span class="title">Inscripción Alumno</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa-solid fa-chalkboard-user"></i></span>
+                        <span class="title">Inscripción Coordinador</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="ver_notas_examen.php">
+                        <span class="icon"><i class="fa-regular fa-note-sticky"></i></span>
+                        <span class="title">Ver Notas Examenes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="ver_notas_cursado.php">
+                        <span class="icon"><i class="fa-solid fa-receipt"></i></span>
+                        <span class="title"> Ver Notas Cursado</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="cerrar_sesion.php">
+                        <span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                        <span class="title">Cerrar</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--Menu-->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+                <div class="user">
+                    <img src="<?php echo $_SESSION['u_foto'] ;?>" alt="Imagen de Usuario">
                 </div>
+            </div>
+            <div class="contenido">
                 <section id="panel-central">
                     <div class="panel-titulo">
                         <h1>Bienvenido/a
@@ -86,10 +86,8 @@
                     </div>
                 </section>
             </div>
-            <!--Fin Menu-->
-
-    </main>
-
+        </div>
+    </div>
     <script src="js/appAlumno.js"></script>
 </body>
 

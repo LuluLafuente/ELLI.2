@@ -51,7 +51,7 @@
                 </li>
             </ul>
         </div>
-        <!--Menu-->
+        <!--Main-->
         <div class="main">
             <div class="topbar">
                 <div class="toggle">
@@ -61,60 +61,50 @@
                     <img src="<?php echo $_SESSION['u_foto'] ;?>" alt="Imagen de Usuario">
                 </div>
             </div>
-            <!--Contenido-->
-            <div class="details">
-                <div class="Alumnos">
-                    <div class="cardHeader">
-                        <h2>Registro de Examen Final</h2>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>Alumno</td>
-                                <td>Nota</td>
-                                <td>Condicion</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                            <tr>
-                                <td>
-                                    <p>
-                                        <?php echo $resultado[$i]["alumno"]; ?>
-                                    </p>
-                                </td>
-                                <td>
-                                    <select name="Notas" id="Notas">
-                                        <?php for ($j = 0; $j < 11; $j++): ?>
-                                        <?php if ($j == 0): ?>
-                                        <option value="#"></option>
-                                        <?php elseif ($j < 11): ?>
-                                        <option value="<?php echo $j; ?>">
-                                            <?php echo $j; ?>
-                                        </option>
-                                        <?php endif; ?>
-                                        <?php endfor; ?>
-                                    </select>
-                                </td>
-                                <td>
-                                    <select name="Condicion" id="Condicion">
-                                        <option value="#"></option>
-                                        <option value="apro">Aprobado</option>
-                                        <option value="desp">Desaprobado</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <?php endfor; ?>
-                        </tbody>
-                    </table>
-                    <div class="btn">
-                        <button type="submit">Enviar</button>
-                    </div>
-                </div>
+            <div class="contenido">
+                <form class= "form" action="guardar_nota.php" method="post">
+                    <h2>Registrar Nota de Examen</h2>
+                    <label for="materia">1. Seleccione una Materia:</label>
+                    <select class="campo-entrada-seleccion">
+                        <option value="0" selected disabled>---&gt; SELECCIONE UNA MATERIA &lt;---</option>
+                        <?php for ($i = 0; $i < $consulta3->rowCount(); $i++):
+                                    $id = $resultado3[$i]['ID_MATERIA'];
+                                    $nombre = $resultado3[$i]['Nombre'];
+                                ?>
+                        <option value="<?php echo $id; ?>" id="materia" name="materia" required>
+                            <?php echo $nombre; ?>
+                        </option>
+                        <?php endfor; ?>
+                    </select>
+                    <br>
+                    <label for="alumno">2. Seleccione un Alumno:</label>
+                    <select class="campo-entrada-seleccion">
+                        <option value="0" selected disabled>---&gt; SELECCIONE UN ALUMNO &lt;---</option>
+                        <?php for ($i = 0; $i < $consulta2->rowCount(); $i++):
+                                    $id = $resultado2[$i]['LEGAJO_ALU'];
+                                    $nombre = $resultado2[$i]['Name'];
+                                ?>
+                        <option value="<?php echo $id; ?>" id="alumno" name="alumno" required>
+                            <?php echo $nombre; ?>
+                        </option>
+                        <?php endfor; ?>
+                    </select>
+                    
+                    <br>
+                    <label for="nota">2. Ingrese Nota del examen:</label>
+                    <input type="number" id="nota" name="nota" required><br>
+
+                    <label for="acta">4. Número de acta:</label>
+                    <input type="number" id="acta" name="acta" required><br>
+
+                    <input type="submit" value="Guardar Nota">
+                </form>
             </div>
         </div>
     </div>
-    <script src="./js/appAlumno.js"></script>
+    </div>
+
+    <script src="js/appAlumno.js"></script>
 </body>
 
 </html>

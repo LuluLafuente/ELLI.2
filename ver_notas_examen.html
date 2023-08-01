@@ -1,0 +1,142 @@
+<!--Vista notas examen Administracion-->
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <link rel="shortcut icon"
+        href="https://iset-tuc.infd.edu.ar/aula/static/14.05.00-45/skins/redinfod/img/comunes/favicon.ico"
+        type="image/x-icon">
+    <!-- <link rel="stylesheet" href="./css/styleAdministrador.css" />-->
+    <link rel="stylesheet" href="./css/stylePortal.css" />
+
+    <script src="https://kit.fontawesome.com/c0959f9251.js" crossorigin="anonymous">
+    </script>
+    <title>Registrar Notas de Examen Final | ISET Educativo</title>
+</head>
+
+<body>
+    <div class="container">
+        <!--Panel lateral con opciones-->
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa-solid fa-user-tie"></i></span>
+                        <span class="title">
+                            <?php echo $_SESSION["u_nombre"] . ", " . $_SESSION["u_apellido"] ;?>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="inscripcion_docente.php">
+                        <span class="icon"><i class="fa-solid fa-person-chalkboard"></i></span>
+                        <span class="title">Inscripción Docente</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="inscripcion_alumno.php">
+                        <span class="icon"><i class="fa-solid fa-file-circle-plus"></i></span>
+                        <span class="title">Inscripción Alumno</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa-solid fa-chalkboard-user"></i></span>
+                        <span class="title">Inscripción Coordinador</span>
+                    </a>
+                </li>
+                <li class="hovered">
+                    <a href="ver_notas_examen.php">
+                        <span class="icon"><i class="fa-regular fa-note-sticky"></i></span>
+                        <span class="title">Ver Notas Examenes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="ver_notas_cursado.php">
+                        <span class="icon"><i class="fa-solid fa-receipt"></i></span>
+                        <span class="title"> Ver Notas Cursado</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="cerrar_sesion.php">
+                        <span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                        <span class="title">Cerrar</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <!--Menu-->
+            <div class="topbar">
+                <div class="toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div class="user">
+                    <img src="<?php echo $_SESSION['u_foto'] ;?>" alt="Imagen de Usuario">
+                </div>
+            </div>
+            <div class="contenido">
+                <section class="ver_Notas_Examen">
+                    <div class="acordeon">
+                        <h2> - Notas de examenes - Alumnos </h2>
+                        <br>
+                        <p>El Instituto Superior de Educación Tecnológica(ISET)- sito en Domingo Garcia 47-</p>
+                        <br>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Legajo</th>
+                                    <th>Alumno</th>
+                                    <th>Asignatura</th>
+                                    <th>Nota Final</th>
+                                    <th>N° Acta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <!--Lagajo Alumno-->
+                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                        <?php echo $resultado[$i]['LEGAJO_ALU']; ?>
+                                        <hr>
+                                        <?php endfor; ?>
+                                    </td>
+                                    <td>
+                                        <!--Alumnos-->
+                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                        <?php echo $resultado[$i]['Name'];?>
+                                        <hr>
+                                        <?php endfor; ?>
+                                    </td>
+                                    <td>
+                                        <!--Asignaturas-->
+                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                        <?php echo $resultado[$i]['MATERIA']; ?>
+                                        <hr>
+                                        <?php endfor; ?>
+                                    </td>
+                                    <td>
+                                        <!--Notas-->
+                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                        <?php echo $resultado[$i]['FINAL']; ?>
+                                        <hr>
+                                        <?php endfor; ?>
+                                    </td>
+                                    <td>
+                                        <!--N°Acta-->
+                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                        <?php echo $resultado[$i]['ID_ACTA']; ?>
+                                        <hr>
+                                        <?php endfor; ?>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <script src="./js/appAlumno.js"></script>
+</body>
+
+</html>

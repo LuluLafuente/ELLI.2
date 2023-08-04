@@ -1,18 +1,20 @@
+<!--Vista Alumno-->
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
-    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-    <link rel="shortcut icon"
-        href="https://iset-tuc.infd.edu.ar/aula/static/14.05.00-45/skins/redinfod/img/comunes/favicon.ico"
-        type="image/x-icon">
-    <link rel="stylesheet" href="./css/stylePortal.css" />
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/c0959f9251.js" crossorigin="anonymous">
     </script>
-    <title>Portal Administrador | ISET Educativo</title>
+    <link rel="stylesheet" href="./css/stylePortal.css" />
+    <link rel="icon"
+        href="https://iset-tuc.infd.edu.ar/sitio/wp-content/plugins/edupress-escuela/public/skins/redinfod/img/favicon_32x32.png"
+        sizes="32x32">
+    <link rel="icon"
+        href="https://iset-tuc.infd.edu.ar/sitio/wp-content/plugins/edupress-escuela/public/skins/redinfod/img/favicon_192x192.png"
+        sizes="192x192">
+    <title>Portal Alumno</title>
 </head>
 
 <body>
@@ -22,40 +24,41 @@
             <ul>
                 <li>
                     <a href="#">
-                      <span class="icon"><i class="fa-solid fa-user-tie"></i></span>
+                        <span class="icon"><i class="fa-solid fa-user-graduate"></i></span>
                         <span class="title">
                             <?php echo $_SESSION["u_nombre"] . ", " . $_SESSION["u_apellido"] ;?>
                         </span>
                     </a>
                 </li>
                 <li>
-                    <a href="inscripcion_docente.php">
-                        <span class="icon"><i class="fa-solid fa-person-chalkboard"></i></span>
-                        <span class="title">Inscripción Docente</span>
+                    <a href="libreta.php">
+                        <span class="icon"><i class="fa-regular fa-file-lines"></i></span>
+                        <span class="title">Libreta</span>
                     </a>
                 </li>
                 <li>
-                    <a href="inscripcion_alumno.php">
-                        <span class="icon"><i class="fa-solid fa-file-circle-plus"></i></span>
-                        <span class="title">Inscripción Alumno</span>
+                    <a href="historia.php">
+                        <span class="icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                        <span class="title">Historia académica</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <span class="icon"><i class="fa-solid fa-chalkboard-user"></i></span>
-                        <span class="title">Inscripción Coordinador</span>
+                    <a href="constancias.php">
+                        <span class="icon"><i class="fa-regular fa-square-check"></i></span>
+                        <span class="title">Costancias</span>
+                        <!--Links para solicitar constancias en proceso-->
                     </a>
                 </li>
                 <li>
-                    <a href="ver_notas_examen.php">
-                        <span class="icon"><i class="fa-regular fa-note-sticky"></i></span>
-                        <span class="title">Ver Notas Examenes</span>
+                    <a href="plan.php">
+                        <span class="icon"><i class="fa-solid fa-file-invoice"></i></span>
+                        <span class="title">Plan de estudios</span>
                     </a>
                 </li>
                 <li>
-                    <a href="ver_notas_cursado.php">
-                        <span class="icon"><i class="fa-solid fa-receipt"></i></span>
-                        <span class="title"> Ver Notas Cursado</span>
+                    <a href="contacto.php">
+                        <span class="icon"><i class="fa-solid fa-question"></i></span>
+                        <span class="title">Ayuda</span>
                     </a>
                 </li>
                 <li>

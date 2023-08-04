@@ -1,18 +1,14 @@
+<!--Vista inicial Docente-->
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
     <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-    <link rel="shortcut icon"
-        href="https://iset-tuc.infd.edu.ar/aula/static/14.05.00-45/skins/redinfod/img/comunes/favicon.ico"
-        type="image/x-icon">
     <link rel="stylesheet" href="./css/stylePortal.css" />
-
     <script src="https://kit.fontawesome.com/c0959f9251.js" crossorigin="anonymous">
     </script>
-    <title>Portal Administrador | ISET Educativo</title>
+    <title>Panel Docente | ISET Educativo</title>
 </head>
 
 <body>
@@ -22,40 +18,22 @@
             <ul>
                 <li>
                     <a href="#">
-                      <span class="icon"><i class="fa-solid fa-user-tie"></i></span>
+                        <span class="icon"><i class="fa-solid fa-user-tie"></i></span>
                         <span class="title">
                             <?php echo $_SESSION["u_nombre"] . ", " . $_SESSION["u_apellido"] ;?>
                         </span>
                     </a>
                 </li>
                 <li>
-                    <a href="inscripcion_docente.php">
-                        <span class="icon"><i class="fa-solid fa-person-chalkboard"></i></span>
-                        <span class="title">Inscripción Docente</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="inscripcion_alumno.php">
-                        <span class="icon"><i class="fa-solid fa-file-circle-plus"></i></span>
-                        <span class="title">Inscripción Alumno</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="icon"><i class="fa-solid fa-chalkboard-user"></i></span>
-                        <span class="title">Inscripción Coordinador</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="ver_notas_examen.php">
+                    <a href="examen_final.php">
                         <span class="icon"><i class="fa-regular fa-note-sticky"></i></span>
-                        <span class="title">Ver Notas Examenes</span>
+                        <span class="title">Notas de Examen Final</span>
                     </a>
                 </li>
                 <li>
-                    <a href="ver_notas_cursado.php">
+                    <a href="examen_parcial.php">
                         <span class="icon"><i class="fa-solid fa-receipt"></i></span>
-                        <span class="title"> Ver Notas Cursado</span>
+                        <span class="title">Notas de Parcial</span>
                     </a>
                 </li>
                 <li>
@@ -67,6 +45,7 @@
             </ul>
         </div>
         <!--Menu-->
+
         <div class="main">
             <div class="topbar">
                 <div class="toggle"><i class="fa-solid fa-bars"></i></div>

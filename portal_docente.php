@@ -22,13 +22,9 @@ $conexion = conexionDB();
 
 //BUSCAR LA LISTA DE ALUMNOS DE SU MATERIA
 $consulta = selectalumnosCursado($conexion, 19);
-$consulta2 = selectAlumnos($conexion);
-$consulta3 = selectMaterias($conexion);
 
 //GUARDO TODOS LOS RESULTADOS EN UNA VARIABLE
 $resultado = $consulta->fetchAll();
-$resultado2 = $consulta2->fetchAll();
-$resultado3 = $consulta3->fetchAll();
 
-include('examen_parcial.html');
-//include('notas_Cursado.html');
+
+include('portal_docente.html');

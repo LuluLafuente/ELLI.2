@@ -11,29 +11,45 @@
 
     //FUNCION UTILIZADA PARA SELECCIONAR Y COMPARAR SI EL EMPLEADO EXISTE
     function selectEmpleado($con, $u, $c){
-        $consulta = $con->query("SELECT * 
-                                   FROM docente 
-                                  WHERE usuario = '$u' 
-                                    AND contrasenia = '$c';");
+        $consulta = $con->query("  SELECT d.NOMBRE,
+                                          d.APELLIDO,
+                                          ld.LEGAJO_DOC,
+                                          d.DNI,
+                                          d.ROL_DOCENTE,
+                                          ld.CARRERA,
+                                          d.FOTO_DOC
+                                     FROM docente d
+                                     JOIN legajo_docente ld ON ld.DNI = d.DNI
+                                    WHERE d.USUARIO = '$u' AND d.CONTRASENIA = '$c'
+                                 GROUP BY ld.LEGAJO_DOC;");
 
         return $consulta;
     }
 
     //FUNCION UTILIZADA PARA SELECCIONAR Y COMPARAR SI EL ALUMNO EXISTE
     function selectAlumno($con, $u, $c){
-        $consulta = $con->query("SELECT * 
-                                   FROM alumno 
-                                  WHERE usuario = '$u' 
-                                    AND contrasenia = '$c';");
+        $consulta = $con->query("  SELECT al.`NOMBRE`,
+                                          al.`APELLIDO`,
+                                          la.`LEGAJO_ALU`,
+                                          al.`DNI`,
+                                          al.`ROL_ALUMNO`,
+                                          la.`CARRERA`,
+                                          YEAR(c.`ANIO`) AS 'ANIO',
+                                          al.`FOTO_ALU`
+                                     FROM `alumno` al
+                                     JOIN `legajo_alumno` la ON la.`DNI` = al.`DNI`
+                                     JOIN `cohorte` c        ON c.`ID_CARRERA` = la.`CARRERA`
+                                    WHERE al.`USUARIO` = '$u' AND al.`CONTRASENIA` = '$c'
+                                 GROUP BY la.`LEGAJO_ALU`;");
 
         return $consulta;
     }
 
     // BUSCA LAS MATERIAS DISPONIBLES
     function selectMaterias($con){
-        $consulta = $con->query("SELECT Id_Materia,
-                                        Anio,
-                                        Nombre
+        $consulta = $con->query("SELECT ID_MATERIA,
+                                        ANIO,
+                                        NOMBRE
                                    FROM Materia;");
 
         return $consulta;
@@ -88,7 +104,7 @@
     function selectalumnosCursado($con, $idMateria){
         $consulta = $con->query("SELECT *
                                    FROM vw_cursado
-                                  WHERE materia = '$idMateria'");
+                                  WHERE id_materia = '$idMateria'");
 
         return $consulta;
     }
@@ -129,8 +145,8 @@
     }
 
     function selectAlumnos($con){
-        $consulta = $con->query("SELECT LEGAJO_ALU, CONCAT(nombre,' ',apellido)As Name 
-                                from alumno");
+        $consulta = $con->query("SELECT LEGAJO, ALUMNO
+                                from vw_cursado");
         return $consulta;
 
     }
@@ -231,8 +247,8 @@
         return $consulta;
 
     }
-    function selectHistoriaAlumno($con){
-        $consulta = $con->query("SELECT materia,final,id_acta FROM examenfinal");
+    function selectHistoriaAlumno($con, $apellido){
+        $consulta = $con->query("SELECT materia, final, id_acta FROM vw_nota_final WHERE APELLIDO = '$apellido'");
 
         return $consulta;
     }

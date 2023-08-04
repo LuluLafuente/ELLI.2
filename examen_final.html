@@ -70,7 +70,7 @@
                         <option value="0" selected disabled>&gt; SELECCIONE UNA MATERIA &lt;</option>
                         <?php for ($i = 0; $i < $consulta3->rowCount(); $i++):
                                     $id = $resultado3[$i]['ID_MATERIA'];
-                                    $nombre = $resultado3[$i]['Nombre'];
+                                    $nombre = $resultado3[$i]['NOMBRE'];
                                 ?>
                         <option value="<?php echo $id; ?>" id="materia" name="materia" required>
                             <?php echo $nombre; ?>
@@ -83,8 +83,8 @@
 
                         <option value="0" selected disabled>&gt; SELECCIONE UN ALUMNO &lt;</option>
                         <?php for ($i = 0; $i < $consulta2->rowCount(); $i++):
-                                    $id = $resultado2[$i]['LEGAJO_ALU'];
-                                    $nombre = $resultado2[$i]['Name'];
+                                    $id = $resultado2[$i]['LEGAJO'];
+                                    $nombre = $resultado2[$i]['ALUMNO'];
                                 ?>
                         <option value="<?php echo $id; ?>" id="alumno" name="alumno" required>
                             <?php echo $nombre; ?>

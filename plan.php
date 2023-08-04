@@ -14,9 +14,6 @@ if(!isset($_SESSION["usuario"])){
     //echo "Verdadero </br>";
 }
 
-//DECLARAR VARIABLES
-$listaMaterias = [];
-
 //CONEXION CON LA BASE DE DATOS
 $conexion = conexionDB();
 
@@ -34,46 +31,9 @@ $resultadoPlan = $planEstudio->fetchAll();
 
 //ZONA DE PRUEBAS INICIO
 
-//echo $_SESSION["usuario"];
-//echo "Filas encontradas: " . $consulta->rowCount() . "</br>";
 
-//echo "</br>PRUEBA 1</br>";
 
-/*
-for ($i=0; $i < $consulta->rowCount(); $i++) { 
-
-    if($resultado[$i]["Anio"] == 1){
-        echo $resultado[$i]["Id_Materia"] . " " . $resultado[$i]["Anio"] . " " . $resultado[$i]["Nombre"] . "</br>";
-    }
-    elseif ($resultado[$i]["Anio"] == 2) {
-        echo $resultado[$i]["Id_Materia"] . " " . $resultado[$i]["Anio"] . " " . $resultado[$i]["Nombre"] . "</br>";
-    }
-    elseif ($resultado[$i]["Anio"] == 3) {
-        echo $resultado[$i]["Id_Materia"] . " " . $resultado[$i]["Anio"] . " " . $resultado[$i]["Nombre"] . "</br>";
-    }
-}
-*/
-
-//var_dump($resultado[0]) . "</br>";
-//print_r($resultado[0]) . "</br></br>";
-
-/*
-echo "</br>PRUEBA 2</br>";
-
-foreach ($resultado as $fila) {
-    echo $fila[0] . " " . $fila[1] . " " . $fila[2] . "</br>";
-}
-
-*/
-
-/*
-//PRUEBAS DE DATOS RECIBIDOS DEL PLAN DE ESTUDIO
-echo "</br>PRUEBA 3</br>";
-echo $resultadoPlan[0]["CARRERA"] . "</br>";
-echo $resultadoPlan[0]["ID_MATERIA"] . "</br>";
-echo $resultadoPlan[0]["NOMBRE"] . "</br>";
-echo $resultadoPlan[0]["ANIO"] . "</br>";
-*/
 //ZONA DE PRUEBAS FIN
 
+// CARGO LA PÁGINA CORRESPONDIENTE
 include('plan.html');

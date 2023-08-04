@@ -90,7 +90,7 @@
                         constar que
                         <?php echo $_SESSION["u_apellido"] . ", ". $_SESSION["u_nombre"];?>
                         que pertenece a la segunda cohorte de la Carrera de
-                        <?php echo $resultadoPlan[0]["carrera"]; ?>, Resol. Minist.
+                        <?php echo $resultadoPlan[0]["CARRERA"]; ?>, Resol. Minist.
                         N°513/5(Med)-2014, tiene las siguientes materias aprobadas:
                     </p>
                     <br>
@@ -109,7 +109,7 @@
                                     <!--Asignaturas-->
                                     <hr>
                                     <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                    <?php echo $resultado[$i]['materia']; ?>
+                                    <?php echo $resultado[$i]['MATERIA']; ?>
                                     <hr>
                                     <?php endfor; ?>
                                 </td>
@@ -117,7 +117,7 @@
                                     <!--Notas-->
                                     <hr>
                                     <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                    <?php echo $resultado[$i]['final']; ?>
+                                    <?php echo $resultado[$i]['FINAL']; ?>
                                     <hr>
                                     <?php endfor; ?>
                                 </td>
@@ -125,7 +125,7 @@
                                     <!--Num de Acta-->
                                     <hr>
                                     <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                    <?php echo $resultado[$i]['id_acta']; ?>
+                                    <?php echo $resultado[$i]['ID_ACTA']; ?>
                                     <hr>
                                     <?php endfor; ?>
                                 </td>

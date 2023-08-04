@@ -28,42 +28,10 @@ $consulta2 = selectMaterias($conexion);
 $resultado = $consulta->fetchAll();
 $resultado2 = $consulta2->fetchAll();
 
-//BUSCO LOS DATOS DEL USUARIO PARA MOSTRARLOS EN LA PAGINA
-
-
 //ZONA DE PRUEBAS INICIO
 
-//echo $_SESSION["usuario"];
-//echo "Filas encontradas: " . $consulta->rowCount() . "</br>";
-//echo "</br>PRUEBA 1 </br>";
-
-/*
-for ($i=0; $i < $consulta->rowCount(); $i++) { 
-
-    if($resultado[$i]["Anio"] == 1){
-        echo $resultado[$i]["Id_Materia"] . " " . $resultado[$i]["Anio"] . " " . $resultado[$i]["Nombre"] . "</br>";
-    }
-    elseif ($resultado[$i]["Anio"] == 2) {
-        echo $resultado[$i]["Id_Materia"] . " " . $resultado[$i]["Anio"] . " " . $resultado[$i]["Nombre"] . "</br>";
-    }
-    elseif ($resultado[$i]["Anio"] == 3) {
-        echo $resultado[$i]["Id_Materia"] . " " . $resultado[$i]["Anio"] . " " . $resultado[$i]["Nombre"] . "</br>";
-    }
-}
-*/
 
 
-//var_dump($resultado[0]) . "</br>";
-//print_r($resultado[0]) . "</br></br>";
-
-/*
-echo "</br>PRUEBA 2 </br>";
-
-foreach ($resultado as $fila) {
-    echo $fila[0] . " " . $fila[1] . " " . $fila[2] . "</br>";
-}
-
-*/
 //ZONA DE PRUEBAS FIN
 
 include('libreta.html');

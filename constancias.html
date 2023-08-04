@@ -141,9 +141,11 @@
                                         <?php echo $_SESSION["u_dni"] ;?>
                                     </span> , actualmente se encuentra en condición de regular
                                     en la carrera <span id="carrera">
-                                        <?php echo $resultadoPlan[0]["carrera"]; ?>
-                                    </span> con resolución <span id="resolucion"></span> habiendo ingresado en el año
-                                    <span id="fdi-ingreso"></span>. <br><br>
+                                        <?php echo $resultadoPlan[0]["CARRERA"]; ?>
+                                    </span> con resolución <span id="resolucion">Resol. Minist. N°513/5(Med)-2014</span> habiendo ingresado en el año
+                                    <span id="fdi-ingreso">
+                                        <?php echo $_SESSION["u_anio"]; ?>
+                                    </span>. <br><br>
                                     Se emite el presente certificado para ser presentado ante <span
                                         id="interesado"></span>,
                                     se extiende el mismo en la ciudad de San Miguel de Tucumán, a los <span

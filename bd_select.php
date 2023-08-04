@@ -220,8 +220,8 @@
     // BUSCA EL ID DE LA CARRERA DEL ALUMNO DESDE LOS LEGAJOS
     function selectCarreraAlumnosInscriptos($con, $dni){
         $consulta = $con->query("SELECT carrera
-                                   FROM alumno
-                                  WHERE dni = $dni;");
+                                   FROM legajo_alumno
+                                  WHERE dni = $dni AND carrera = $carr;");
 
         return $consulta;
     }
@@ -249,6 +249,15 @@
     }
     function selectHistoriaAlumno($con, $apellido){
         $consulta = $con->query("SELECT materia, final, id_acta FROM vw_nota_final WHERE APELLIDO = '$apellido'");
+
+        return $consulta;
+    }
+
+    // BUSCA EL ID Y EL NOMBRE DE LAS CARRERAS DISPONIBLES EN LA BD
+    function selectCarrerasInscripcion($con){
+        $consulta = $con->query("SELECT ID_CARRERA,
+                                        NOMBRE
+                                   FROM CARRERA;");
 
         return $consulta;
     }

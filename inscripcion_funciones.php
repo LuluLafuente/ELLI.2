@@ -129,43 +129,59 @@
       $anio = $legajoAnio - 2000;
     }
 
+    switch ($tipo) {
+      case 1:
+        $nro = legajoNro();
+        break;
+      case 2:
+        $nro = legajoNro(legajoNroDoc($con, legajoCarrera($con, $legajoCarrera)));
+        break;
+      case 3:
+        $nro = legajoNro(legajoNroAlu($con, legajoCarrera($con, $legajoCarrera), $legajoAnio));
+        break;
+      default:
+        $nro = "001";
+        break;
+    }
 
-    return "" . legajoCarrera($con, $legajoCarrera) . 
-           "-" . $anio . 
-           "-" . legajoNro($con, $anio, $tipo) . 
-           "-" . legajoRol($legajoRol);
+    switch ($tipo) {
+      case 1:
+        echo "" . legajoCarrera($con, $legajoCarrera) . "-" . $anio . "-" . $nro . "-" . legajoRol($legajoRol);
+        break;
+      case 2:
+        return "" . legajoCarrera($con, $legajoCarrera) . "-" . $anio . "-" . $nro . "-" . legajoRol($legajoRol);
+        break;
+      case 3:
+        return "" . legajoCarrera($con, $legajoCarrera) . "-" . $anio . "-" . $nro . "-" . legajoRol($legajoRol);
+        break;
+    }
   }
 
   function legajoAnio(){
     return date('y');
   }
 
-  function legajoNro($con, $anioInscripcion, $tipo){
-
-    switch ($tipo) {
-      case 1:
-        $inscriptos = selectNroDeCoordinadoresInscriptos($con, $anioInscripcion);
-        break;
-      case 2:
-        $inscriptos = selectNroDeDocentesInscriptos($con, $anioInscripcion);
-        break;
-      case 3:
-        $inscriptos = selectNroDeAlumnosInscriptos($con, $anioInscripcion);
-        break;
-    }
-
-    if($inscriptos == 0){
-      $inscriptos = 1;
-    }
-
-    if($inscriptos < 10){
-      $inscriptos = "00" . $inscriptos;
+  function legajoNro($nro){
+    if($nro < 10){
+      $inscriptos = "00" . $nro;
     }
     else if($inscriptos < 100){
       $inscriptos = "0" . $inscriptos;
     }
 
     return $inscriptos;
+  }
+
+  function legajoNroAlu($con, $car, $anioInscripcion){
+    return selectNroDeAlumnosInscriptos($con, $car, $anioInscripcion) + 1;
+  }
+
+  function legajoNroCoo($con, $anioInscripcion, $tipo){
+    return selectNroDeCoordinadoresInscriptos($con, $anioInscripcion) + 1;
+  }
+
+  function legajoNroDoc($con, $abreviado){
+    return selectNroDeDocentesInscriptos($con, $abreviado) + 1;
   }
 
   function legajoCarrera($con, $car){
@@ -175,7 +191,7 @@
   function legajoRol($legajoRol){
     $rolAsignado = "";
 
-    switch ($legajoRol) {
+    switch ($legajoRol){
       case 1:
         $rolAsignado = "AD";
         break;

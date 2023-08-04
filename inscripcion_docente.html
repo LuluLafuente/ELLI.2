@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
@@ -9,18 +8,16 @@
         href="https://iset-tuc.infd.edu.ar/aula/static/14.05.00-45/skins/redinfod/img/comunes/favicon.ico"
         type="image/x-icon">
     <link rel="stylesheet" href="./css/stylePortal.css" />
-    <script src="https://kit.fontawesome.com/c0959f9251.js" crossorigin="anonymous">
-    </script>
+    <script src="https://kit.fontawesome.com/c0959f9251.js" crossorigin="anonymous"></script>
 
-    <?php 
-        if(isset($_SESSION['docente_inscripto']) && $_SESSION['docente_inscripto'] !== ""){
-            echo $_SESSION['docente_inscripto'];
-            $_SESSION['docente_inscripto'] = "";
-        }
-        else{
-            echo $_SESSION['alumno_inscripto'];
-            $_SESSION['docente_inscripto'] = "";
-        }
+    <?php
+    if (isset($_SESSION['docente_inscripto']) && $_SESSION['docente_inscripto'] !== "") {
+        echo $_SESSION['docente_inscripto'];
+        $_SESSION['docente_inscripto'] = "";
+    } else {
+        echo $_SESSION['alumno_inscripto'];
+        $_SESSION['docente_inscripto'] = "";
+    }
     ?>
     <title>Agregar Docente | ISET Educativo</title>
 </head>
@@ -32,7 +29,7 @@
                 <li>
                     <a href="#">
                         <span class="icon"><i class="fa-solid fa-user-tie"></i></span>
-                        <span class="title"><?php echo $_SESSION["u_nombre"] . ", " . $_SESSION["u_apellido"] ;?></span>
+                        <span class="title"><?php echo $_SESSION["u_nombre"] . ", " . $_SESSION["u_apellido"]; ?></span>
                     </a>
                 </li>
                 <li class="hovered">
@@ -181,12 +178,12 @@
                                         </div>
                                         <div class="campo-entrada">
                                             <select class="campo-entrada-option" name="carrera" id="carrera">
-                                                <?php for ($i=-1; $i < $consulta->rowCount(); $i++): ?>
-                                                        <?php if ($i == -1): ?>
-                                                            <option value="0" selected disabled>---&gt; SELECCIONE UNA CARRERA &lt;---</option>
-                                                        <?php elseif ($i < $consulta->rowCount()): ?>
-                                                            <option value="<?php echo $resultado[$i]['ID_CARRERA']; ?>"><?php echo $resultado[$i]['NOMBRE']; ?></option>
-                                                        <?php endif; ?>
+                                                <?php for ($i = -1; $i < $consulta->rowCount(); $i++): ?>
+                                                    <?php if ($i == -1): ?>
+                                                        <option value="0" selected disabled>---&gt; SELECCIONE UNA CARRERA &lt;---</option>
+                                                    <?php elseif ($i < $consulta->rowCount()): ?>
+                                                        <option value="<?php echo $resultado[$i]['ID_CARRERA']; ?>"><?php echo $resultado[$i]['NOMBRE']; ?></option>
+                                                    <?php endif; ?>
                                                 <?php endfor; ?>
                                             </select>
                                         </div>
@@ -258,14 +255,14 @@
                         <?php if (isset($_SESSION["errores"]) && $_SESSION["errores"] !== ""): ?>
                             <div>
                                 <p>¡Errores encontrados!</p>
-                                <?php 
-                                    echo $_SESSION["errores"];
-                                    $_SESSION["errores"] = "";
+                                <?php
+                                echo $_SESSION["errores"];
+                                $_SESSION["errores"] = "";
                                 ?>
                             </div>
                         <?php else: ?>
                             <div>
-                                <p>En este momento no se encontró ningun error, puede continuar inscribiendo los docentes.</p>
+                                <p>En este momento no se encontró ningún error, puede continuar inscribiendo los docentes.</p>
                             </div>
                         <?php endif; ?>
                     </div>
@@ -273,9 +270,10 @@
             </section>
         </div>
     </div>
-    
+
     <script src="js/appAlumno.js"></script>
     <script src="js/inscripciones.js"></script>
     <script src="js/validaciones.js"></script>
 </body>
+
 </html>

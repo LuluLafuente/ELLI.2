@@ -4,9 +4,8 @@
 session_start();
 
 // AGREGO LAS FUNCIONES NECESARIAS PARA EL FUNCIONAMIENTO DE LA CARGA DE ALUMNOS
-include_once 'bd_conexion.php';
-include_once 'bd_select.php';
-include_once 'constantes.php';
+include 'bd_conexion.php';
+include 'bd_select.php';
 
 // REVISO QUE HAYA UNA SESION ACTIVA DE USUARIO,
 // DE LO CONTRARIO VUELVE A LA PAGINA DE INICIO.
@@ -16,19 +15,28 @@ if(!isset($_SESSION["usuario"])){
 }
 
 // DECLARAR VARIABLES
-$_SESSION['alumno_inscripto'] = "";
-$_SESSION['viene_de'] = ROL_DOCENTE;
+$listaMaterias = [];
 
 // CONEXION CON LA BASE DE DATOS
 $conexion = conexionDB();
 
-// BUSCO LAS CARRERAS DISPONIBLES EN LA BD
-$consulta = selectCarrerasInscripcion($conexion);
+// BUSCAR LA LISTA DE MATERIAS
+$consulta = selectAprobadas($conexion);
 
-// RECUPERO LOS RESULTADOS OBTENIDOS
+// GUARDO TODOS LOS RESULTADOS EN UNA VARIABLE
 $resultado = $consulta->fetchAll();
 
-include('inscripcion_docente.html');
+// BUSCAR PLAN DE ESTUDIOS
+$planEstudio = selectPlanEstudio($conexion, $_SESSION["u_carrera"]);
+
+// GUARDO LOS RESULTADOS DEL PLAN EN UNA VARIABLE
+$resultadoPlan = $planEstudio->fetchAll();
 
 // ZONA DE PRUEBAS INICIO
 
+
+
+// ZONA DE PRUEBAS FIN
+
+// CARGO LA PÁGINA CORRESPONDIENTE
+include('portal_alumno.html');

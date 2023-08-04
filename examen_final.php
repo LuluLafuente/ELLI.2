@@ -30,6 +30,4 @@ $resultado = $consulta->fetchAll();
 $resultado2 = $consulta2->fetchAll();
 $resultado3 = $consulta3->fetchAll();
 
-
-
 include('examen_final.html');

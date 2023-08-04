@@ -14,26 +14,17 @@ if(!isset($_SESSION["usuario"])){
     //echo "Verdadero </br>";
 }
 
+//DECLARAR VARIABLES
+$listaMaterias = [];
+
 //CONEXION CON LA BASE DE DATOS
 $conexion = conexionDB();
 
-//BUSCAR LA LISTA DE MATERIAS
-$consulta = selectAprobadas($conexion);
+//BUSCAR LA LISTA DE ALUMNOS DE SU MATERIA
+$consulta = selectalumnosCursado($conexion, 19);
 
 //GUARDO TODOS LOS RESULTADOS EN UNA VARIABLE
 $resultado = $consulta->fetchAll();
 
-//BUSCAR PLAN DE ESTUDIOS
-$planEstudio = selectPlanEstudio($conexion, $_SESSION["u_carrera"]);
 
-//GUARDO LOS RESULTADOS DEL PLAN EN UNA VARIABLE
-$resultadoPlan = $planEstudio->fetchAll();
-
-//ZONA DE PRUEBAS INICIO
-
-
-
-//ZONA DE PRUEBAS FIN
-
-// CARGO LA PÁGINA CORRESPONDIENTE
-include('plan.html');
+include('portal_docente.html');

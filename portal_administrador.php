@@ -14,5 +14,16 @@ if(!isset($_SESSION["usuario"])){
     //echo "Verdadero </br>";
 }
 
-// CARGO LA PÁGINA CORRESPONDIENTE
-include('portalAdministrador.html');
+// DECLARAR VARIABLES
+
+// CONEXION CON LA BASE DE DATOS
+
+// BUSCAR LA LISTA DE ALUMNOS INSCRIPTOS
+
+// GUARDO TODOS LOS RESULTADOS EN UNA VARIABLE
+
+// ZONA DE PRUEBAS INICIO
+
+// ZONA DE PRUEBAS FIN
+
+include('portal_administrador.html');

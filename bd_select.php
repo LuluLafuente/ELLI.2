@@ -29,6 +29,7 @@
         return $consulta;
     }
 
+    // BUSCA LAS MATERIAS DISPONIBLES
     function selectMaterias($con){
         $consulta = $con->query("SELECT Id_Materia,
                                         Anio,
@@ -38,6 +39,7 @@
         return $consulta;
     }
 
+    // BUSCA LAS MATERIAS APROBADAS DEL ALUMNO
     function selectAprobadas($con){
         $consulta = $con->query("SELECT *
                                    FROM vw_nota_alumno;");
@@ -45,6 +47,7 @@
         return $consulta;
     }
 
+    // DEVUELVE EL PLAN DE ESTUDIO DEL ALUMNO, SEGUN LA CARRERA
     function selectPlanEstudio($con, $carrera){
         $consulta = $con->query("SELECT *
                                    FROM vw_plan_estudio
@@ -54,6 +57,7 @@
         
     }
 
+    // DEVUELVE EL ROL DEL DOCENTE SEGUN SU USUARIO (MAIL)
     function selectRolDoc($con, $mail){
         $consulta = $con->query("SELECT rol_docente
                                    FROM docente
@@ -62,6 +66,7 @@
         return $consulta;
     }
 
+    // DEVUELVE EL ROL DEL ADMINISTRATIVO SEGUN SU USUARIO (MAIL)
     function selectRolAdm($con, $mail){
         $consulta = $con->query("SELECT `rol_administrativo` 
                                    FROM `administrativo` 
@@ -70,6 +75,7 @@
         return $consulta;
     }
 
+    // DEVUELVE EL ROL DEL ALUMNO SEGUN SU USUARIO (MAIL)
     function selectRolAlu($con, $mail){
         $consulta = $con->query("SELECT rol_alumno
                                    FROM alumno
@@ -78,6 +84,7 @@
         return $consulta;
     }
 
+    // BUSCO TODOS LOS ALUMNOS QUE ESTAN CURSANDO ALGUNA MATERIA
     function selectalumnosCursado($con, $idMateria){
         $consulta = $con->query("SELECT *
                                    FROM vw_cursado
@@ -86,6 +93,7 @@
         return $consulta;
     }
 
+    // BUSCO TODOS LOS ALUMNOS QUE ESTAN CURSANDO ALGUNA MATERIA
     function selectAlumnosTodos($con, $idMateria){
         $consulta = $con->query("SELECT *
                                    FROM vw_cursado
@@ -94,6 +102,7 @@
         return $consulta;
     }
 
+    // BUSCA LA CANTIDAD DE ALUMNOS INSCRIPTOS POR AÑO
     function selectAlumnosCantInsc($con, $anio){
         $consulta = $con->query("SELECT COUNT(anio)
                                    FROM alumno
@@ -108,6 +117,7 @@
         return $consulta;
     }
 
+    // BUSCA EL ABREVIADO DE UNA CARRERA SEGUN SU ID
     function selectCarreraAbreviado($con, $nroCarrera){
         $consulta = $con->query("SELECT abreviado
                                    FROM carrera
@@ -125,37 +135,51 @@
 
     }
 
-    function selectNroDeAlumnosInscriptos($con, $anio){
-        $consulta = $con->query("SELECT COUNT(anio) AS 'anio'
-                                   FROM alumno
-                                  WHERE anio = $anio;");
+    // BUSCA LA CANTIDAD DE ALUMNOS INSCRIPTOS EN UNA CARRERA Y AÑO DETERMINADO
+    function selectNroDeAlumnosInscriptos($con, $carrera, $anio){
+        $consulta = $con->query("SELECT inscriptos
+                                   FROM vw_alumnos_insc_carrera
+                                  WHERE CARRERA = '$carrera' AND ANIO = $anio;");
 
-        $resultado = $consulta->fetchAll();
+        if(is_object($consulta)){   
+            if($consulta->rowCount() === 0){
+                return 0;
+            }
+            else{
+                $resultado = $consulta->fetchAll();
 
-        return $resultado[0]["anio"];
-    }
-
-    function selectNroDeDocentesInscriptos($con, $anio){
-        $cantidad = 0;
-
-        $consulta = $con->query("SELECT cantidad
-                                   FROM vw_docentes_inscriptos
-                                  WHERE anio = $anio;");
-
-        echo "CANTIDAD: " . $consulta->rowCount() . "</br>";
-
-        if ($consulta->rowCount() === 0) {
-            $cantidad = 0;
+                return $resultado[0]["inscriptos"];
+            }
         }
         else{
+            return 0;
+        }
+    }
+
+    // BUSCA LA CANTIDAD DE DOCENTES INSCRIPTOS EN CADA CARRERA
+    function selectNroDeDocentesInscriptos($con, $abreviado){
+        $consulta = $con->query("SELECT inscriptos
+                                   FROM vw_docentes_inscriptos_carrera
+                                  WHERE abreviado = '$abreviado';");
+
+        if(is_object($consulta)) {
             $resultado = $consulta->fetchAll();
 
-            $cantidad = $resultado[0]["fecha_insc"];
+            if($consulta->rowCount() === 0){
+                $cantidad = 0;
+            }
+            else{
+                $cantidad = $resultado[0]["inscriptos"];
+            }
+        }
+        else{
+            $cantidad = 0;
         }
 
         return $cantidad;
     }
 
+    // DEVUELVE EL DNI DE UN ALUMNO INSCRIPTO
     function selectDniAlumnosInscriptos($con, $dni){
         $consulta = $con->query("SELECT dni
                                    FROM alumno
@@ -166,10 +190,31 @@
         return !isset($resultado[0]["dni"]) ? 0 : $resultado[0]["dni"];
     }
 
+    // DEVUELVE EL DNI DE UN DOCENTE INSCRIPTO
+    function selectDniDocentesInscriptos($con, $dni){
+        $consulta = $con->query("SELECT dni
+                                   FROM docente
+                                  WHERE dni = $dni;");
+
+        $resultado = $consulta->fetchAll();
+
+        return !isset($resultado[0]["dni"]) ? 0 : $resultado[0]["dni"];
+    }
+
+    // BUSCA EL ID DE LA CARRERA DEL ALUMNO DESDE LOS LEGAJOS
     function selectCarreraAlumnosInscriptos($con, $dni){
         $consulta = $con->query("SELECT carrera
                                    FROM alumno
                                   WHERE dni = $dni;");
+
+        return $consulta;
+    }
+
+    // BUSCA EL ID DE LA CARRERA DEL DOCENTE DESDE LOS LEGAJOS
+    function selectCarreraDocentesInscriptos($con, $carrera){
+        $consulta = $con->query("SELECT carrera
+                                   FROM legajo_docente
+                                  WHERE carrera = $carrera;");
 
         return $consulta;
     }
@@ -188,6 +233,15 @@
     }
     function selectHistoriaAlumno($con){
         $consulta = $con->query("SELECT materia,final,id_acta FROM examenfinal");
+
+        return $consulta;
+    }
+
+    // BUSCA EL ID Y EL NOMBRE DE LAS CARRERAS DISPONIBLES EN LA BD
+    function selectCarrerasInscripcion($con){
+        $consulta = $con->query("SELECT ID_CARRERA,
+                                        NOMBRE
+                                   FROM CARRERA;");
 
         return $consulta;
     }

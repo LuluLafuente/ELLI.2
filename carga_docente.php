@@ -4,9 +4,9 @@
   session_start();
 
   // AGREGO LAS FUNCIONES NECESARIAS PARA EL FUNCIONAMIENTO DE LA CARGA DE DOCENTES
-  include 'bd_conexion.php';
-  include 'bd_select.php';
-  include 'bd_insert.php';
+  include_once 'bd_conexion.php';
+  include_once 'bd_select.php';
+  include_once 'bd_insert.php';
   include_once 'constantes.php';
   include_once 'inscripcion_funciones.php';
 
@@ -218,19 +218,15 @@
   /***************************************************************************************/
 
   //BUSCO EL DNI EN LA BD
-
-  /*
-  //CREAR FUNCION PARA SELECCIONAR LOS DOCENTES INSCRIPTOS
-  $dniBD = selectDniAlumnosInscriptos($conexion, $dni);
-  $carreraBD = selectCarreraAlumnosInscriptos($conexion, $dni);
-  */
+  $dniBD = selectDniDocentesInscriptos($conexion, $dni);
+  $carreraBD = selectCarreraDocentesInscriptos($conexion, $carrera);
 
   $resultadoCarrera = $carreraBD->fetchAll();
   $yaInscripto = false;
 
   // ESTE BUCLE REVISA EN SI EL DOCENTE SE INSCRIBIO EN ALGUNA CARRERA
   for ($i=0; $i < count($resultadoCarrera); $i++) { 
-    $resultadoCarrera[$i]["carrera"] == $carrera ? $yaInscripto = true : "";
+    $resultadoCarrera[$i]["carrera"] == $carrera ? $yaInscripto = true : $yaInscripto = false;
   }
 
   if($dniBD == $dni && $yaInscripto === true){
@@ -247,34 +243,33 @@
   // INICIO DE GUARDADO EN BASE DE DATOS
   /***************************************************************************************/
 
+  
   if($errores === ""){
     // ENVIO LOS DATOS A LA BD
-    //CREAR FUNCION DE AGRERGAR DOCENTE EN BD
-    /*
-    $insert = agregarAlumno(
-      $conexion, $legajo, $dni, $nombre, $apellido, 
-      $rol, $usuario, $contrasenia, $domicilio, $nro_domicilio, 
-      $celular, $anio, $carrera, $rd_face, $rd_insta, $rd_twitter, $archivoGuardar, $inscripcionFecha);
-    */
-  
-    if(is_bool($insert)){
-      $_SESSION['docente_inscripto'] = "<script>alert('El docente no fue inscripto, revise los datos ingresados')</script>";
-    }
-  
-    if(is_int($insert)){
-      $_SESSION['docente_inscripto'] = "<script>alert('El docente fue inscripto satisfactoriamente inscripto')</script>";
+    $insert = agregarDocente(
+      $conexion, 
+      $legajo,        $dni,        $nombre,         $apellido, 
+      $rol,           $usuario,    $contrasenia,    $domicilio, 
+      $nro_domicilio, $celular,    $carrera,        $rd_face, 
+      $rd_insta,      $rd_twitter, $archivoGuardar, $inscripcionFecha);
+    
+    if($insert){
+      // ASIGNO MENSAJE EXITOSO
+      $_SESSION['docente_inscripto'] = "<script>alert('El docente fue inscripto satisfactoriamente.')</script>";
 
-      // LIBRERO EL CURSOR ASOCIADO
-      $insert->closeCursor();
-
-       // GUARDO LA IMAGEN EN EL SERVIDOR
+      // GUARDO LA IMAGEN EN EL SERVIDOR
       if($archivoGuardar !== "" && $archivoSubido && $archivoValido){
         $fueCopiado = imgSubir($foto['tmp_name'], $archivoGuardar);
       }
+      else{
+        $_SESSION['errores'] = "La foto del docente no pudo ser subida correctamente";
+      }
+    }
+    else{
+      // ASIGNO MENSAJE ERROR
+      $_SESSION['docente_inscripto'] = "<script>alert('El docente no fue inscripto, revise los datos ingresados')</script>";
     }
     
-    echo "True";
-
     // REDIRIJO NUEVAMENTE AL FORMULARIO
     header("location:inscripcion_docente.php");
   }
@@ -292,22 +287,6 @@
   
   // ZONA DE PRUEBAS INICIO
 
-  /*
-  echo "Nombre: " . $nombre . ".</br>";
-  echo "Apellido: " . $apellido . ".</br>";
-  echo "Usuario: " . $usuario . ".</br>";
-  echo "Contraseña: " . $contrasenia . ".</br>";
-  echo "Domicilio: " . $domicilio . ".</br>";
-  echo "Número de domicilio: " . $nro_domicilio . ".</br>";
-  echo "Rol: " . $rol . ".</br>";
-  echo "Dni: " . $dni . ".</br>";
-  echo "Celular: " . $celular . ".</br>";
-  echo "Legajo: " . $legajo . ".</br>";
-  echo "Carrera: " . $carrera . ".</br>";
-  echo "Año: " . $anio . ".</br>";
-  echo "Facebook: " . $rd_face . ".</br>";
-  echo "Instagram: " . $rd_insta . ".</br>";
-  echo "Twitter: " . $rd_twitter . ".</br>";
-  */
+  
 
   // ZONA DE PRUEBAS FIN

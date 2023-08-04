@@ -192,16 +192,13 @@
                                             </div>
                                             <div class="campo-entrada">
                                                 <select class="campo-entrada-option" name="carrera" id="carrera">
-                                                    <option value="0" selected disabled>---&gt; SELECCIONE UNA CARRERA
-                                                        &lt;---</option>
-                                                    <?php for ($i = 0; $i < $consulta->rowCount(); $i++):
-                                                    $id = $resultado[$i]['id_carrera'];
-                                                    $nombre = $resultado[$i]['nombre'];
-                                                    ?>
-                                                    <option value="<?php echo $id; ?>">
-                                                        <?php echo $nombre; ?>
-                                                    </option>
-                                                    <?php endfor; ?>
+                                                    <?php for ($i=-1; $i < $consulta->rowCount(); $i++): ?>
+                                                    <?php if ($i == -1): ?>
+                                                        <option value="0" selected disabled>---&gt; SELECCIONE UNA CARRERA &lt;---</option>
+                                                    <?php elseif ($i < $consulta->rowCount()): ?>
+                                                        <option value="<?php echo $resultado[$i]['ID_CARRERA']; ?>"><?php echo $resultado[$i]['NOMBRE']; ?></option>
+                                                    <?php endif; ?>
+                                                <?php endfor; ?>
                                                 </select>
                                             </div>
                                         </div>

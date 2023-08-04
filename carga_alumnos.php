@@ -4,9 +4,9 @@
   session_start();
 
   // AGREGO LAS FUNCIONES NECESARIAS PARA EL FUNCIONAMIENTO DE LA CARGA DE ALUMNOS
-  include 'bd_conexion.php';
-  include 'bd_select.php';
-  include 'bd_insert.php';
+  include_once 'bd_conexion.php';
+  include_once 'bd_select.php';
+  include_once 'bd_insert.php';
   include_once 'constantes.php';
   include_once 'inscripcion_funciones.php';
 
@@ -219,14 +219,14 @@
 
   //BUSCO EL DNI EN LA BD
   $dniBD = selectDniAlumnosInscriptos($conexion, $dni);
-  $carreraBD = selectCarreraAlumnosInscriptos($conexion, $dni);
+  $carreraBD = selectCarreraAlumnosInscriptos($conexion, $dni, $carrera);
 
   $resultadoCarrera = $carreraBD->fetchAll();
   $yaInscripto = false;
 
   // ESTE BUCLE REVISA EN SI EL ALUMNO SE INSCRIBIO EN ALGUNA CARRERA
   for ($i=0; $i < count($resultadoCarrera); $i++) { 
-    $resultadoCarrera[$i]["carrera"] == $carrera ? $yaInscripto = true : "";
+    $resultadoCarrera[$i]["carrera"] == $carrera ? $yaInscripto = true : $yaInscripto = false;
   }
 
   if($dniBD == $dni && $yaInscripto === true){
@@ -245,29 +245,27 @@
 
   if($errores === ""){
     // ENVIO LOS DATOS A LA BD
+
     $insert = agregarAlumno(
-      $conexion, $legajo, $dni, $nombre, $apellido, 
-      $rol, $usuario, $contrasenia, $domicilio, $nro_domicilio, 
-      $celular, $anio, $carrera, $rd_face, $rd_insta, $rd_twitter, $archivoGuardar, $inscripcionFecha);
-  
-    if(is_bool($insert)){
-      $_SESSION['alumno_inscripto'] = "<script>alert('El Alumno no fue inscripto, revise los datos ingresados')</script>";
-    }
-  
-    if(is_int($insert)){
+      $conexion, 
+      $legajo,   $dni,        $nombre,         $apellido, 
+      $rol,      $usuario,    $contrasenia,    $domicilio, $nro_domicilio, 
+      $celular,  $anio,       $carrera,        $rd_face, 
+      $rd_insta, $rd_twitter, $archivoGuardar, $inscripcionFecha,
+      $errores);
+    
+    if($insert){
       $_SESSION['alumno_inscripto'] = "<script>alert('El Alumno fue inscripto satisfactoriamente inscripto')</script>";
-
-      // LIBRERO EL CURSOR ASOCIADO
-      $insert->closeCursor();
-
+  
        // GUARDO LA IMAGEN EN EL SERVIDOR
       if($archivoGuardar !== "" && $archivoSubido && $archivoValido){
         $fueCopiado = imgSubir($foto['tmp_name'], $archivoGuardar);
       }
     }
-    
-    echo "True";
-
+    else{
+      $_SESSION['alumno_inscripto'] = "<script>alert('El Alumno no fue inscripto, revise los datos ingresados')</script>";
+    }
+  
     // REDIRIJO NUEVAMENTE AL FORMULARIO
     header("location:inscripcion_alumno.php");
   }
@@ -285,22 +283,5 @@
   
   // ZONA DE PRUEBAS INICIO
 
-  /*
-  echo "Nombre: " . $nombre . ".</br>";
-  echo "Apellido: " . $apellido . ".</br>";
-  echo "Usuario: " . $usuario . ".</br>";
-  echo "Contraseña: " . $contrasenia . ".</br>";
-  echo "Domicilio: " . $domicilio . ".</br>";
-  echo "Número de domicilio: " . $nro_domicilio . ".</br>";
-  echo "Rol: " . $rol . ".</br>";
-  echo "Dni: " . $dni . ".</br>";
-  echo "Celular: " . $celular . ".</br>";
-  echo "Legajo: " . $legajo . ".</br>";
-  echo "Carrera: " . $carrera . ".</br>";
-  echo "Año: " . $anio . ".</br>";
-  echo "Facebook: " . $rd_face . ".</br>";
-  echo "Instagram: " . $rd_insta . ".</br>";
-  echo "Twitter: " . $rd_twitter . ".</br>";
-  */
 
   // ZONA DE PRUEBAS FIN

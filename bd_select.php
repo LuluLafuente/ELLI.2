@@ -125,14 +125,25 @@
 
     }
 
-    function selectNroDeAlumnosInscriptos($con, $anio){
-        $consulta = $con->query("SELECT COUNT(anio) AS 'anio'
-                                   FROM alumno
-                                  WHERE anio = $anio;");
+    // BUSCA LA CANTIDAD DE ALUMNOS INSCRIPTOS EN UNA CARRERA Y AÑO DETERMINADO
+    function selectNroDeAlumnosInscriptos($con, $carrera, $anio){
+        $consulta = $con->query("SELECT inscriptos
+                                   FROM vw_alumnos_insc_carrera
+                                  WHERE CARRERA = '$carrera' AND ANIO = $anio;");
 
-        $resultado = $consulta->fetchAll();
+        if(is_object($consulta)){   
+            if($consulta->rowCount() === 0){
+                return 0;
+            }
+            else{
+                $resultado = $consulta->fetchAll();
 
-        return $resultado[0]["anio"];
+                return $resultado[0]["inscriptos"];
+            }
+        }
+        else{
+            return 0;
+        }
     }
 
     function selectNroDeDocentesInscriptos($con, $anio){
@@ -166,10 +177,11 @@
         return !isset($resultado[0]["dni"]) ? 0 : $resultado[0]["dni"];
     }
 
-    function selectCarreraAlumnosInscriptos($con, $dni){
+    // BUSCA EL ID DE LA CARRERA DEL ALUMNO DESDE LOS LEGAJOS
+    function selectCarreraAlumnosInscriptos($con, $dni, $carr){
         $consulta = $con->query("SELECT carrera
-                                   FROM alumno
-                                  WHERE dni = $dni;");
+                                   FROM legajo_alumno
+                                  WHERE dni = $dni AND carrera = $carr;");
 
         return $consulta;
     }
@@ -188,6 +200,15 @@
     }
     function selectHistoriaAlumno($con){
         $consulta = $con->query("SELECT materia,final,id_acta FROM examenfinal");
+
+        return $consulta;
+    }
+
+    // BUSCA EL ID Y EL NOMBRE DE LAS CARRERAS DISPONIBLES EN LA BD
+    function selectCarrerasInscripcion($con){
+        $consulta = $con->query("SELECT ID_CARRERA,
+                                        NOMBRE
+                                   FROM CARRERA;");
 
         return $consulta;
     }

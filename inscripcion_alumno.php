@@ -18,15 +18,16 @@ if(!isset($_SESSION["usuario"])){
 // DECLARAR VARIABLES
 $_SESSION['alumno_inscripto'] = "";
 $_SESSION['viene_de'] = ROL_ALUMNO;
-$nroAlumnos = 0;
 
 // CONEXION CON LA BASE DE DATOS
 $conexion = conexionDB();
 
-$nroAlumnos = selectNroDeAlumnosInscriptos($conexion, date('Y'));
-$consulta = selectCarrera($conexion);
+// BUSCO LAS CARRERAS DISPONIBLES EN LA BD
+$consulta = selectCarrerasInscripcion($conexion);
 
+// RECUPERO LOS RESULTADOS OBTENIDOS
 $resultado = $consulta->fetchAll();
+
 // ZONA DE PRUEBAS INICIO
 
 

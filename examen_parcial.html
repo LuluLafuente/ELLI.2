@@ -62,96 +62,42 @@
                 </div>
             </div>
             <div class="contenido">
-                <h2>Registro de Parcial</h2>
-
-                <table>
-                    <thead>
-                        <tr id="tabla-personalizada">
-                            <th>Alumno</th>
-                            <th>1º Parcial</th>
-                            <th>2º Parcial</th>
-                            <th>1º Recuperacion</th>
-                            <th>2º Recuperacion</th>
-                            <th>Condicion</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                        <tr>
-                            <td>
-                                <p>
-                                    <?php echo $resultado[$i]["alumno"]; ?>
-                                </p>
-                            </td>
-                            <td>
-                                <select name="Parcial-Uno" id="Parcial-Uno">
-                                    <?php for ($j = 0; $j < 11; $j++): ?>
-                                    <?php if ($j == 0): ?>
-                                    <option value="#"></option>
-                                    <?php elseif ($j < 11): ?>
-                                    <option value="<?php echo $j; ?>">
-                                        <?php echo $j; ?>
-                                    </option>
-                                    <?php endif; ?>
-                                    <?php endfor; ?>
-                                </select>
-                            </td>
-                            <td>
-                                <select name="Parcial-Dos" id="Parcial-Dos">
-                                    <?php for ($j = 0; $j < 11; $j++): ?>
-                                    <?php if ($j == 0): ?>
-                                    <option value="#"></option>
-                                    <?php elseif ($j < 11): ?>
-                                    <option value="<?php echo $j; ?>">
-                                        <?php echo $j; ?>
-                                    </option>
-                                    <?php endif; ?>
-                                    <?php endfor; ?>
-                                </select>
-                            </td>
-                            <td>
-                                <select name="Recuperacion-Uno" id="Recuperacion-Uno">
-                                    <?php for ($j = 0; $j < 11; $j++): ?>
-                                    <?php if ($j == 0): ?>
-                                    <option value="#"></option>
-                                    <?php elseif ($j < 11): ?>
-                                    <option value="<?php echo $j; ?>">
-                                        <?php echo $j; ?>
-                                    </option>
-                                    <?php endif; ?>
-                                    <?php endfor; ?>
-                                </select>
-                            </td>
-                            <td>
-                                <select name="Recuperacion-Dos" id="Recuperacion-Dos">
-                                    <?php for ($j = 0; $j < 11; $j++): ?>
-                                    <?php if ($j == 0): ?>
-                                    <option value="#"></option>
-                                    <?php elseif ($j < 11): ?>
-                                    <option value="<?php echo $j; ?>">
-                                        <?php echo $j; ?>
-                                    </option>
-                                    <?php endif; ?>
-                                    <?php endfor; ?>
-                                </select>
-                            </td>
-                            <td>
-                                <select name="Condicion" id="Condicion">
-                                    <option value="#"></option>
-                                    <option value="reg">Regular</option>
-                                    <option value="lib">Libre</option>
-                                    <option value="pro">Promocion</option>
-                                </select>
-                            </td>
-                        </tr>
+                <fieldset>
+                    <legend><strong>Registrar Nota de Parcial</strong></legend>
+                    <label for="materia">1. Seleccione una Materia:</label>
+                    <select>
+                        <option value="0" selected disabled>&gt; SELECCIONE UNA MATERIA &lt;</option>
+                        <?php for ($i = 0; $i < $consulta3->rowCount(); $i++):
+                                    $id = $resultado3[$i]['ID_MATERIA'];
+                                    $nombre = $resultado3[$i]['Nombre'];
+                                ?>
+                        <option value="<?php echo $id; ?>" id="materia" name="materia" required>
+                            <?php echo $nombre; ?>
+                        </option>
                         <?php endfor; ?>
-                    </tbody>
-                </table>
-                <div class="bt-enviar">
-                    <button type="submit">Registrar</button>
-                </div>
-                </form>
+                    </select>
+                    <label for="alumno">2. Seleccione un Alumno:</label>
+                    <select>
+
+                        <option value="0" selected disabled>&gt; SELECCIONE UN ALUMNO &lt;</option>
+                        <?php for ($i = 0; $i < $consulta2->rowCount(); $i++):
+                                    $id = $resultado2[$i]['LEGAJO_ALU'];
+                                    $nombre = $resultado2[$i]['Name'];
+                                ?>
+                        <option value="<?php echo $id; ?>" id="alumno" name="alumno" required>
+                            <?php echo $nombre; ?>
+                        </option>
+                        <?php endfor; ?>
+                    </select>
+                    <br>
+                    <label for="nota">3. Ingrese Nota del 1er Parcial:</label>
+                    <input type="number" id="nota1" name="nota1" required><br>
+
+                    <label for="nota">4. Ingrese Nota del 2do Parcial:</label>
+                    <input type="number" id="nota2" name="nota2" required><br>
+
+                    <input type="submit" value="Guardar Nota">
+                </fieldset>
             </div>
         </div>
     </div>

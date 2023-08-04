@@ -16,6 +16,7 @@
         sizes="192x192">
 
     <title>Registrar Notas de Examen Final</title>
+
 </head>
 
 <body>
@@ -62,11 +63,11 @@
                 </div>
             </div>
             <div class="contenido">
-                <form class= "form" action="guardar_nota.php" method="post">
-                    <h2>Registrar Nota de Examen</h2>
+                <fieldset>
+                    <legend><strong>Registrar Nota de Examen</strong></legend>
                     <label for="materia">1. Seleccione una Materia:</label>
-                    <select class="campo-entrada-seleccion">
-                        <option value="0" selected disabled>---&gt; SELECCIONE UNA MATERIA &lt;---</option>
+                    <select>
+                        <option value="0" selected disabled>&gt; SELECCIONE UNA MATERIA &lt;</option>
                         <?php for ($i = 0; $i < $consulta3->rowCount(); $i++):
                                     $id = $resultado3[$i]['ID_MATERIA'];
                                     $nombre = $resultado3[$i]['Nombre'];
@@ -78,8 +79,9 @@
                     </select>
                     <br>
                     <label for="alumno">2. Seleccione un Alumno:</label>
-                    <select class="campo-entrada-seleccion">
-                        <option value="0" selected disabled>---&gt; SELECCIONE UN ALUMNO &lt;---</option>
+                    <select>
+
+                        <option value="0" selected disabled>&gt; SELECCIONE UN ALUMNO &lt;</option>
                         <?php for ($i = 0; $i < $consulta2->rowCount(); $i++):
                                     $id = $resultado2[$i]['LEGAJO_ALU'];
                                     $nombre = $resultado2[$i]['Name'];
@@ -89,21 +91,18 @@
                         </option>
                         <?php endfor; ?>
                     </select>
-                    
                     <br>
-                    <label for="nota">2. Ingrese Nota del examen:</label>
+                    <label for="nota">3. Ingrese Nota del examen:</label>
                     <input type="number" id="nota" name="nota" required><br>
 
-                    <label for="acta">4. Número de acta:</label>
+                    <label for="acta">4. Ingrese Número de acta:</label>
                     <input type="number" id="acta" name="acta" required><br>
 
                     <input type="submit" value="Guardar Nota">
-                </form>
+                </fieldset>
             </div>
         </div>
     </div>
-    </div>
-
     <script src="js/appAlumno.js"></script>
 </body>
 

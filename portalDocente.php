@@ -14,17 +14,5 @@ if(!isset($_SESSION["usuario"])){
     //echo "Verdadero </br>";
 }
 
-//DECLARAR VARIABLES
-$listaMaterias = [];
-
-//CONEXION CON LA BASE DE DATOS
-$conexion = conexionDB();
-
-//BUSCAR LA LISTA DE ALUMNOS DE SU MATERIA
-$consulta = selectalumnosCursado($conexion, 19);
-
-//GUARDO TODOS LOS RESULTADOS EN UNA VARIABLE
-$resultado = $consulta->fetchAll();
-
-
+// CARGO LA PÁGINA CORRESPONDIENTE
 include('portalDocente.html');

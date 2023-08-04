@@ -152,21 +152,14 @@ function asignarRol($consultaSQL, $rolPersona){
 
 function valConsulta($consultaSQL, $rolPersona, $persona){
     if(esBooleano($consultaSQL)){
-        //echo "La consulta no es valida! </br>";
-        
         $consultaValida = 0;
     }
     else if(tieneResultados($consultaSQL)){
-        //echo "Se encontró el $persona! </br>";
-    
         $consultaValida = asignarRol($consultaSQL, $rolPersona);
     
         $encontrado = true;
-    
     }
     else{
-        //echo "No se encontró el $persona!</br>";
-    
         $consultaValida = 0;
     }
 

@@ -528,82 +528,47 @@ tr {
   border-top-style: solid;
 }
 
-/*************************************/
-/************* MOBILE ****************/
-/*************************************/
+fieldset {
+  width: 500px;
+  margin: 0 auto;
+  border: 2px solid var(--blue);
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+}
 
-@media only screen and (max-width: 700px) {
+legend {
+  color: #2196F3;
+  font-size: 30px;
+  font-weight: bold;
+}
 
-  .navegador {
-    display: none;
-  }
+label {
+  color: #2196F3;
+  display: block;
+  margin-bottom: 5px;
+}
 
-  #panel-lateral {
-    display: none;
-  }
+select,
+input[type="number"],
+input[type="submit"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
 
-  #panel-central {
-    margin: 0px;
-  }
+select {
+  background-color: #fff;
+  color: #2196F3;
+}
 
-  .tarjeta {
-    width: 100%;
-  }
-
-  .tarjeta-datos {
-    width: 100%;
-  }
-
-  .tarjeta-datos-2 {
-    width: 100%;
-  }
-
-  .tarjeta form {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .tarjeta-foto {
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-  }
-
-
-  .tarjeta-primera-seccion {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .datos-entrada {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .campo {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .campo-entrada {
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .campo-entrada input {
-    width: 95%;
-  }
-
-  .botones {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .botones button {
-    width: 100%;
-  }
+input[type="submit"] {
+  background-color: #2196F3;
+  color: white;
+  cursor: pointer;
 }
 
 .form {
@@ -668,7 +633,6 @@ tr {
   cursor: pointer;
   transition: 0.5s;
 }
-
 
 .line {
   width: 90%;
@@ -745,6 +709,79 @@ tr {
 
   .campo-entrada input {
     width: 90%;
+  }
+
+  .botones {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .botones button {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 700px) {
+
+  .navegador {
+    display: none;
+  }
+
+  #panel-lateral {
+    display: none;
+  }
+
+  #panel-central {
+    margin: 0px;
+  }
+
+  .tarjeta {
+    width: 100%;
+  }
+
+  .tarjeta-datos {
+    width: 100%;
+  }
+
+  .tarjeta-datos-2 {
+    width: 100%;
+  }
+
+  .tarjeta form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tarjeta-foto {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+
+  .tarjeta-primera-seccion {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .datos-entrada {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .campo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .campo-entrada {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .campo-entrada input {
+    width: 95%;
   }
 
   .botones {

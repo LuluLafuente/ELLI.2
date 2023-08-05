@@ -21,13 +21,13 @@ $listaMaterias = [];
 $conexion = conexionDB();
 
 //BUSCAR LA LISTA DE ALUMNOS DE SU MATERIA
-$consulta = selectalumnosCursado($conexion, 19);
-$consulta2 = selectAlumnos($conexion);
-$consulta3 = selectMaterias($conexion);
+$consulta = selectAlumnosCursado($conexion,1);
+$consulta1 = selectCarrera($conexion);
+$consulta2 = selectMaterias($conexion);
 
 //GUARDO TODOS LOS RESULTADOS EN UNA VARIABLE
 $resultado = $consulta->fetchAll();
+$resultado1 = $consulta1->fetchAll();
 $resultado2 = $consulta2->fetchAll();
-$resultado3 = $consulta3->fetchAll();
 
 include('examen_final.html');

@@ -108,7 +108,7 @@
                                         <!--Alumnos-->
                                         <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
                                         <?php if ($resultado[$i]["1ER_PARCIAL" && "2DO_PARCIAL"] != 0): ?>
-                                        <?php echo $resultado[$i]['Name'];?>
+                                        <?php echo $resultado[$i]['ALUMNO'];?>
                                         <hr>
                                         <?php endif; ?>
                                         <?php endfor; ?>
@@ -117,7 +117,7 @@
                                         <!--Asignaturas-->
                                         <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
                                         <?php if ($resultado[$i]["1ER_PARCIAL" || "2DO_PARCIAL"] != 0): ?>
-                                        <?php echo $resultado[$i]['NOMBRE']; ?>
+                                        <?php echo $resultado[$i]['MATERIA']; ?>
                                         <hr>
                                         <?php endif; ?>
                                         <?php endfor; ?>

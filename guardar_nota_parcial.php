@@ -1,0 +1,66 @@
+<?php
+// Verifica si se enviaron los datos del formulario
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Obtiene los datos del formulario
+    $materiaId = $_POST["materia"];
+    $tipoNota = $_POST["tipoNota"];
+
+    // Datos de los alumnos y sus notas
+    $legajos = $_POST["legajo"];
+    $notas = $_POST["nota"];
+
+    // Aquí puedes realizar la conexión a la base de datos con tus credenciales
+    $host = "127.0.0.1";
+    $dbNombre = "bd_prueba";
+    $usuario = "isetEducativo";
+    $contrasenia = "unaClaveMuyDificil1";
+
+    try {
+        //EJECUTO LA CONEXION CON LA CLASE PDO DE PHP
+        $conn = new PDO("mysql:host=$host;dbname=$dbNombre", $usuario, $contrasenia);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // Iterar sobre los datos de los alumnos y sus notas y guardarlos en la base de datos
+        for ($i = 0; $i < count($legajos); $i++) {
+            $legajo = $legajos[$i];
+            $nota = $notas[$i];
+
+            // Verificar el tipo de parcial y construir la consulta SQL adecuada
+            if ($tipoNota == "1ER_PARCIAL") {
+                $sql = "UPDATE cursa SET 1ER_PARCIAL = :nota WHERE ID_MATERIA = :materia AND ID_ALUMNO = :legajo";
+            } elseif ($tipoNota == "2DO_PARCIAL") {
+                $sql = "UPDATE cursa SET 2DO_PARCIAL = :nota WHERE ID_MATERIA = :materia AND ID_ALUMNO = :legajo";
+            } else {
+                // Manejo de error si no se seleccionó ningún tipo de parcial
+                echo "Error: Debes seleccionar un tipo de parcial.";
+                exit;
+            }
+
+            // Prepara la consulta SQL para actualizar los datos en la tabla utilizando consultas preparadas
+            $stmt = $conn->prepare($sql);
+
+            // Asigna los valores a los parámetros de la consulta preparada
+            $stmt->bindParam(':legajo', $legajo, PDO::PARAM_INT);
+            $stmt->bindParam(':materia', $materiaId, PDO::PARAM_INT);
+            $stmt->bindParam(':nota', $nota, PDO::PARAM_INT);
+
+            // Ejecuta la consulta
+            if ($stmt->execute()) {
+                $message = "Notas registradas con éxito.";
+            } else {
+                $message = "Error al registrar las notas: " . print_r($stmt->errorInfo(), true);
+            }
+            
+            echo "<script>alert('$message');</script>";
+
+        }
+    } catch (PDOException $e) {
+        echo "Error en la consulta: " . $e->getMessage();
+    }
+
+    // Cierra la conexión
+    $conn = null;
+    
+}
+include('portal_docente.php');
+?>

@@ -4,9 +4,9 @@
 session_start();
 
 // AGREGO LAS FUNCIONES NECESARIAS PARA EL FUNCIONAMIENTO DE LA CARGA DE ALUMNOS
-include 'bd_conexion.php';
-include 'bd_select.php';
-include 'constantes.php';
+include_once 'bd_conexion.php';
+include_once 'bd_select.php';
+include_once 'constantes.php';
 
 // REVISO QUE HAYA UNA SESION ACTIVA DE USUARIO,
 // DE LO CONTRARIO VUELVE A LA PAGINA DE INICIO.
@@ -27,9 +27,6 @@ $consulta = selectCarrerasInscripcion($conexion);
 
 // RECUPERO LOS RESULTADOS OBTENIDOS
 $resultado = $consulta->fetchAll();
-
-// ZONA DE PRUEBAS INICIO
-
 
 
 // ZONA DE PRUEBAS FIN

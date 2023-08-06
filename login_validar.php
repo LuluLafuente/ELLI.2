@@ -65,7 +65,7 @@ switch($rol){
             // CIERRO EL CURSOR UTILIZADO PARA LA CONSULTA
             finalizarConsulta($consulta);
 
-            header("location:portalAdministrador.php");
+            header("location:portal_administrador.php");
         } catch (Throwable $th) {
             echo "<h1>Error al cargar datos del empleado/a.</h1>";
             echo "</br>";
@@ -93,7 +93,7 @@ switch($rol){
             // CIERRO EL CURSOR UTILIZADO PARA LA CONSULTA
             finalizarConsulta($consulta);
 
-            header("location:portalDocente.php");
+            header("location:portal_docente.php");
         } catch (Throwable $th) {
             echo "<h1>Error al cargar datos del empleado/a.</h1>";
             echo "</br>";
@@ -122,7 +122,7 @@ switch($rol){
             // CIERRO EL CURSOR UTILIZADO PARA LA CONSULTA
             finalizarConsulta($consulta);
 
-            header("location:portalAlumno.php");
+            header("location:portal_alumno.php");
         } catch (Throwable $th) {
             echo "<h1>Error al cargar datos del alumno/a.</h1>";
             echo "</br>";

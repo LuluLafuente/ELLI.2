@@ -18,7 +18,7 @@ if(!isset($_SESSION["usuario"])){
 $conexion = conexionDB();
 
 //BUSCAR LA LISTA DE MATERIAS
-$consulta = selectAprobadas($conexion);
+$consulta = selectAprobadas($conexion, $_SESSION["u_legajo"]);
 
 //GUARDO TODOS LOS RESULTADOS EN UNA VARIABLE
 $resultado = $consulta->fetchAll();

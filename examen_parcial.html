@@ -114,29 +114,22 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php for ($i=0; $i < $consulta3->rowCount(); $i++): ?>
+                            <?php $legajo = $resultado3[$i]['LEGAJO']; ?>
                             <tr>
                                 <td>
-                                    <!--Legajo Alumnos-->
-                                    <?php for ($i=0; $i < $consulta3->rowCount(); $i++): ?>
-                                    <input type="hidden" name="legajo[]"
-                                        value="<?php echo $resultado3[$i]['LEGAJO'];?>">
-                                    <?php echo $resultado3[$i]['LEGAJO'];?>
-                                    <hr>
-                                    <?php endfor; ?>
+                                    <input type="hidden" name="legajo[]" value="<?php echo $legajo; ?>">
+                                    <?php echo $legajo; ?>
                                 </td>
                                 <td>
-                                    <!--Alumnos-->
-                                    <?php for ($i=0; $i < $consulta3->rowCount(); $i++): ?>
-                                    <?php echo $resultado3[$i]['ALUMNO'];?>
-                                    <hr>
-                                    <?php endfor; ?>
+                                    <?php echo $resultado3[$i]['ALUMNO']; ?>
                                 </td>
                                 <td>
-                                    <!--Notas-->
-                                    <input type="number" name="nota[]" value="nota">
+                                    <input type="number" name="nota[<?php echo $legajo; ?>]" value="" required>
                                 </td>
                             </tr>
-
+                            <?php endfor; ?>
+                        </tbody>
                     </table>
                     <br>
                     <input type="submit" value="Guardar Nota">

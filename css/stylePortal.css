@@ -18,6 +18,7 @@
 body {
   min-height: 100vh;
   overflow-x: hidden;
+  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
 }
 
 html {
@@ -549,9 +550,6 @@ label {
   display: block;
   margin-bottom: 5px;
 }
-
-select,
-input[type="number"],
 input[type="submit"] {
   width: 100%;
   padding: 8px;
@@ -559,18 +557,23 @@ input[type="submit"] {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  background-color: #2196F3;
+  color: white;
+  cursor: pointer;
 }
-
+select,input[type="number"]{
+  width: 100%;
+  padding: 0;
+  margin-bottom: -3px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px;
+}
 select {
   background-color: #fff;
   color: var(--black1);
 }
 
-input[type="submit"] {
-  background-color: #2196F3;
-  color: white;
-  cursor: pointer;
-}
 input[type="radio"] {
   margin-right: 5px;
 }

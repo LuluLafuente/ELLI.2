@@ -56,9 +56,9 @@
     }
 
     // BUSCA LAS MATERIAS APROBADAS DEL ALUMNO Libreta
-    function selectAprobadas($con){
+    function selectAprobadas($con,$legajo){
         $consulta = $con->query("SELECT *
-                                   FROM vw_nota_alumno;");
+                                   FROM vw_nota_alumno WHERE LEGAJO = '$legajo';");
 
         return $consulta;
     }

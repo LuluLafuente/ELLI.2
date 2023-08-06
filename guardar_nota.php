@@ -7,7 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nota = $_POST["nota"];
     $acta = $_POST["acta"];
 
-    echo $legajo,$materia,$nota,$acta."<br>";
     // Aquí puedes realizar la conexión a la base de datos con tus credenciales
     $host = "127.0.0.1";
         $dbNombre = "bd_prueba";
@@ -33,11 +32,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(':nota', $nota, PDO::PARAM_INT);
     $stmt->bindParam(':acta', $acta, PDO::PARAM_INT);
 
-        if ($stmt->execute()) {
-            echo "Nota registrada con éxito.";
-        } else {
-            echo "Error al registrar la nota: " . print_r($stmt->errorInfo(), true);
-        }
+    if ($stmt->execute()) {
+        $message = "Notas registradas con éxito.";
+    } else {
+        $message = "Error al registrar las notas: " . print_r($stmt->errorInfo(), true);
+    }
+    
+    echo "<script>alert('$message');</script>";
+
     } catch (PDOException $e) {
         echo "Error en la consulta: " . $e->getMessage();
     }
@@ -45,5 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Cierra la conexión
     $conn = null;
 }
+include('portal_docente.php');
 ?>
 

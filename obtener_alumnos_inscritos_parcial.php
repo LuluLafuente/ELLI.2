@@ -15,12 +15,7 @@ if (isset($_POST['materiaId'])) {
     
     // Realizar la consulta para obtener los alumnos inscritos en la materia seleccionada
     $alumnos = selectAlumnosPorMateria($conexion, $materiaId);
-    
-    // Generar las opciones del select de alumnos
-    echo '<option value="0" selected disabled>&gt; SELECCIONE UN ALUMNO &lt;</option>';
-    foreach ($alumnos as $alumno) {
-        $alumnoId = $alumno['id_alumno'];
-        $alumnoNombre = $alumno['nombre_alumno'];
-        echo '<option value="' . $alumnoId . '">' . $alumnoNombre . '</option>';
+    $resultado_alum = $alumnos->fetchAll();
+
     }
 }

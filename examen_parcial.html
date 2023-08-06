@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/c0959f9251.js" crossorigin="anonymous">
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="./css/stylePortal.css" />
     <link rel="icon"
         href="https://iset-tuc.infd.edu.ar/sitio/wp-content/plugins/edupress-escuela/public/skins/redinfod/img/favicon_32x32.png"
@@ -16,6 +17,7 @@
         sizes="192x192">
 
     <title>Registrar Notas de Parcial</title>
+
 </head>
 
 <body>
@@ -33,7 +35,7 @@
                 </li>
                 <li>
                     <a href="examen_final.php">
-                        <span class="icon"><i class=" fa-note-sticky"></i></span>
+                        <span class="icon"><i class="fa-regular fa-note-sticky"></i></span>
                         <span class="title">Notas de Examen Final</span>
                     </a>
                 </li>
@@ -64,71 +66,88 @@
             <div class="contenido">
                 <fieldset>
                     <legend><strong>Registrar Nota de Parcial</strong></legend>
-                    <form id="formularioNotas" action="guardar_nota.php" method="POST">
+                    <form id="formularioNotas" action="guardar_nota_parcial.php" method="POST">
+
                         <label for="carrera">1. Seleccione Carrera:</label>
                         <select id="carreraSelect" name="carrera">
                             <option value="0" selected disabled>&gt; SELECCIONE UNA CARRERA &lt;</option>
                             <?php for ($i = 0; $i < $consulta1->rowCount(); $i++):
-                                    $id = $resultado1[$i]['id_carrera'];
+                                    $idc = $resultado1[$i]['id_carrera'];
                                     $carr = $resultado1[$i]['nombre'];
                                 ?>
-                            <option value="<?php echo $id; ?>" id="carrera" name="carrera" required>
+                            <option value="<?php echo $idc; ?>" id="carrera" name="carrera" required>
                                 <?php echo $carr; ?>
                             </option>
                             <?php endfor; ?>
                         </select>
+
                         <label for="materia">2. Seleccione una Materia:</label>
                         <select id="materiaSelect" name="materia">
                             <option value="0" selected disabled>&gt; SELECCIONE UNA MATERIA &lt;</option>
                             <?php for ($i = 0; $i < $consulta2->rowCount(); $i++):
-                            $id = $resultado2[$i]['ID_MATERIA'];
+                            $idm = $resultado2[$i]['ID_MATERIA'];
                             $mate = $resultado2[$i]['NOMBRE'];
                             $carreraId = $resultado2[$i]['ID_CARRERA']; // ID de la carrera a la que pertenece la materia
                         ?>
-                            <option value="<?php echo $id; ?>" data-carrera="<?php echo $carreraId; ?>" required>
+                            <option value="<?php echo $idm; ?>" data-carrera="<?php echo $carreraId; ?>" required>
                                 <?php echo $mate; ?>
                             </option>
                             <?php endfor; ?>
                         </select>
-                        <br>
-                        <label for="alumno">3. Seleccione un Alumno:</label>
-                        <select id="alumnoSelect" name="alumno">
-
-                            <option value="0" selected disabled>&gt; SELECCIONE UN ALUMNO &lt;</option>
-                            <?php for ($i = 0; $i < $consulta3->rowCount(); $i++):
-                                    $idalumno = $resultado3[$i]['LEGAJO'];
-                                    $nombre = $resultado3[$i]['ALUMNO'];
-                                    $materiaId = $resultado3[$i]['ID_MATERIA']; // ID de la Materia a la que pertenece el alumno
-
-                                ?>
-                            <option value="<?php echo $idalumno; ?>" data-materia="<?php echo $materiaId;?>" required>
-                                <?php echo $nombre; ?>
-                            </option>
-                            <?php endfor; ?>
-                        </select>
-                        <br>
-                        <label for="nota">4. Ingrese tipo de nota:</label>
-                        <input type="radio" id="nota1" name="tipoNota" value="1er Parcial">1er Parcial<br>
-                        <input type="radio" id="nota2" name="tipoNota" value="2do Parcial">2do Parcial<br>
-                        <input type="radio" id="recNota1" name="tipoNota" value="Recuperacion 1er Parcial">Recuperacion
-                        1er Parcial<br>
-                        <input type="radio" id="recNota2" name="tipoNota" value="Recuperacion 2do Parcial">Recuperacion
-                        2do Parcial<br>
-                        <input type="number" id="valor" name="valor">
-
-
-                        <label for="acta">5. Ingrese Número de acta:</label>
-                        <input type="number" id="acta" name="acta" required><br>
-
-                        <input type="submit" value="Guardar Nota">
-                    </form>
+                        <label for="nota">3. Indique tipo de Parcial:</label><br>
+                        <label for="nota1"><input type="radio" id="nota1" name="tipoNota" value="1ER_PARCIAL">1er
+                            Parcial</label><br>
+                        <label for="nota2"><input type="radio" id="nota2" name="tipoNota" value="2DO_PARCIAL">2do
+                            Parcial</label><br>
                 </fieldset>
+                <br>
+
+                <fieldset>
+                    <legend><strong>Tabla de Alumnos</strong></legend>
+                    <!-- La tabla para mostrar los alumnos -->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Legajo</th>
+                                <th>Alumno</th>
+                                <th>Nota</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <!--Legajo Alumnos-->
+                                    <?php for ($i=0; $i < $consulta3->rowCount(); $i++): ?>
+                                    <input type="hidden" name="legajo[]"
+                                        value="<?php echo $resultado3[$i]['LEGAJO'];?>">
+                                    <?php echo $resultado3[$i]['LEGAJO'];?>
+                                    <hr>
+                                    <?php endfor; ?>
+                                </td>
+                                <td>
+                                    <!--Alumnos-->
+                                    <?php for ($i=0; $i < $consulta3->rowCount(); $i++): ?>
+                                    <?php echo $resultado3[$i]['ALUMNO'];?>
+                                    <hr>
+                                    <?php endfor; ?>
+                                </td>
+                                <td>
+                                    <!--Notas-->
+                                    <input type="number" name="nota[]" value="nota">
+                                </td>
+                            </tr>
+
+                    </table>
+                    <br>
+                    <input type="submit" value="Guardar Nota">
+                </fieldset>
+                </form>
             </div>
         </div>
     </div>
-
     <script src="js/appAlumno.js"></script>
-    <script src="js/filtro_carga_notas.js"></script>
+    <script src="js/filtro_carga_notas_parcial.js"></script>
+
 </body>
 
 </html>

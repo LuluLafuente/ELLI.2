@@ -23,7 +23,8 @@ $conexion = conexionDB();
 //BUSCAR LA LISTA DE ALUMNOS DE SU MATERIA
 $consulta1 = selectCarrera($conexion);
 $consulta2 = selectMaterias($conexion);
-$consulta3 = selectAlumnosCursado($conexion,19);
+$consulta3 = selectAlumnosCursado($conexion, 19);
+
 
 //GUARDO TODOS LOS RESULTADOS EN UNA VARIABLE
 $resultado1 = $consulta1->fetchAll();

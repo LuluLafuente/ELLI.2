@@ -538,13 +538,14 @@ fieldset {
 }
 
 legend {
-  color: #2196F3;
+  color: var(--blue);
   font-size: 30px;
   font-weight: bold;
+  padding: 0 5px;
 }
 
 label {
-  color: #2196F3;
+  color: var(--blue);
   display: block;
   margin-bottom: 5px;
 }
@@ -562,13 +563,16 @@ input[type="submit"] {
 
 select {
   background-color: #fff;
-  color: #2196F3;
+  color: var(--black1);
 }
 
 input[type="submit"] {
   background-color: #2196F3;
   color: white;
   cursor: pointer;
+}
+input[type="radio"] {
+  margin-right: 5px;
 }
 
 .form {
@@ -642,6 +646,8 @@ input[type="submit"] {
   background: #fff;
   margin-bottom: 60px;
 }
+
+
 
 /*************************************/
 /************* MOBILE ****************/

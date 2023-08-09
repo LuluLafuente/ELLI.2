@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-08-2023 a las 00:22:44
+-- Tiempo de generación: 09-08-2023 a las 06:08:19
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -56,34 +56,6 @@ INSERT INTO `administrativo` (`ID_ADMINISTRATIVO`, `LEGAJO_ADM`, `DNI`, `NOMBRE`
 -- --------------------------------------------------------
 
 --
--- Estructura Stand-in para la vista `admin_examen`
--- (Véase abajo para la vista actual)
---
-CREATE TABLE `admin_examen` (
-`LEGAJO_ALU` varchar(15)
-,`ALUMNO` varchar(101)
-,`MATERIA` varchar(100)
-,`1ER_PARCIAL` int(11)
-,`2DO_PARCIAL` int(11)
-);
-
--- --------------------------------------------------------
-
---
--- Estructura Stand-in para la vista `admin_final`
--- (Véase abajo para la vista actual)
---
-CREATE TABLE `admin_final` (
-`LEGAJO_ALU` varchar(15)
-,`ALUMNO` varchar(101)
-,`MATERIA` varchar(100)
-,`FINAL` int(2)
-,`ID_ACTA` int(11)
-);
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `alumno`
 --
 
@@ -117,8 +89,7 @@ INSERT INTO `alumno` (`ID_ALUMNO`, `DNI`, `NOMBRE`, `APELLIDO`, `ROL_ALUMNO`, `U
 (6, 6, 'Carlos', 'Namen', 3, 'cnamen@iset.com.ar', '0', 'calle', 123, 0038100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png'),
 (7, 7, 'Ramon', 'Gutierrez', 3, 'rgutierrez@iset.com.ar', '0', 'calle', 123, 0038100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png'),
 (8, 8, 'Ricardo', 'Xxxx', 3, 'rxxxx@iset.com.ar', '0', 'calle', 123, 0038100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png'),
-(9, 9, 'Norma', ' Xxxx', 3, 'nxxxx@iset.com.ar', '0', 'calle', 123, 0038100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png'),
-(13, 13123123, 'Juan', 'Peres', 3, 'mail@mail.com', '13123123', 'Marcos', 123, 3815123123, 'https://www.face.com.ar/user', 'https://www.insta.com.ar/user', 'https://www.twr.com.ar/user', '.\\img_profile\\TSDS-21-001-AL.png');
+(9, 9, 'Norma', ' Xxxx', 3, 'nxxxx@iset.com.ar', '0', 'calle', 123, 0038100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
 
 -- --------------------------------------------------------
 
@@ -208,7 +179,7 @@ CREATE TABLE `cursa` (
 --
 
 INSERT INTO `cursa` (`ID_CURSADO`, `ID_ALUMNO`, `ID_MATERIA`, `FECHA`, `CICLO`, `1ER_PARCIAL`, `2DO_PARCIAL`, `FINAL`, `ESTADO`) VALUES
-(1, 'TSDS-19-001-AL', 1, '2023-08-05 11:16:58', 2023, 1, 7, 7, 'Promocion'),
+(1, 'TSDS-19-001-AL', 1, '2023-08-05 11:16:58', 2023, 10, 7, 7, 'Promocion'),
 (2, 'TSDS-19-001-AL', 2, '2023-08-05 11:16:58', 2023, 7, 9, 8, 'Promocion'),
 (3, 'TSDS-19-001-AL', 3, '2023-08-05 11:16:58', 2023, 4, 4, 6, 'Aprobado'),
 (4, 'TSDS-19-001-AL', 4, '2023-08-05 11:16:58', 2023, 8, 8, 8, 'Promocion'),
@@ -222,7 +193,7 @@ INSERT INTO `cursa` (`ID_CURSADO`, `ID_ALUMNO`, `ID_MATERIA`, `FECHA`, `CICLO`, 
 (12, 'TSDS-19-001-AL', 12, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
 (13, 'TSDS-19-001-AL', 13, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
 (14, 'TSDS-19-001-AL', 14, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
-(15, 'TSDS-19-001-AL', 15, '2023-08-05 11:16:58', 2023, 0, 0, -1, 'Sin Datos'),
+(15, 'TSDS-19-001-AL', 15, '2023-08-05 11:16:58', 2023, 10, 0, -1, 'Sin Datos'),
 (16, 'TSDS-19-001-AL', 16, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
 (17, 'TSDS-19-001-AL', 17, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
 (18, 'TSDS-19-001-AL', 18, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
@@ -235,7 +206,7 @@ INSERT INTO `cursa` (`ID_CURSADO`, `ID_ALUMNO`, `ID_MATERIA`, `FECHA`, `CICLO`, 
 (25, 'TSDS-19-001-AL', 25, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
 (26, 'TSDS-19-001-AL', 26, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
 (27, 'TSDS-19-001-AL', 27, '2023-08-05 11:16:58', 2023, 10, 10, -1, 'Sin Datos'),
-(28, 'TSDS-19-004-AL', 1, '2023-08-06 15:17:29', 2023, 1, 8, 7, 'Promoción'),
+(28, 'TSDS-19-004-AL', 1, '2023-08-06 15:17:29', 2023, 8, 8, 7, 'Promoción'),
 (29, 'TSDS-19-004-AL', 2, '2023-08-06 15:17:29', 2023, 9, 9, 9, 'Promoción'),
 (30, 'TSDS-19-004-AL', 3, '2023-08-06 15:17:29', 2023, 10, 10, 10, 'Regular'),
 (31, 'TSDS-19-004-AL', 4, '2023-08-06 15:17:29', 2023, 7, 7, 7, 'Promoción'),
@@ -263,7 +234,7 @@ INSERT INTO `cursa` (`ID_CURSADO`, `ID_ALUMNO`, `ID_MATERIA`, `FECHA`, `CICLO`, 
 (53, 'TSDS-19-004-AL', 26, '2023-08-06 15:17:29', 2023, 8, 4, 6, 'Regular'),
 (54, 'TSDS-19-004-AL', 27, '2023-08-06 15:17:29', 2023, 6, 6, 6, 'Regular'),
 (55, 'TSDS-19-004-AL', 28, '2023-08-06 15:17:29', 2023, 6, 6, 6, 'Regular'),
-(56, 'TSDS-19-007-AL', 1, '2023-08-06 15:17:30', 2023, 1, -1, -1, 'Sin Datos'),
+(56, 'TSDS-19-007-AL', 1, '2023-08-06 15:17:30', 2023, 9, -1, -1, 'Sin Datos'),
 (57, 'TSDS-19-007-AL', 2, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
 (58, 'TSDS-19-007-AL', 3, '2023-08-06 15:17:30', 2023, -1, -1, 10, 'Regular'),
 (59, 'TSDS-19-007-AL', 4, '2023-08-06 15:17:30', 2023, -1, -1, 5, 'Regular'),
@@ -277,7 +248,7 @@ INSERT INTO `cursa` (`ID_CURSADO`, `ID_ALUMNO`, `ID_MATERIA`, `FECHA`, `CICLO`, 
 (67, 'TSDS-19-007-AL', 12, '2023-08-06 15:17:30', 2023, -1, -1, 5, 'Regular'),
 (68, 'TSDS-19-007-AL', 13, '2023-08-06 15:17:30', 2023, -1, -1, 8, 'Promoción'),
 (69, 'TSDS-19-007-AL', 14, '2023-08-06 15:17:30', 2023, -1, -1, 10, 'Promoción'),
-(70, 'TSDS-19-007-AL', 15, '2023-08-06 15:17:30', 2023, -1, -1, 10, 'Promoción'),
+(70, 'TSDS-19-007-AL', 15, '2023-08-06 15:17:30', 2023, 10, -1, 10, 'Promoción'),
 (71, 'TSDS-19-007-AL', 16, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
 (72, 'TSDS-19-007-AL', 17, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
 (73, 'TSDS-19-007-AL', 18, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
@@ -291,7 +262,7 @@ INSERT INTO `cursa` (`ID_CURSADO`, `ID_ALUMNO`, `ID_MATERIA`, `FECHA`, `CICLO`, 
 (81, 'TSDS-19-007-AL', 26, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
 (82, 'TSDS-19-007-AL', 27, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
 (83, 'TSDS-19-007-AL', 28, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(84, 'TSDS-19-009-AL', 1, '2023-08-06 15:17:30', 2023, 1, -1, -1, 'Sin Datos'),
+(84, 'TSDS-19-009-AL', 1, '2023-08-06 15:17:30', 2023, 5, -1, -1, 'Sin Datos'),
 (85, 'TSDS-19-009-AL', 2, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
 (86, 'TSDS-19-009-AL', 3, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
 (87, 'TSDS-19-009-AL', 4, '2023-08-06 15:17:30', 2023, -1, -1, 8, 'Regular'),
@@ -305,7 +276,7 @@ INSERT INTO `cursa` (`ID_CURSADO`, `ID_ALUMNO`, `ID_MATERIA`, `FECHA`, `CICLO`, 
 (95, 'TSDS-19-009-AL', 12, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
 (96, 'TSDS-19-009-AL', 13, '2023-08-06 15:17:30', 2023, -1, -1, 9, 'Promoción'),
 (97, 'TSDS-19-009-AL', 14, '2023-08-06 15:17:30', 2023, -1, -1, 9, 'Promoción'),
-(98, 'TSDS-19-009-AL', 15, '2023-08-06 15:17:30', 2023, -1, -1, 9, 'Promoción'),
+(98, 'TSDS-19-009-AL', 15, '2023-08-06 15:17:30', 2023, 10, -1, 9, 'Promoción'),
 (99, 'TSDS-19-009-AL', 16, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
 (100, 'TSDS-19-009-AL', 17, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
 (101, 'TSDS-19-009-AL', 18, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
@@ -319,7 +290,7 @@ INSERT INTO `cursa` (`ID_CURSADO`, `ID_ALUMNO`, `ID_MATERIA`, `FECHA`, `CICLO`, 
 (109, 'TSDS-19-009-AL', 26, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
 (110, 'TSDS-19-009-AL', 27, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
 (111, 'TSDS-19-009-AL', 28, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(112, 'TSDS-19-003-AL', 1, '2023-08-06 15:17:30', 2023, 1, -1, -1, 'Sin Datos'),
+(112, 'TSDS-19-003-AL', 1, '2023-08-06 15:17:30', 2023, 2, -1, -1, 'Sin Datos'),
 (113, 'TSDS-19-003-AL', 2, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
 (114, 'TSDS-19-003-AL', 3, '2023-08-06 15:17:30', 2023, -1, -1, 8, 'Regular'),
 (115, 'TSDS-19-003-AL', 4, '2023-08-06 15:17:30', 2023, -1, -1, 7, 'Regular'),
@@ -333,7 +304,7 @@ INSERT INTO `cursa` (`ID_CURSADO`, `ID_ALUMNO`, `ID_MATERIA`, `FECHA`, `CICLO`, 
 (123, 'TSDS-19-003-AL', 12, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
 (124, 'TSDS-19-003-AL', 13, '2023-08-06 15:17:30', 2023, -1, -1, 8, 'Promoción'),
 (125, 'TSDS-19-003-AL', 14, '2023-08-06 15:17:30', 2023, -1, -1, 9, 'Promoción'),
-(126, 'TSDS-19-003-AL', 15, '2023-08-06 15:17:30', 2023, -1, -1, 4, 'Promoción'),
+(126, 'TSDS-19-003-AL', 15, '2023-08-06 15:17:30', 2023, 10, -1, 4, 'Promoción'),
 (127, 'TSDS-19-003-AL', 16, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
 (128, 'TSDS-19-003-AL', 17, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
 (129, 'TSDS-19-003-AL', 18, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
@@ -382,7 +353,8 @@ INSERT INTO `docente` (`ID_DOCENTE`, `DNI`, `NOMBRE`, `APELLIDO`, `ROL_DOCENTE`,
 (4, 4, 'Santiago', 'Calatrava', 2, 'scalatrava@iset.com.ar', '0', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png'),
 (5, 5, 'Diego', 'Figueroa', 2, 'dfigueroa@iset.com.ar', '0', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png'),
 (6, 6, 'Jorge', 'Leiva', 2, 'jleiva@iset.com.ar', '0', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png'),
-(7, 7, 'Viktor', 'Frankenstein', 2, 'vfrankenstein@iset.com.ar', '0', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
+(7, 7, 'Viktor', 'Frankenstein', 2, 'vfrankenstein@iset.com.ar', '0', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png'),
+(8, 13123126, 'Juan', 'Peres', 2, 'mail@mail.com', '13123126', 'Marcos', 127, 2147483647, 'https://www.face.com.ar/user', 'https://www.insta.com.ar/user', 'https://www.twr.com.ar/user', '.\\img_profile\\TSB-21-001-DC.png');
 
 -- --------------------------------------------------------
 
@@ -410,44 +382,44 @@ CREATE TABLE `examen_final` (
   `ID_ALUMNO` varchar(15) NOT NULL,
   `ID_MATERIA` int(11) NOT NULL,
   `FINAL` int(2) NOT NULL,
-  `ID_ACTA` int(11) NOT NULL,
-  `NOTA_1` int(2) NOT NULL,
-  `NOTA_2` int(2) NOT NULL
+  `ID_FOLIO` int(2) NOT NULL,
+  `ID_LIBRO` int(2) NOT NULL,
+  `FECHA` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `examen_final`
 --
 
-INSERT INTO `examen_final` (`ID_EXAMEN_FINAL`, `ID_ALUMNO`, `ID_MATERIA`, `FINAL`, `ID_ACTA`, `NOTA_1`, `NOTA_2`) VALUES
-(1, 'TSDS-19-001-AL', 1, 10, 45, 0, 0),
-(2, 'TSDS-19-001-AL', 2, 8, 63, 0, 0),
-(3, 'TSDS-19-001-AL', 3, 8, 150, 0, 0),
-(4, 'TSDS-19-001-AL', 4, 6, 62, 0, 0),
-(5, 'TSDS-19-001-AL', 5, 8, 44, 0, 0),
-(6, 'TSDS-19-001-AL', 6, 10, 54, 0, 0),
-(7, 'TSDS-19-001-AL', 7, 10, 60, 0, 0),
-(8, 'TSDS-19-001-AL', 8, 9, 47, 0, 0),
-(9, 'TSDS-19-001-AL', 9, 8, 134, 0, 0),
-(10, 'TSDS-19-001-AL', 10, 8, 173, 0, 0),
-(11, 'TSDS-19-001-AL', 11, 9, 124, 0, 0),
-(12, 'TSDS-19-001-AL', 12, 5, 72, 0, 0),
-(13, 'TSDS-19-001-AL', 13, 8, 97, 0, 0),
-(14, 'TSDS-19-001-AL', 14, 10, 68, 0, 0),
-(15, 'TSDS-19-001-AL', 15, 10, 17, 0, 0),
-(16, 'TSDS-19-001-AL', 16, 10, 167, 0, 0),
-(17, 'TSDS-19-001-AL', 17, 4, 98, 0, 0),
-(18, 'TSDS-19-001-AL', 18, 10, 165, 0, 0),
-(19, 'TSDS-19-001-AL', 19, 11, 12, 0, 0),
-(20, 'TSDS-19-001-AL', 20, 9, 155, 0, 0),
-(21, 'TSDS-19-001-AL', 21, 0, 0, 0, 0),
-(22, 'TSDS-19-001-AL', 22, 8, 154, 0, 0),
-(23, 'TSDS-19-001-AL', 23, 0, 0, 0, 0),
-(24, 'TSDS-19-001-AL', 24, 10, 68, 0, 0),
-(25, 'TSDS-19-001-AL', 25, 9, 152, 0, 0),
-(26, 'TSDS-19-001-AL', 26, 10, 58, 0, 0),
-(27, 'TSDS-19-001-AL', 27, 10, 58, 0, 0),
-(28, 'TSDS-19-001-AL', 28, 0, 62, 0, 0);
+INSERT INTO `examen_final` (`ID_EXAMEN_FINAL`, `ID_ALUMNO`, `ID_MATERIA`, `FINAL`, `ID_FOLIO`, `ID_LIBRO`, `FECHA`) VALUES
+(1, 'TSDS-19-001-AL', 1, 7, 61, 1, '2020-12-18'),
+(2, 'TSDS-19-001-AL', 2, 8, 63, 1, '2021-04-22'),
+(3, 'TSDS-19-001-AL', 3, 8, 150, 1, '2022-11-24'),
+(4, 'TSDS-19-001-AL', 4, 6, 62, 1, '2021-03-12'),
+(5, 'TSDS-19-001-AL', 5, 8, 44, 1, '2020-09-18'),
+(6, 'TSDS-19-001-AL', 6, 10, 54, 1, '2020-12-02'),
+(7, 'TSDS-19-001-AL', 7, 10, 60, 1, '2020-12-17'),
+(8, 'TSDS-19-001-AL', 8, 9, 47, 1, '2020-09-28'),
+(9, 'TSDS-19-001-AL', 9, 8, 134, 1, '2022-07-04'),
+(10, 'TSDS-19-001-AL', 10, 8, 173, 1, '2023-03-02'),
+(11, 'TSDS-19-001-AL', 11, 9, 124, 1, '2022-04-11'),
+(12, 'TSDS-19-001-AL', 12, 5, 72, 1, '2021-09-27'),
+(13, 'TSDS-19-001-AL', 13, 8, 97, 1, '2021-12-17'),
+(14, 'TSDS-19-001-AL', 14, 10, 68, 1, '2021-07-28'),
+(15, 'TSDS-19-001-AL', 15, 10, 17, 2, '2023-08-02'),
+(16, 'TSDS-19-001-AL', 16, 10, 167, 1, '2022-12-14'),
+(17, 'TSDS-19-001-AL', 17, 4, 1, 1, '2023-03-08'),
+(18, 'TSDS-19-001-AL', 18, 10, 165, 1, '2022-12-14'),
+(19, 'TSDS-19-001-AL', 19, 10, 136, 1, '2022-08-03'),
+(20, 'TSDS-19-001-AL', 20, 9, 135, 1, '2022-12-01'),
+(21, 'TSDS-19-001-AL', 21, 0, 0, 0, '0001-01-01'),
+(22, 'TSDS-19-001-AL', 22, 8, 154, 1, '2022-12-01'),
+(23, 'TSDS-19-001-AL', 23, 0, 0, 0, '0000-00-00'),
+(24, 'TSDS-19-001-AL', 24, 0, 0, 0, '0001-01-01'),
+(25, 'TSDS-19-001-AL', 25, 4, 1, 1, '2023-06-16'),
+(26, 'TSDS-19-001-AL', 26, 9, 152, 1, '2022-11-25'),
+(27, 'TSDS-19-001-AL', 27, 10, 58, 1, '2023-06-14'),
+(28, 'TSDS-19-001-AL', 28, 0, 0, 0, '0001-01-01');
 
 -- --------------------------------------------------------
 
@@ -477,8 +449,7 @@ INSERT INTO `legajo_alumno` (`ID_LEGAJO`, `DNI`, `LEGAJO_ALU`, `CARRERA`, `COHOR
 (6, 6, 'TSDS-19-006-AL', 1, 2, '2023-07-18 18:05:10'),
 (7, 7, 'TSDS-19-007-AL', 1, 2, '2023-07-18 18:05:10'),
 (8, 8, 'TSDS-19-008-AL', 1, 2, '2023-07-18 18:05:10'),
-(9, 9, 'TSDS-19-009-AL', 1, 2, '2023-07-18 18:05:10'),
-(13, 13123123, 'TSDS-21-001-AL', 1, 4, '2023-08-05 23:14:21');
+(9, 9, 'TSDS-19-009-AL', 1, 2, '2023-07-18 18:05:10');
 
 -- --------------------------------------------------------
 
@@ -505,7 +476,8 @@ INSERT INTO `legajo_docente` (`ID_LEGAJO`, `DNI`, `LEGAJO_DOC`, `CARRERA`, `FECH
 (4, 4, 'TSDS-19-004-DC', 1, '2023-07-18 18:05:10'),
 (5, 5, 'TSDS-19-005-DC', 1, '2023-07-18 18:05:10'),
 (6, 6, 'TSDS-19-006-DC', 1, '2023-07-18 18:05:10'),
-(7, 7, 'TSDS-19-007-DC', 1, '2023-07-18 18:05:10');
+(7, 7, 'TSDS-19-007-DC', 1, '2023-07-18 18:05:10'),
+(8, 13123126, 'TSB-21-001-DC', 2, '2023-08-07 04:37:55');
 
 -- --------------------------------------------------------
 
@@ -664,6 +636,36 @@ INSERT INTO `rol` (`ID_ROL`, `ROL`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura Stand-in para la vista `vw_admin_examen`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `vw_admin_examen` (
+`LEGAJO_ALU` varchar(15)
+,`ALUMNO` varchar(101)
+,`MATERIA` varchar(100)
+,`1ER_PARCIAL` int(11)
+,`2DO_PARCIAL` int(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `vw_admin_final`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `vw_admin_final` (
+`LEGAJO_ALU` varchar(15)
+,`APELLIDO` varchar(50)
+,`NOMBRE` varchar(100)
+,`FINAL` int(2)
+,`ID_LIBRO` int(2)
+,`ID_FOLIO` int(2)
+,`FECHA` date
+);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura Stand-in para la vista `vw_alumnos_inscriptos`
 -- (Véase abajo para la vista actual)
 --
@@ -769,10 +771,6 @@ CREATE TABLE `vw_nota_cursado` (
 -- (Véase abajo para la vista actual)
 --
 CREATE TABLE `vw_nota_final` (
-`APELLIDO` varchar(50)
-,`MATERIA` varchar(100)
-,`FINAL` int(2)
-,`ID_ACTA` int(11)
 );
 
 -- --------------------------------------------------------
@@ -792,20 +790,20 @@ CREATE TABLE `vw_plan_estudio` (
 -- --------------------------------------------------------
 
 --
--- Estructura para la vista `admin_examen`
+-- Estructura para la vista `vw_admin_examen`
 --
-DROP TABLE IF EXISTS `admin_examen`;
+DROP TABLE IF EXISTS `vw_admin_examen`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `admin_examen`  AS SELECT `la`.`LEGAJO_ALU` AS `LEGAJO_ALU`, concat(`al`.`APELLIDO`,' ',`al`.`NOMBRE`) AS `ALUMNO`, `m`.`NOMBRE` AS `MATERIA`, `c`.`1ER_PARCIAL` AS `1ER_PARCIAL`, `c`.`2DO_PARCIAL` AS `2DO_PARCIAL` FROM (((`alumno` `al` join `legajo_alumno` `la` on(`la`.`DNI` = `al`.`DNI`)) join `cursa` `c` on(`c`.`ID_ALUMNO` = `la`.`LEGAJO_ALU`)) join `materia` `m` on(`m`.`ID_MATERIA` = `c`.`ID_MATERIA`))  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_admin_examen`  AS SELECT `la`.`LEGAJO_ALU` AS `LEGAJO_ALU`, concat(`al`.`APELLIDO`,' ',`al`.`NOMBRE`) AS `ALUMNO`, `m`.`NOMBRE` AS `MATERIA`, `c`.`1ER_PARCIAL` AS `1ER_PARCIAL`, `c`.`2DO_PARCIAL` AS `2DO_PARCIAL` FROM (((`alumno` `al` join `legajo_alumno` `la` on(`la`.`DNI` = `al`.`DNI`)) join `cursa` `c` on(`c`.`ID_ALUMNO` = `la`.`LEGAJO_ALU`)) join `materia` `m` on(`m`.`ID_MATERIA` = `c`.`ID_MATERIA`))  ;
 
 -- --------------------------------------------------------
 
 --
--- Estructura para la vista `admin_final`
+-- Estructura para la vista `vw_admin_final`
 --
-DROP TABLE IF EXISTS `admin_final`;
+DROP TABLE IF EXISTS `vw_admin_final`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `admin_final`  AS SELECT `la`.`LEGAJO_ALU` AS `LEGAJO_ALU`, concat(`al`.`NOMBRE`,' ',`al`.`APELLIDO`) AS `ALUMNO`, `m`.`NOMBRE` AS `MATERIA`, `ef`.`FINAL` AS `FINAL`, `ef`.`ID_ACTA` AS `ID_ACTA` FROM (((`alumno` `al` join `legajo_alumno` `la` on(`la`.`DNI` = `al`.`DNI`)) join `examen_final` `ef` on(`ef`.`ID_ALUMNO` = `la`.`LEGAJO_ALU`)) join `materia` `m` on(`m`.`ID_MATERIA` = `ef`.`ID_MATERIA`))  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_admin_final`  AS SELECT `legajo_alumno`.`LEGAJO_ALU` AS `LEGAJO_ALU`, `alumno`.`APELLIDO` AS `APELLIDO`, `materia`.`NOMBRE` AS `NOMBRE`, `examen_final`.`FINAL` AS `FINAL`, `examen_final`.`ID_LIBRO` AS `ID_LIBRO`, `examen_final`.`ID_FOLIO` AS `ID_FOLIO`, `examen_final`.`FECHA` AS `FECHA` FROM (((`alumno` join `legajo_alumno` on(`alumno`.`DNI` = `legajo_alumno`.`DNI`)) join `examen_final` on(`legajo_alumno`.`LEGAJO_ALU` = `examen_final`.`ID_ALUMNO`)) join `materia` on(`examen_final`.`ID_MATERIA` = `materia`.`ID_MATERIA`))  ;
 
 -- --------------------------------------------------------
 
@@ -1026,7 +1024,7 @@ ALTER TABLE `cursa`
 -- AUTO_INCREMENT de la tabla `docente`
 --
 ALTER TABLE `docente`
-  MODIFY `ID_DOCENTE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID_DOCENTE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `ensenia`
@@ -1050,7 +1048,7 @@ ALTER TABLE `legajo_alumno`
 -- AUTO_INCREMENT de la tabla `legajo_docente`
 --
 ALTER TABLE `legajo_docente`
-  MODIFY `ID_LEGAJO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID_LEGAJO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`

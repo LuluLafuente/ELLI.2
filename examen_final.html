@@ -67,7 +67,7 @@
                 <fieldset>
                     <legend><strong>Registrar Nota de Examen</strong></legend>
                     <form id="formularioNotas" action="guardar_nota.php" method="POST">
-                            <label for="carrera">1. Seleccione Carrera:</label>
+                        <label for="carrera">1. Seleccione Carrera:</label>
 
                         <select id="carreraSelect" name="carrera">
                             <option value="0" selected disabled>&gt; SELECCIONE UNA CARRERA &lt;</option>
@@ -99,22 +99,28 @@
 
                             <option value="0" selected disabled>&gt; SELECCIONE UN ALUMNO &lt;</option>
                             <?php for ($i = 0; $i < $consulta->rowCount(); $i++):
-                                    $idalumno = $resultado[$i]['LEGAJO'];
+                                    $alumno = $resultado[$i]['LEGAJO'];
                                     $nombre = $resultado[$i]['ALUMNO'];
                                     $materiaId = $resultado[$i]['ID_MATERIA']; // ID de la Materia a la que pertenece el alumno
 
                                 ?>
-                            <option value="<?php echo $idalumno; ?>" data-materia="<?php echo $materiaId;?>" required>
+                            <option value="<?php echo $alumno; ?>" data-materia="<?php echo $materiaId;?>" required>
                                 <?php echo $nombre; ?>
                             </option>
                             <?php endfor; ?>
                         </select>
                         <br>
-                        <label for="nota">4. Ingrese Nota del examen:</label>
-                        <input type="number" id="nota" name="nota" required><br>
+                        <label for="nota">4. Ingrese Nota del Examen:</label>
+                        <input type="number" id="nota" name="nota" required min="1" max="10"><br>
 
-                        <label for="acta">5. Ingrese Número de acta:</label>
-                        <input type="number" id="acta" name="acta" required><br>
+                        <label for="folio">5. Ingrese Número de Libro:</label>
+                        <input type="number" id="numero_libro" name="numero_libro" required min="1"><br>
+                        
+                        <label for="numero_libro">6. Ingrese el Número de Folio:</label>
+                        <input type="number" id="folio" name="folio" required min="1"><br>
+
+                        <label for="fecha">7. Seleccione la Fecha:</label>
+                        <input type="date" id="fecha" name="fecha" required><br>
 
                         <input type="submit" value="Guardar Nota">
                     </form>

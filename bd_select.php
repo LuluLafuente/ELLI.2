@@ -251,19 +251,19 @@ function selectAlumnosPorMateria($conexion, $materiaId) {
     }
 
     function selectListaNotas($con){
-        $consulta = $con->query("SELECT * FROM admin_final;");
+        $consulta = $con->query("SELECT * FROM vw_admin_final;");
 
         return $consulta;
     }
 
     function selectListaParciales($con){
-        $consulta = $con->query("SELECT * FROM admin_examen");
+        $consulta = $con->query("SELECT * FROM vw_admin_examen");
         
         return $consulta;
 
     }
     function selectHistoriaAlumno($con, $apellido){
-        $consulta = $con->query("SELECT materia, final, id_acta FROM vw_nota_final WHERE APELLIDO = '$apellido'");
+        $consulta = $con->query("SELECT NOMBRE, FINAL, ID_FOLIO FROM vw_admin_final WHERE APELLIDO = '$apellido'");
 
         return $consulta;
     }

@@ -90,9 +90,12 @@
                                 <tr>
                                     <th>Legajo</th>
                                     <th>Alumno</th>
-                                    <th>Asignatura</th>
+                                    <th style="padding-right: 150px;padding-left: 150px;">Asignatura</th>
                                     <th>Nota Final</th>
-                                    <th>N° Acta</th>
+                                    <th>N° Folio</th>
+                                    <th>N° Fecha</th>
+
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -107,28 +110,35 @@
                                     <td>
                                         <!--Alumnos-->
                                         <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                        <?php echo $resultado[$i]['ALUMNO'];?>
+                                        <?php echo $resultado[$i]['APELLIDO'];?>
                                         <hr>
                                         <?php endfor; ?>
                                     </td>
                                     <td>
                                         <!--Asignaturas-->
                                         <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                        <?php echo $resultado[$i]['MATERIA']; ?>
+                                        <?php echo $resultado[$i]['NOMBRE']; ?>
                                         <hr>
                                         <?php endfor; ?>
                                     </td>
                                     <td>
-                                        <!--Notas-->
+                                        <!--FINAL-->
                                         <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
                                         <?php echo $resultado[$i]['FINAL']; ?>
                                         <hr>
                                         <?php endfor; ?>
                                     </td>
                                     <td>
-                                        <!--N°Acta-->
+                                        <!--FOLIO-->
                                         <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                        <?php echo $resultado[$i]['ID_ACTA']; ?>
+                                        <?php echo $resultado[$i]['ID_FOLIO']; ?>
+                                        <hr>
+                                        <?php endfor; ?>
+                                    </td>
+                                    <td>
+                                        <!--FECHA-->
+                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                        <?php echo $resultado[$i]['FECHA']; ?>
                                         <hr>
                                         <?php endfor; ?>
                                     </td>

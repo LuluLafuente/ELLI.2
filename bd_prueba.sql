@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-08-2023 a las 06:08:19
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Tiempo de generación: 14-08-2023 a las 06:00:34
+-- Versión del servidor: 10.4.25-MariaDB
+-- Versión de PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -81,15 +81,15 @@ CREATE TABLE `alumno` (
 --
 
 INSERT INTO `alumno` (`ID_ALUMNO`, `DNI`, `NOMBRE`, `APELLIDO`, `ROL_ALUMNO`, `USUARIO`, `CONTRASENIA`, `DOMICILIO`, `NRO_DOMICILIO`, `CELULAR`, `RED_FACEBOOK`, `RED_INSTAGRAM`, `RED_TWITTER`, `FOTO_ALU`) VALUES
-(1, 1, 'Lourdes', 'La Fuente', 3, 'llafuente@iset.com.ar', '0', 'calle', 123, 0038100001, 'https://www.facebook.com/usuario', 'https://www.instagram.com/usuario', 'https://www.instagram.com/usuario', '.\\img_profile\\perfil.png'),
+(1, 1, 'Lourdes', 'Lafuente', 3, 'llafuente@iset.com.ar', '0', 'calle', 123, 0038100001, 'https://www.facebook.com/usuario', 'https://www.instagram.com/usuario', 'https://www.instagram.com/usuario', '.\\img_profile\\perfil.png'),
 (2, 2, 'Ignacio', 'Llorente', 3, 'illorente@iset.com.ar', '0', 'calle', 123, 0038100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png'),
 (3, 3, 'Lucas', 'Villagran', 3, 'lvillagran@iset.com.ar', '0', 'calle', 123, 0038100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png'),
 (4, 4, 'David', 'Carrazana', 3, 'dcarrazana@iset.com.ar', '0', 'calle', 123, 0038100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png'),
 (5, 5, 'Ariel', 'Kasiañuk', 3, 'akasiañuk@iset.com.ar', '0', 'calle', 123, 0038100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png'),
 (6, 6, 'Carlos', 'Namen', 3, 'cnamen@iset.com.ar', '0', 'calle', 123, 0038100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png'),
 (7, 7, 'Ramon', 'Gutierrez', 3, 'rgutierrez@iset.com.ar', '0', 'calle', 123, 0038100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png'),
-(8, 8, 'Ricardo', 'Xxxx', 3, 'rxxxx@iset.com.ar', '0', 'calle', 123, 0038100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png'),
-(9, 9, 'Norma', ' Xxxx', 3, 'nxxxx@iset.com.ar', '0', 'calle', 123, 0038100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
+(8, 8, 'Ricardo', 'Mejias Villejas', 3, 'rmejias@iset.com.ar', '0', 'calle', 123, 0038100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png'),
+(9, 9, 'Norma del Carmen', 'Navarro', 3, 'nnavarro@iset.com.ar', '0', 'calle', 123, 0038100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
 
 -- --------------------------------------------------------
 
@@ -179,145 +179,145 @@ CREATE TABLE `cursa` (
 --
 
 INSERT INTO `cursa` (`ID_CURSADO`, `ID_ALUMNO`, `ID_MATERIA`, `FECHA`, `CICLO`, `1ER_PARCIAL`, `2DO_PARCIAL`, `FINAL`, `ESTADO`) VALUES
-(1, 'TSDS-19-001-AL', 1, '2023-08-05 11:16:58', 2023, 10, 7, 7, 'Promocion'),
-(2, 'TSDS-19-001-AL', 2, '2023-08-05 11:16:58', 2023, 7, 9, 8, 'Promocion'),
-(3, 'TSDS-19-001-AL', 3, '2023-08-05 11:16:58', 2023, 4, 4, 6, 'Aprobado'),
-(4, 'TSDS-19-001-AL', 4, '2023-08-05 11:16:58', 2023, 8, 8, 8, 'Promocion'),
-(5, 'TSDS-19-001-AL', 5, '2023-08-05 11:16:58', 2023, 10, 5, 10, 'Aprobado'),
-(6, 'TSDS-19-001-AL', 6, '2023-08-05 11:16:58', 2023, 9, 10, 10, 'Promocion'),
-(7, 'TSDS-19-001-AL', 7, '2023-08-05 11:16:58', 2023, 8, 8, 9, 'Aprobado'),
-(8, 'TSDS-19-001-AL', 8, '2023-08-05 11:16:58', 2023, 8, 8, 9, 'Aprobado'),
-(9, 'TSDS-19-001-AL', 9, '2023-08-05 11:16:58', 2023, 8, 7, 8, 'Aprobado'),
-(10, 'TSDS-19-001-AL', 10, '2023-08-05 11:16:58', 2023, 10, 10, 10, 'Aprobado'),
-(11, 'TSDS-19-001-AL', 11, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
-(12, 'TSDS-19-001-AL', 12, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
-(13, 'TSDS-19-001-AL', 13, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
-(14, 'TSDS-19-001-AL', 14, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
-(15, 'TSDS-19-001-AL', 15, '2023-08-05 11:16:58', 2023, 10, 0, -1, 'Sin Datos'),
-(16, 'TSDS-19-001-AL', 16, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
-(17, 'TSDS-19-001-AL', 17, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
-(18, 'TSDS-19-001-AL', 18, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
-(19, 'TSDS-19-001-AL', 19, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
-(20, 'TSDS-19-001-AL', 20, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
-(21, 'TSDS-19-001-AL', 21, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
-(22, 'TSDS-19-001-AL', 22, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
-(23, 'TSDS-19-001-AL', 23, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
-(24, 'TSDS-19-001-AL', 24, '2023-08-05 11:16:58', 2023, 10, 10, -1, 'Sin Datos'),
-(25, 'TSDS-19-001-AL', 25, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
-(26, 'TSDS-19-001-AL', 26, '2023-08-05 11:16:58', 2023, -1, -1, -1, 'Sin Datos'),
-(27, 'TSDS-19-001-AL', 27, '2023-08-05 11:16:58', 2023, 10, 10, -1, 'Sin Datos'),
-(28, 'TSDS-19-004-AL', 1, '2023-08-06 15:17:29', 2023, 8, 8, 7, 'Promoción'),
-(29, 'TSDS-19-004-AL', 2, '2023-08-06 15:17:29', 2023, 9, 9, 9, 'Promoción'),
-(30, 'TSDS-19-004-AL', 3, '2023-08-06 15:17:29', 2023, 10, 10, 10, 'Regular'),
-(31, 'TSDS-19-004-AL', 4, '2023-08-06 15:17:29', 2023, 7, 7, 7, 'Promoción'),
-(32, 'TSDS-19-004-AL', 5, '2023-08-06 15:17:29', 2023, 0, 0, 0, 'Libre'),
-(33, 'TSDS-19-004-AL', 6, '2023-08-06 15:17:29', 2023, 10, 6, 8, 'Regular'),
-(34, 'TSDS-19-004-AL', 7, '2023-08-06 15:17:29', 2023, 10, 10, 10, 'Promoción'),
-(35, 'TSDS-19-004-AL', 8, '2023-08-06 15:17:29', 2023, 0, 0, 0, 'Libre'),
-(36, 'TSDS-19-004-AL', 9, '2023-08-06 15:17:29', 2023, 10, 9, 9, 'Regular'),
-(37, 'TSDS-19-004-AL', 10, '2023-08-06 15:17:29', 2023, 9, 10, 9, 'Regular'),
-(38, 'TSDS-19-004-AL', 11, '2023-08-06 15:17:29', 2023, 8, 9, 8, 'Promoción'),
-(39, 'TSDS-19-004-AL', 12, '2023-08-06 15:17:29', 2023, 6, 5, 5, 'Regular'),
-(40, 'TSDS-19-004-AL', 13, '2023-08-06 15:17:29', 2023, 0, 0, 0, 'Libre'),
-(41, 'TSDS-19-004-AL', 14, '2023-08-06 15:17:29', 2023, 10, 10, 10, 'Promoción'),
-(42, 'TSDS-19-004-AL', 15, '2023-08-06 15:17:29', 2023, 10, 10, 10, 'Promoción'),
-(43, 'TSDS-19-004-AL', 16, '2023-08-06 15:17:29', 2023, 10, 8, 9, 'Regular'),
-(44, 'TSDS-19-004-AL', 17, '2023-08-06 15:17:29', 2023, 6, 6, 6, 'Regular'),
-(45, 'TSDS-19-004-AL', 18, '2023-08-06 15:17:29', 2023, 10, 6, 8, 'Regular'),
-(46, 'TSDS-19-004-AL', 19, '2023-08-06 15:17:29', 2023, 6, 6, 6, 'Regular'),
-(47, 'TSDS-19-004-AL', 20, '2023-08-06 15:17:29', 2023, 8, 8, 8, 'Promoción'),
-(48, 'TSDS-19-004-AL', 21, '2023-08-06 15:17:29', 2023, -1, -1, -1, 'Regular'),
-(49, 'TSDS-19-004-AL', 22, '2023-08-06 15:17:29', 2023, 7, 7, 7, 'Promoción'),
-(50, 'TSDS-19-004-AL', 23, '2023-08-06 15:17:29', 2023, -1, -1, -1, 'Regular'),
-(51, 'TSDS-19-004-AL', 24, '2023-08-06 15:17:29', 2023, -1, -1, -1, 'Regular'),
-(52, 'TSDS-19-004-AL', 25, '2023-08-06 15:17:29', 2023, -1, -1, -1, 'Regular'),
-(53, 'TSDS-19-004-AL', 26, '2023-08-06 15:17:29', 2023, 8, 4, 6, 'Regular'),
-(54, 'TSDS-19-004-AL', 27, '2023-08-06 15:17:29', 2023, 6, 6, 6, 'Regular'),
-(55, 'TSDS-19-004-AL', 28, '2023-08-06 15:17:29', 2023, 6, 6, 6, 'Regular'),
-(56, 'TSDS-19-007-AL', 1, '2023-08-06 15:17:30', 2023, 9, -1, -1, 'Sin Datos'),
-(57, 'TSDS-19-007-AL', 2, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(58, 'TSDS-19-007-AL', 3, '2023-08-06 15:17:30', 2023, -1, -1, 10, 'Regular'),
-(59, 'TSDS-19-007-AL', 4, '2023-08-06 15:17:30', 2023, -1, -1, 5, 'Regular'),
-(60, 'TSDS-19-007-AL', 5, '2023-08-06 15:17:30', 2023, -1, -1, 7, 'Promoción'),
-(61, 'TSDS-19-007-AL', 6, '2023-08-06 15:17:30', 2023, -1, -1, 10, 'Regular'),
-(62, 'TSDS-19-007-AL', 7, '2023-08-06 15:17:30', 2023, -1, -1, 9, 'Promoción'),
-(63, 'TSDS-19-007-AL', 8, '2023-08-06 15:17:30', 2023, -1, -1, 9, 'Promoción'),
-(64, 'TSDS-19-007-AL', 9, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(65, 'TSDS-19-007-AL', 10, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(66, 'TSDS-19-007-AL', 11, '2023-08-06 15:17:30', 2023, -1, -1, 8, 'Promoción'),
-(67, 'TSDS-19-007-AL', 12, '2023-08-06 15:17:30', 2023, -1, -1, 5, 'Regular'),
-(68, 'TSDS-19-007-AL', 13, '2023-08-06 15:17:30', 2023, -1, -1, 8, 'Promoción'),
-(69, 'TSDS-19-007-AL', 14, '2023-08-06 15:17:30', 2023, -1, -1, 10, 'Promoción'),
-(70, 'TSDS-19-007-AL', 15, '2023-08-06 15:17:30', 2023, 10, -1, 10, 'Promoción'),
-(71, 'TSDS-19-007-AL', 16, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(72, 'TSDS-19-007-AL', 17, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(73, 'TSDS-19-007-AL', 18, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(74, 'TSDS-19-007-AL', 19, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(75, 'TSDS-19-007-AL', 20, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(76, 'TSDS-19-007-AL', 21, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(77, 'TSDS-19-007-AL', 22, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(78, 'TSDS-19-007-AL', 23, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(79, 'TSDS-19-007-AL', 24, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(80, 'TSDS-19-007-AL', 25, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(81, 'TSDS-19-007-AL', 26, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(82, 'TSDS-19-007-AL', 27, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(83, 'TSDS-19-007-AL', 28, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(84, 'TSDS-19-009-AL', 1, '2023-08-06 15:17:30', 2023, 5, -1, -1, 'Sin Datos'),
-(85, 'TSDS-19-009-AL', 2, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(86, 'TSDS-19-009-AL', 3, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(87, 'TSDS-19-009-AL', 4, '2023-08-06 15:17:30', 2023, -1, -1, 8, 'Regular'),
-(88, 'TSDS-19-009-AL', 5, '2023-08-06 15:17:30', 2023, -1, -1, 8, 'Promoción'),
-(89, 'TSDS-19-009-AL', 6, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(90, 'TSDS-19-009-AL', 7, '2023-08-06 15:17:30', 2023, -1, -1, 8, 'Promoción'),
-(91, 'TSDS-19-009-AL', 8, '2023-08-06 15:17:30', 2023, -1, -1, 6, 'Promoción'),
-(92, 'TSDS-19-009-AL', 9, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(93, 'TSDS-19-009-AL', 10, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(94, 'TSDS-19-009-AL', 11, '2023-08-06 15:17:30', 2023, -1, -1, 8, 'Promoción'),
-(95, 'TSDS-19-009-AL', 12, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(96, 'TSDS-19-009-AL', 13, '2023-08-06 15:17:30', 2023, -1, -1, 9, 'Promoción'),
-(97, 'TSDS-19-009-AL', 14, '2023-08-06 15:17:30', 2023, -1, -1, 9, 'Promoción'),
-(98, 'TSDS-19-009-AL', 15, '2023-08-06 15:17:30', 2023, 10, -1, 9, 'Promoción'),
-(99, 'TSDS-19-009-AL', 16, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(100, 'TSDS-19-009-AL', 17, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(101, 'TSDS-19-009-AL', 18, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(102, 'TSDS-19-009-AL', 19, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(103, 'TSDS-19-009-AL', 20, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(104, 'TSDS-19-009-AL', 21, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(105, 'TSDS-19-009-AL', 22, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(106, 'TSDS-19-009-AL', 23, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(107, 'TSDS-19-009-AL', 24, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(108, 'TSDS-19-009-AL', 25, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(109, 'TSDS-19-009-AL', 26, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(110, 'TSDS-19-009-AL', 27, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(111, 'TSDS-19-009-AL', 28, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(112, 'TSDS-19-003-AL', 1, '2023-08-06 15:17:30', 2023, 2, -1, -1, 'Sin Datos'),
-(113, 'TSDS-19-003-AL', 2, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(114, 'TSDS-19-003-AL', 3, '2023-08-06 15:17:30', 2023, -1, -1, 8, 'Regular'),
-(115, 'TSDS-19-003-AL', 4, '2023-08-06 15:17:30', 2023, -1, -1, 7, 'Regular'),
-(116, 'TSDS-19-003-AL', 5, '2023-08-06 15:17:30', 2023, -1, -1, 7, 'Promoción'),
-(117, 'TSDS-19-003-AL', 6, '2023-08-06 15:17:30', 2023, -1, -1, 8, 'Promoción'),
-(118, 'TSDS-19-003-AL', 7, '2023-08-06 15:17:30', 2023, -1, -1, 9, 'Promoción'),
-(119, 'TSDS-19-003-AL', 8, '2023-08-06 15:17:30', 2023, -1, -1, 8, 'Promoción'),
-(120, 'TSDS-19-003-AL', 9, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(121, 'TSDS-19-003-AL', 10, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(122, 'TSDS-19-003-AL', 11, '2023-08-06 15:17:30', 2023, -1, -1, 8, 'Promoción'),
-(123, 'TSDS-19-003-AL', 12, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(124, 'TSDS-19-003-AL', 13, '2023-08-06 15:17:30', 2023, -1, -1, 8, 'Promoción'),
-(125, 'TSDS-19-003-AL', 14, '2023-08-06 15:17:30', 2023, -1, -1, 9, 'Promoción'),
-(126, 'TSDS-19-003-AL', 15, '2023-08-06 15:17:30', 2023, 10, -1, 4, 'Promoción'),
-(127, 'TSDS-19-003-AL', 16, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(128, 'TSDS-19-003-AL', 17, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(129, 'TSDS-19-003-AL', 18, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(130, 'TSDS-19-003-AL', 19, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(131, 'TSDS-19-003-AL', 20, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(132, 'TSDS-19-003-AL', 21, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(133, 'TSDS-19-003-AL', 22, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(134, 'TSDS-19-003-AL', 23, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(135, 'TSDS-19-003-AL', 24, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(136, 'TSDS-19-003-AL', 25, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(137, 'TSDS-19-003-AL', 26, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(138, 'TSDS-19-003-AL', 27, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos'),
-(139, 'TSDS-19-003-AL', 28, '2023-08-06 15:17:30', 2023, -1, -1, -1, 'Sin Datos');
+(1, 'TSDS-19-001-AL', 1, '2023-08-03 22:08:33', 2023, 7, 7, 7, 'Promoción'),
+(2, 'TSDS-19-001-AL', 2, '2023-08-03 22:08:33', 2023, 7, 9, 8, 'Promoción'),
+(3, 'TSDS-19-001-AL', 3, '2023-08-03 22:08:33', 2023, 4, 4, 6, 'Aprobado'),
+(4, 'TSDS-19-001-AL', 4, '2023-08-03 22:08:33', 2023, 8, 8, 8, 'Promoción'),
+(5, 'TSDS-19-001-AL', 5, '2023-08-03 22:08:33', 2023, 10, 5, 10, 'Aprobado'),
+(6, 'TSDS-19-001-AL', 6, '2023-08-03 22:08:33', 2023, 9, 10, 10, 'Promoción'),
+(7, 'TSDS-19-001-AL', 7, '2023-08-03 22:08:33', 2023, 8, 8, 9, 'Aprobado'),
+(8, 'TSDS-19-001-AL', 8, '2023-08-03 22:08:33', 2023, 8, 8, 9, 'Aprobado'),
+(9, 'TSDS-19-001-AL', 9, '2023-08-03 22:08:33', 2023, 8, 7, 8, 'Aprobado'),
+(10, 'TSDS-19-001-AL', 10, '2023-08-03 22:08:33', 2023, 10, 10, 10, 'Aprobado'),
+(11, 'TSDS-19-001-AL', 11, '2023-08-03 22:08:33', 2023, -1, -1, -1, 'Sin Datos'),
+(12, 'TSDS-19-001-AL', 12, '2023-08-03 22:08:33', 2023, -1, -1, -1, 'Sin Datos'),
+(13, 'TSDS-19-001-AL', 13, '2023-08-03 22:08:33', 2023, -1, -1, -1, 'Sin Datos'),
+(14, 'TSDS-19-001-AL', 14, '2023-08-03 22:08:33', 2023, -1, -1, -1, 'Sin Datos'),
+(15, 'TSDS-19-001-AL', 15, '2023-08-03 22:08:33', 2023, -1, -1, -1, 'Sin Datos'),
+(16, 'TSDS-19-001-AL', 16, '2023-08-03 22:08:33', 2023, -1, -1, -1, 'Sin Datos'),
+(17, 'TSDS-19-001-AL', 17, '2023-08-03 22:08:33', 2023, -1, -1, -1, 'Sin Datos'),
+(18, 'TSDS-19-001-AL', 18, '2023-08-03 22:08:33', 2023, -1, -1, -1, 'Sin Datos'),
+(19, 'TSDS-19-001-AL', 19, '2023-08-03 22:08:33', 2023, -1, -1, -1, 'Sin Datos'),
+(20, 'TSDS-19-001-AL', 20, '2023-08-03 22:08:33', 2023, -1, -1, -1, 'Sin Datos'),
+(21, 'TSDS-19-001-AL', 21, '2023-08-03 22:08:33', 2023, -1, -1, -1, 'Sin Datos'),
+(22, 'TSDS-19-001-AL', 22, '2023-08-03 22:08:33', 2023, -1, -1, -1, 'Sin Datos'),
+(23, 'TSDS-19-001-AL', 23, '2023-08-03 22:08:33', 2023, -1, -1, -1, 'Sin Datos'),
+(24, 'TSDS-19-001-AL', 24, '2023-08-03 22:08:33', 2023, -1, -1, -1, 'Sin Datos'),
+(25, 'TSDS-19-001-AL', 25, '2023-08-03 22:08:33', 2023, -1, -1, -1, 'Sin Datos'),
+(26, 'TSDS-19-001-AL', 26, '2023-08-03 22:08:33', 2023, -1, -1, -1, 'Sin Datos'),
+(27, 'TSDS-19-001-AL', 27, '2023-08-03 22:08:33', 2023, -1, -1, -1, 'Sin Datos'),
+(28, 'TSDS-19-004-AL', 1, '2023-08-03 22:08:34', 2023, 8, 7, 7, 'Promoción'),
+(29, 'TSDS-19-004-AL', 2, '2023-08-03 22:08:34', 2023, 9, 9, 9, 'Promoción'),
+(30, 'TSDS-19-004-AL', 3, '2023-08-03 22:08:34', 2023, 10, 10, 10, 'Regular'),
+(31, 'TSDS-19-004-AL', 4, '2023-08-03 22:08:34', 2023, 7, 7, 7, 'Promoción'),
+(32, 'TSDS-19-004-AL', 5, '2023-08-03 22:08:34', 2023, 0, 0, 0, 'Libre'),
+(33, 'TSDS-19-004-AL', 6, '2023-08-03 22:08:34', 2023, 10, 6, 8, 'Regular'),
+(34, 'TSDS-19-004-AL', 7, '2023-08-03 22:08:34', 2023, 10, 10, 10, 'Promoción'),
+(35, 'TSDS-19-004-AL', 8, '2023-08-03 22:08:34', 2023, 0, 0, 0, 'Libre'),
+(36, 'TSDS-19-004-AL', 9, '2023-08-03 22:08:34', 2023, 10, 9, 9, 'Regular'),
+(37, 'TSDS-19-004-AL', 10, '2023-08-03 22:08:34', 2023, 9, 10, 9, 'Regular'),
+(38, 'TSDS-19-004-AL', 11, '2023-08-03 22:08:34', 2023, 8, 9, 8, 'Promoción'),
+(39, 'TSDS-19-004-AL', 12, '2023-08-03 22:08:34', 2023, 6, 5, 5, 'Regular'),
+(40, 'TSDS-19-004-AL', 13, '2023-08-03 22:08:34', 2023, 0, 0, 0, 'Libre'),
+(41, 'TSDS-19-004-AL', 14, '2023-08-03 22:08:34', 2023, 10, 10, 10, 'Promoción'),
+(42, 'TSDS-19-004-AL', 15, '2023-08-03 22:08:34', 2023, 10, 10, 10, 'Promoción'),
+(43, 'TSDS-19-004-AL', 16, '2023-08-03 22:08:34', 2023, 10, 8, 9, 'Regular'),
+(44, 'TSDS-19-004-AL', 17, '2023-08-03 22:08:34', 2023, 6, 6, 6, 'Regular'),
+(45, 'TSDS-19-004-AL', 18, '2023-08-03 22:08:34', 2023, 10, 6, 8, 'Regular'),
+(46, 'TSDS-19-004-AL', 19, '2023-08-03 22:08:34', 2023, 6, 6, 6, 'Regular'),
+(47, 'TSDS-19-004-AL', 20, '2023-08-03 22:08:34', 2023, 8, 8, 8, 'Promoción'),
+(48, 'TSDS-19-004-AL', 21, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Regular'),
+(49, 'TSDS-19-004-AL', 22, '2023-08-03 22:08:34', 2023, 7, 7, 7, 'Promoción'),
+(50, 'TSDS-19-004-AL', 23, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Regular'),
+(51, 'TSDS-19-004-AL', 24, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Regular'),
+(52, 'TSDS-19-004-AL', 25, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Regular'),
+(53, 'TSDS-19-004-AL', 26, '2023-08-03 22:08:34', 2023, 8, 4, 6, 'Regular'),
+(54, 'TSDS-19-004-AL', 27, '2023-08-03 22:08:34', 2023, 6, 6, 6, 'Regular'),
+(55, 'TSDS-19-004-AL', 28, '2023-08-03 22:08:34', 2023, 6, 6, 6, 'Regular'),
+(56, 'TSDS-19-007-AL', 1, '2023-08-03 22:08:34', 2023, 6, 7, -1, 'Sin Datos'),
+(57, 'TSDS-19-007-AL', 2, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(58, 'TSDS-19-007-AL', 3, '2023-08-03 22:08:34', 2023, -1, -1, 10, 'Regular'),
+(59, 'TSDS-19-007-AL', 4, '2023-08-03 22:08:34', 2023, -1, -1, 5, 'Regular'),
+(60, 'TSDS-19-007-AL', 5, '2023-08-03 22:08:34', 2023, -1, -1, 7, 'Promoción'),
+(61, 'TSDS-19-007-AL', 6, '2023-08-03 22:08:34', 2023, -1, -1, 10, 'Regular'),
+(62, 'TSDS-19-007-AL', 7, '2023-08-03 22:08:34', 2023, -1, -1, 9, 'Promoción'),
+(63, 'TSDS-19-007-AL', 8, '2023-08-03 22:08:34', 2023, -1, -1, 9, 'Promoción'),
+(64, 'TSDS-19-007-AL', 9, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(65, 'TSDS-19-007-AL', 10, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(66, 'TSDS-19-007-AL', 11, '2023-08-03 22:08:34', 2023, -1, -1, 8, 'Promoción'),
+(67, 'TSDS-19-007-AL', 12, '2023-08-03 22:08:34', 2023, -1, -1, 5, 'Regular'),
+(68, 'TSDS-19-007-AL', 13, '2023-08-03 22:08:34', 2023, -1, -1, 8, 'Promoción'),
+(69, 'TSDS-19-007-AL', 14, '2023-08-03 22:08:34', 2023, -1, -1, 10, 'Promoción'),
+(70, 'TSDS-19-007-AL', 15, '2023-08-03 22:08:34', 2023, -1, -1, 10, 'Promoción'),
+(71, 'TSDS-19-007-AL', 16, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(72, 'TSDS-19-007-AL', 17, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(73, 'TSDS-19-007-AL', 18, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(74, 'TSDS-19-007-AL', 19, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(75, 'TSDS-19-007-AL', 20, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(76, 'TSDS-19-007-AL', 21, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(77, 'TSDS-19-007-AL', 22, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(78, 'TSDS-19-007-AL', 23, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(79, 'TSDS-19-007-AL', 24, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(80, 'TSDS-19-007-AL', 25, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(81, 'TSDS-19-007-AL', 26, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(82, 'TSDS-19-007-AL', 27, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(83, 'TSDS-19-007-AL', 28, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(84, 'TSDS-19-009-AL', 1, '2023-08-03 22:08:34', 2023, 8, 7, -1, 'Sin Datos'),
+(85, 'TSDS-19-009-AL', 2, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(86, 'TSDS-19-009-AL', 3, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(87, 'TSDS-19-009-AL', 4, '2023-08-03 22:08:34', 2023, -1, -1, 8, 'Regular'),
+(88, 'TSDS-19-009-AL', 5, '2023-08-03 22:08:34', 2023, -1, -1, 8, 'Promoción'),
+(89, 'TSDS-19-009-AL', 6, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(90, 'TSDS-19-009-AL', 7, '2023-08-03 22:08:34', 2023, -1, -1, 8, 'Promoción'),
+(91, 'TSDS-19-009-AL', 8, '2023-08-03 22:08:34', 2023, -1, -1, 6, 'Promoción'),
+(92, 'TSDS-19-009-AL', 9, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(93, 'TSDS-19-009-AL', 10, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(94, 'TSDS-19-009-AL', 11, '2023-08-03 22:08:34', 2023, -1, -1, 8, 'Promoción'),
+(95, 'TSDS-19-009-AL', 12, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(96, 'TSDS-19-009-AL', 13, '2023-08-03 22:08:34', 2023, -1, -1, 9, 'Promoción'),
+(97, 'TSDS-19-009-AL', 14, '2023-08-03 22:08:34', 2023, -1, -1, 9, 'Promoción'),
+(98, 'TSDS-19-009-AL', 15, '2023-08-03 22:08:34', 2023, -1, -1, 9, 'Promoción'),
+(99, 'TSDS-19-009-AL', 16, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(100, 'TSDS-19-009-AL', 17, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(101, 'TSDS-19-009-AL', 18, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(102, 'TSDS-19-009-AL', 19, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(103, 'TSDS-19-009-AL', 20, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(104, 'TSDS-19-009-AL', 21, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(105, 'TSDS-19-009-AL', 22, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(106, 'TSDS-19-009-AL', 23, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(107, 'TSDS-19-009-AL', 24, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(108, 'TSDS-19-009-AL', 25, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(109, 'TSDS-19-009-AL', 26, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(110, 'TSDS-19-009-AL', 27, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(111, 'TSDS-19-009-AL', 28, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(112, 'TSDS-19-003-AL', 1, '2023-08-03 22:08:34', 2023, 8, 7, -1, 'Sin Datos'),
+(113, 'TSDS-19-003-AL', 2, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(114, 'TSDS-19-003-AL', 3, '2023-08-03 22:08:34', 2023, -1, -1, 8, 'Regular'),
+(115, 'TSDS-19-003-AL', 4, '2023-08-03 22:08:34', 2023, -1, -1, 7, 'Regular'),
+(116, 'TSDS-19-003-AL', 5, '2023-08-03 22:08:34', 2023, -1, -1, 7, 'Promoción'),
+(117, 'TSDS-19-003-AL', 6, '2023-08-03 22:08:34', 2023, -1, -1, 8, 'Promoción'),
+(118, 'TSDS-19-003-AL', 7, '2023-08-03 22:08:34', 2023, -1, -1, 9, 'Promoción'),
+(119, 'TSDS-19-003-AL', 8, '2023-08-03 22:08:34', 2023, -1, -1, 8, 'Promoción'),
+(120, 'TSDS-19-003-AL', 9, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(121, 'TSDS-19-003-AL', 10, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(122, 'TSDS-19-003-AL', 11, '2023-08-03 22:08:34', 2023, -1, -1, 8, 'Promoción'),
+(123, 'TSDS-19-003-AL', 12, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(124, 'TSDS-19-003-AL', 13, '2023-08-03 22:08:34', 2023, -1, -1, 8, 'Promoción'),
+(125, 'TSDS-19-003-AL', 14, '2023-08-03 22:08:34', 2023, -1, -1, 9, 'Promoción'),
+(126, 'TSDS-19-003-AL', 15, '2023-08-03 22:08:34', 2023, -1, -1, 4, 'Promoción'),
+(127, 'TSDS-19-003-AL', 16, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(128, 'TSDS-19-003-AL', 17, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(129, 'TSDS-19-003-AL', 18, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(130, 'TSDS-19-003-AL', 19, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(131, 'TSDS-19-003-AL', 20, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(132, 'TSDS-19-003-AL', 21, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(133, 'TSDS-19-003-AL', 22, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(134, 'TSDS-19-003-AL', 23, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(135, 'TSDS-19-003-AL', 24, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(136, 'TSDS-19-003-AL', 25, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(137, 'TSDS-19-003-AL', 26, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(138, 'TSDS-19-003-AL', 27, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos'),
+(139, 'TSDS-19-003-AL', 28, '2023-08-03 22:08:34', 2023, -1, -1, -1, 'Sin Datos');
 
 -- --------------------------------------------------------
 
@@ -336,9 +336,9 @@ CREATE TABLE `docente` (
   `DOMICILIO` varchar(50) NOT NULL,
   `NRO_DOMICILIO` int(11) DEFAULT NULL,
   `CELULAR` int(11) DEFAULT NULL,
-  `RED_FACEBOOK` varchar(50) DEFAULT NULL,
-  `RED_INSTAGRAM` varchar(50) DEFAULT NULL,
-  `RED_TWITTER` varchar(50) DEFAULT NULL,
+  `RED_FACEBOOK` varchar(100) DEFAULT NULL,
+  `RED_INSTAGRAM` varchar(100) DEFAULT NULL,
+  `RED_TWITTER` varchar(100) DEFAULT NULL,
   `FOTO_DOC` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -353,8 +353,7 @@ INSERT INTO `docente` (`ID_DOCENTE`, `DNI`, `NOMBRE`, `APELLIDO`, `ROL_DOCENTE`,
 (4, 4, 'Santiago', 'Calatrava', 2, 'scalatrava@iset.com.ar', '0', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png'),
 (5, 5, 'Diego', 'Figueroa', 2, 'dfigueroa@iset.com.ar', '0', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png'),
 (6, 6, 'Jorge', 'Leiva', 2, 'jleiva@iset.com.ar', '0', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png'),
-(7, 7, 'Viktor', 'Frankenstein', 2, 'vfrankenstein@iset.com.ar', '0', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png'),
-(8, 13123126, 'Juan', 'Peres', 2, 'mail@mail.com', '13123126', 'Marcos', 127, 2147483647, 'https://www.face.com.ar/user', 'https://www.insta.com.ar/user', 'https://www.twr.com.ar/user', '.\\img_profile\\TSB-21-001-DC.png');
+(7, 7, 'Viktor', 'Frankenstein', 2, 'vfrankenstein@iset.com.ar', '0', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
 
 -- --------------------------------------------------------
 
@@ -374,52 +373,88 @@ CREATE TABLE `ensenia` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `evalua_en`
+--
+
+CREATE TABLE `evalua_en` (
+  `ID_EVALUA` int(11) NOT NULL,
+  `ID_EXAMEN` int(11) NOT NULL,
+  `ID_DOCENTE` varchar(15) NOT NULL,
+  `ID_MATERIA` int(11) NOT NULL,
+  `FECHA` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `evalua_en`
+--
+
+INSERT INTO `evalua_en` (`ID_EVALUA`, `ID_EXAMEN`, `ID_DOCENTE`, `ID_MATERIA`, `FECHA`) VALUES
+(1, 1, 'TSDS-19-005-DC', 1, '2023-08-03 22:08:35'),
+(2, 2, 'TSDS-19-005-DC', 2, '2023-08-03 22:08:35'),
+(3, 3, 'TSDS-19-005-DC', 3, '2023-08-03 22:08:35'),
+(4, 4, 'TSDS-19-005-DC', 4, '2023-08-03 22:08:35'),
+(5, 5, 'TSDS-19-005-DC', 5, '2023-08-03 22:08:35'),
+(6, 6, 'TSDS-19-005-DC', 6, '2023-08-03 22:08:35'),
+(7, 7, 'TSDS-19-005-DC', 7, '2023-08-03 22:08:35'),
+(8, 8, 'TSDS-19-005-DC', 8, '2023-08-03 22:08:35'),
+(9, 9, 'TSDS-19-005-DC', 9, '2023-08-03 22:08:35'),
+(10, 10, 'TSDS-19-005-DC', 10, '2023-08-03 22:08:35'),
+(11, 11, 'TSDS-19-005-DC', 11, '2023-08-03 22:08:35'),
+(12, 12, 'TSDS-19-005-DC', 12, '2023-08-03 22:08:35'),
+(13, 13, 'TSDS-19-005-DC', 13, '2023-08-03 22:08:35'),
+(14, 14, 'TSDS-19-005-DC', 14, '2023-08-03 22:08:35'),
+(15, 15, 'TSDS-19-005-DC', 16, '2023-08-03 22:08:35'),
+(16, 16, 'TSDS-19-005-DC', 17, '2023-08-03 22:08:35'),
+(17, 17, 'TSDS-19-005-DC', 18, '2023-08-03 22:08:35'),
+(18, 18, 'TSDS-19-005-DC', 19, '2023-08-03 22:08:35'),
+(19, 19, 'TSDS-19-005-DC', 20, '2023-08-03 22:08:35'),
+(20, 20, 'TSDS-19-005-DC', 22, '2023-08-03 22:08:35'),
+(21, 21, 'TSDS-19-005-DC', 24, '2023-08-03 22:08:35'),
+(22, 22, 'TSDS-19-005-DC', 25, '2023-08-03 22:08:35'),
+(23, 23, 'TSDS-19-005-DC', 26, '2023-08-03 22:08:35');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `examen_final`
 --
 
 CREATE TABLE `examen_final` (
   `ID_EXAMEN_FINAL` int(11) NOT NULL,
-  `ID_ALUMNO` varchar(15) NOT NULL,
   `ID_MATERIA` int(11) NOT NULL,
-  `FINAL` int(2) NOT NULL,
-  `ID_FOLIO` int(2) NOT NULL,
-  `ID_LIBRO` int(2) NOT NULL,
-  `FECHA` date NOT NULL
+  `LIBRO` int(11) NOT NULL,
+  `FOLIO` int(11) NOT NULL,
+  `FECHA` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `examen_final`
 --
 
-INSERT INTO `examen_final` (`ID_EXAMEN_FINAL`, `ID_ALUMNO`, `ID_MATERIA`, `FINAL`, `ID_FOLIO`, `ID_LIBRO`, `FECHA`) VALUES
-(1, 'TSDS-19-001-AL', 1, 7, 61, 1, '2020-12-18'),
-(2, 'TSDS-19-001-AL', 2, 8, 63, 1, '2021-04-22'),
-(3, 'TSDS-19-001-AL', 3, 8, 150, 1, '2022-11-24'),
-(4, 'TSDS-19-001-AL', 4, 6, 62, 1, '2021-03-12'),
-(5, 'TSDS-19-001-AL', 5, 8, 44, 1, '2020-09-18'),
-(6, 'TSDS-19-001-AL', 6, 10, 54, 1, '2020-12-02'),
-(7, 'TSDS-19-001-AL', 7, 10, 60, 1, '2020-12-17'),
-(8, 'TSDS-19-001-AL', 8, 9, 47, 1, '2020-09-28'),
-(9, 'TSDS-19-001-AL', 9, 8, 134, 1, '2022-07-04'),
-(10, 'TSDS-19-001-AL', 10, 8, 173, 1, '2023-03-02'),
-(11, 'TSDS-19-001-AL', 11, 9, 124, 1, '2022-04-11'),
-(12, 'TSDS-19-001-AL', 12, 5, 72, 1, '2021-09-27'),
-(13, 'TSDS-19-001-AL', 13, 8, 97, 1, '2021-12-17'),
-(14, 'TSDS-19-001-AL', 14, 10, 68, 1, '2021-07-28'),
-(15, 'TSDS-19-001-AL', 15, 10, 17, 2, '2023-08-02'),
-(16, 'TSDS-19-001-AL', 16, 10, 167, 1, '2022-12-14'),
-(17, 'TSDS-19-001-AL', 17, 4, 1, 1, '2023-03-08'),
-(18, 'TSDS-19-001-AL', 18, 10, 165, 1, '2022-12-14'),
-(19, 'TSDS-19-001-AL', 19, 10, 136, 1, '2022-08-03'),
-(20, 'TSDS-19-001-AL', 20, 9, 135, 1, '2022-12-01'),
-(21, 'TSDS-19-001-AL', 21, 0, 0, 0, '0001-01-01'),
-(22, 'TSDS-19-001-AL', 22, 8, 154, 1, '2022-12-01'),
-(23, 'TSDS-19-001-AL', 23, 0, 0, 0, '0000-00-00'),
-(24, 'TSDS-19-001-AL', 24, 0, 0, 0, '0001-01-01'),
-(25, 'TSDS-19-001-AL', 25, 4, 1, 1, '2023-06-16'),
-(26, 'TSDS-19-001-AL', 26, 9, 152, 1, '2022-11-25'),
-(27, 'TSDS-19-001-AL', 27, 10, 58, 1, '2023-06-14'),
-(28, 'TSDS-19-001-AL', 28, 0, 0, 0, '0001-01-01');
+INSERT INTO `examen_final` (`ID_EXAMEN_FINAL`, `ID_MATERIA`, `LIBRO`, `FOLIO`, `FECHA`) VALUES
+(1, 1, 1, 61, '2023-08-03 22:08:34'),
+(2, 2, 1, 63, '2023-08-03 22:08:34'),
+(3, 3, 1, 150, '2023-08-03 22:08:34'),
+(4, 4, 1, 62, '2023-08-03 22:08:34'),
+(5, 5, 1, 44, '2023-08-03 22:08:34'),
+(6, 6, 1, 54, '2023-08-03 22:08:34'),
+(7, 7, 1, 60, '2023-08-03 22:08:34'),
+(8, 8, 1, 47, '2023-08-03 22:08:34'),
+(9, 9, 1, 134, '2023-08-03 22:08:34'),
+(10, 10, 1, 173, '2023-08-03 22:08:34'),
+(11, 11, 1, 124, '2023-08-03 22:08:34'),
+(12, 12, 1, 72, '2023-08-03 22:08:34'),
+(13, 13, 1, 97, '2023-08-03 22:08:34'),
+(14, 14, 1, 68, '2023-08-03 22:08:34'),
+(15, 16, 1, 167, '2023-08-03 22:08:34'),
+(16, 17, 1, 98, '2023-08-03 22:08:34'),
+(17, 18, 1, 165, '2023-08-03 22:08:34'),
+(18, 19, 1, 136, '2023-08-03 22:08:34'),
+(19, 20, 1, 155, '2023-08-03 22:08:34'),
+(20, 22, 1, 154, '2023-08-03 22:08:34'),
+(21, 24, 1, 58, '2023-08-03 22:08:34'),
+(22, 25, 1, 152, '2023-08-03 22:08:34'),
+(23, 26, 1, 58, '2023-08-03 22:08:34');
 
 -- --------------------------------------------------------
 
@@ -476,8 +511,7 @@ INSERT INTO `legajo_docente` (`ID_LEGAJO`, `DNI`, `LEGAJO_DOC`, `CARRERA`, `FECH
 (4, 4, 'TSDS-19-004-DC', 1, '2023-07-18 18:05:10'),
 (5, 5, 'TSDS-19-005-DC', 1, '2023-07-18 18:05:10'),
 (6, 6, 'TSDS-19-006-DC', 1, '2023-07-18 18:05:10'),
-(7, 7, 'TSDS-19-007-DC', 1, '2023-07-18 18:05:10'),
-(8, 13123126, 'TSB-21-001-DC', 2, '2023-08-07 04:37:55');
+(7, 7, 'TSDS-19-007-DC', 1, '2023-07-18 18:05:10');
 
 -- --------------------------------------------------------
 
@@ -488,7 +522,7 @@ INSERT INTO `legajo_docente` (`ID_LEGAJO`, `DNI`, `LEGAJO_DOC`, `CARRERA`, `FECH
 CREATE TABLE `materia` (
   `ID_MATERIA` int(11) NOT NULL,
   `ID_CARRERA` int(11) NOT NULL,
-  `NOMBRE` varchar(100) NOT NULL,
+  `ASIGNATURA` varchar(100) NOT NULL,
   `ANIO` int(11) NOT NULL,
   `DESCRIPCION` varchar(3000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -497,7 +531,7 @@ CREATE TABLE `materia` (
 -- Volcado de datos para la tabla `materia`
 --
 
-INSERT INTO `materia` (`ID_MATERIA`, `ID_CARRERA`, `NOMBRE`, `ANIO`, `DESCRIPCION`) VALUES
+INSERT INTO `materia` (`ID_MATERIA`, `ID_CARRERA`, `ASIGNATURA`, `ANIO`, `DESCRIPCION`) VALUES
 (1, 1, 'Ciudadanía y Espacio Público', 1, 'Descripcion de la materia'),
 (2, 1, 'Introducción a la informática', 1, 'Descripcion de la materia'),
 (3, 1, 'Introducción a Redes', 1, 'Descripcion de la materia'),
@@ -616,6 +650,50 @@ INSERT INTO `materia` (`ID_MATERIA`, `ID_CARRERA`, `NOMBRE`, `ANIO`, `DESCRIPCIO
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `rinde`
+--
+
+CREATE TABLE `rinde` (
+  `ID_RINDE` int(11) NOT NULL,
+  `ID_EXAMEN` int(11) NOT NULL,
+  `ID_ALUMNO` varchar(15) NOT NULL,
+  `ID_MATERIA` int(11) NOT NULL,
+  `NOTA` int(2) NOT NULL,
+  `FECHA` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `rinde`
+--
+
+INSERT INTO `rinde` (`ID_RINDE`, `ID_EXAMEN`, `ID_ALUMNO`, `ID_MATERIA`, `NOTA`, `FECHA`) VALUES
+(1, 1, 'TSDS-19-001-AL', 1, 7, '2023-08-03 22:08:35'),
+(2, 2, 'TSDS-19-001-AL', 2, 8, '2023-08-03 22:08:35'),
+(3, 3, 'TSDS-19-001-AL', 3, 8, '2023-08-03 22:08:35'),
+(4, 4, 'TSDS-19-001-AL', 4, 6, '2023-08-03 22:08:35'),
+(5, 5, 'TSDS-19-001-AL', 5, 8, '2023-08-03 22:08:35'),
+(6, 6, 'TSDS-19-001-AL', 6, 10, '2023-08-03 22:08:35'),
+(7, 7, 'TSDS-19-001-AL', 7, 10, '2023-08-03 22:08:35'),
+(8, 8, 'TSDS-19-001-AL', 8, 9, '2023-08-03 22:08:35'),
+(9, 9, 'TSDS-19-001-AL', 9, 8, '2023-08-03 22:08:35'),
+(10, 10, 'TSDS-19-001-AL', 10, 8, '2023-08-03 22:08:35'),
+(11, 11, 'TSDS-19-001-AL', 11, 9, '2023-08-03 22:08:35'),
+(12, 12, 'TSDS-19-001-AL', 12, 5, '2023-08-03 22:08:35'),
+(13, 13, 'TSDS-19-001-AL', 13, 8, '2023-08-03 22:08:35'),
+(14, 14, 'TSDS-19-001-AL', 14, 10, '2023-08-03 22:08:35'),
+(15, 15, 'TSDS-19-001-AL', 16, 10, '2023-08-03 22:08:35'),
+(16, 16, 'TSDS-19-001-AL', 17, 4, '2023-08-03 22:08:35'),
+(17, 17, 'TSDS-19-001-AL', 18, 10, '2023-08-03 22:08:35'),
+(18, 18, 'TSDS-19-001-AL', 19, 10, '2023-08-03 22:08:35'),
+(19, 19, 'TSDS-19-001-AL', 20, 9, '2023-08-03 22:08:35'),
+(20, 20, 'TSDS-19-001-AL', 22, 8, '2023-08-03 22:08:35'),
+(21, 21, 'TSDS-19-001-AL', 24, 4, '2023-08-03 22:08:35'),
+(22, 22, 'TSDS-19-001-AL', 25, 9, '2023-08-03 22:08:35'),
+(23, 23, 'TSDS-19-001-AL', 26, 10, '2023-08-03 22:08:35');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `rol`
 --
 
@@ -655,12 +733,12 @@ CREATE TABLE `vw_admin_examen` (
 --
 CREATE TABLE `vw_admin_final` (
 `LEGAJO_ALU` varchar(15)
-,`APELLIDO` varchar(50)
-,`NOMBRE` varchar(100)
-,`FINAL` int(2)
-,`ID_LIBRO` int(2)
-,`ID_FOLIO` int(2)
-,`FECHA` date
+,`ALUMNO` varchar(101)
+,`MATERIA` varchar(100)
+,`NOTA` int(2)
+,`LIBRO` int(11)
+,`FOLIO` int(11)
+,`FECHA` datetime
 );
 
 -- --------------------------------------------------------
@@ -743,7 +821,7 @@ CREATE TABLE `vw_docentes_inscriptos_carrera` (
 --
 CREATE TABLE `vw_nota_alumno` (
 `MATERIA` int(11)
-,`NOMBRE` varchar(100)
+,`ASIGNATURA` varchar(100)
 ,`ANIO` int(11)
 ,`NOTA` int(11)
 ,`CONDICION` varchar(50)
@@ -759,7 +837,7 @@ CREATE TABLE `vw_nota_alumno` (
 CREATE TABLE `vw_nota_cursado` (
 `DNI` int(11)
 ,`APELLIDO` varchar(50)
-,`NOMBRE` varchar(100)
+,`ASIGNATURA` varchar(100)
 ,`1ER_PARCIAL` int(11)
 ,`2DO_PARCIAL` int(11)
 );
@@ -771,6 +849,11 @@ CREATE TABLE `vw_nota_cursado` (
 -- (Véase abajo para la vista actual)
 --
 CREATE TABLE `vw_nota_final` (
+`APELLIDO` varchar(50)
+,`MATERIA` varchar(100)
+,`NOTA` int(2)
+,`LIBRO` int(11)
+,`FOLIO` int(11)
 );
 
 -- --------------------------------------------------------
@@ -783,7 +866,7 @@ CREATE TABLE `vw_plan_estudio` (
 `CARRERA` varchar(100)
 ,`ID_CARRERA` int(11)
 ,`ID_MATERIA` int(11)
-,`MATERIA` varchar(100)
+,`ASIGNATURA` varchar(100)
 ,`ANIO` int(11)
 );
 
@@ -794,7 +877,7 @@ CREATE TABLE `vw_plan_estudio` (
 --
 DROP TABLE IF EXISTS `vw_admin_examen`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_admin_examen`  AS SELECT `la`.`LEGAJO_ALU` AS `LEGAJO_ALU`, concat(`al`.`APELLIDO`,' ',`al`.`NOMBRE`) AS `ALUMNO`, `m`.`NOMBRE` AS `MATERIA`, `c`.`1ER_PARCIAL` AS `1ER_PARCIAL`, `c`.`2DO_PARCIAL` AS `2DO_PARCIAL` FROM (((`alumno` `al` join `legajo_alumno` `la` on(`la`.`DNI` = `al`.`DNI`)) join `cursa` `c` on(`c`.`ID_ALUMNO` = `la`.`LEGAJO_ALU`)) join `materia` `m` on(`m`.`ID_MATERIA` = `c`.`ID_MATERIA`))  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_admin_examen`  AS SELECT `la`.`LEGAJO_ALU` AS `LEGAJO_ALU`, concat(`al`.`APELLIDO`,' ',`al`.`NOMBRE`) AS `ALUMNO`, `m`.`ASIGNATURA` AS `MATERIA`, `c`.`1ER_PARCIAL` AS `1ER_PARCIAL`, `c`.`2DO_PARCIAL` AS `2DO_PARCIAL` FROM (((`alumno` `al` join `legajo_alumno` `la` on(`la`.`DNI` = `al`.`DNI`)) join `cursa` `c` on(`c`.`ID_ALUMNO` = `la`.`LEGAJO_ALU`)) join `materia` `m` on(`m`.`ID_MATERIA` = `c`.`ID_MATERIA`))  ;
 
 -- --------------------------------------------------------
 
@@ -803,7 +886,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `vw_admin_final`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_admin_final`  AS SELECT `legajo_alumno`.`LEGAJO_ALU` AS `LEGAJO_ALU`, `alumno`.`APELLIDO` AS `APELLIDO`, `materia`.`NOMBRE` AS `NOMBRE`, `examen_final`.`FINAL` AS `FINAL`, `examen_final`.`ID_LIBRO` AS `ID_LIBRO`, `examen_final`.`ID_FOLIO` AS `ID_FOLIO`, `examen_final`.`FECHA` AS `FECHA` FROM (((`alumno` join `legajo_alumno` on(`alumno`.`DNI` = `legajo_alumno`.`DNI`)) join `examen_final` on(`legajo_alumno`.`LEGAJO_ALU` = `examen_final`.`ID_ALUMNO`)) join `materia` on(`examen_final`.`ID_MATERIA` = `materia`.`ID_MATERIA`))  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_admin_final`  AS SELECT `la`.`LEGAJO_ALU` AS `LEGAJO_ALU`, concat(`al`.`NOMBRE`,' ',`al`.`APELLIDO`) AS `ALUMNO`, `m`.`ASIGNATURA` AS `MATERIA`, `r`.`NOTA` AS `NOTA`, `ef`.`LIBRO` AS `LIBRO`, `ef`.`FOLIO` AS `FOLIO`, `ef`.`FECHA` AS `FECHA` FROM ((((`alumno` `al` join `legajo_alumno` `la` on(`la`.`DNI` = `al`.`DNI`)) join `rinde` `r` on(`r`.`ID_ALUMNO` = `la`.`LEGAJO_ALU`)) join `examen_final` `ef` on(`ef`.`ID_EXAMEN_FINAL` = `r`.`ID_EXAMEN`)) join `materia` `m` on(`m`.`ID_MATERIA` = `ef`.`ID_MATERIA`))  ;
 
 -- --------------------------------------------------------
 
@@ -839,7 +922,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `vw_cursado`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_cursado`  AS SELECT `la`.`LEGAJO_ALU` AS `LEGAJO`, concat(`a`.`NOMBRE`,' ',`a`.`APELLIDO`) AS `ALUMNO`, `c`.`CICLO` AS `ANIO`, `c`.`ID_MATERIA` AS `ID_MATERIA`, `m`.`NOMBRE` AS `MATERIA` FROM (((`legajo_alumno` `la` join `alumno` `a` on(`a`.`DNI` = `la`.`DNI`)) join `cursa` `c` on(`c`.`ID_ALUMNO` = `la`.`LEGAJO_ALU`)) join `materia` `m` on(`m`.`ID_MATERIA` = `c`.`ID_MATERIA`))  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_cursado`  AS SELECT `la`.`LEGAJO_ALU` AS `LEGAJO`, concat(`a`.`NOMBRE`,' ',`a`.`APELLIDO`) AS `ALUMNO`, `c`.`CICLO` AS `ANIO`, `c`.`ID_MATERIA` AS `ID_MATERIA`, `m`.`ASIGNATURA` AS `MATERIA` FROM (((`legajo_alumno` `la` join `alumno` `a` on(`a`.`DNI` = `la`.`DNI`)) join `cursa` `c` on(`c`.`ID_ALUMNO` = `la`.`LEGAJO_ALU`)) join `materia` `m` on(`m`.`ID_MATERIA` = `c`.`ID_MATERIA`))  ;
 
 -- --------------------------------------------------------
 
@@ -866,7 +949,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `vw_nota_alumno`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_nota_alumno`  AS SELECT `m`.`ID_MATERIA` AS `MATERIA`, `m`.`NOMBRE` AS `NOMBRE`, `m`.`ANIO` AS `ANIO`, `c`.`FINAL` AS `NOTA`, `c`.`ESTADO` AS `CONDICION`, `la`.`LEGAJO_ALU` AS `LEGAJO` FROM ((`cursa` `c` join `legajo_alumno` `la` on(`c`.`ID_ALUMNO` = `la`.`LEGAJO_ALU`)) join `materia` `m` on(`c`.`ID_MATERIA` = `m`.`ID_MATERIA`))  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_nota_alumno`  AS SELECT `m`.`ID_MATERIA` AS `MATERIA`, `m`.`ASIGNATURA` AS `ASIGNATURA`, `m`.`ANIO` AS `ANIO`, `c`.`FINAL` AS `NOTA`, `c`.`ESTADO` AS `CONDICION`, `la`.`LEGAJO_ALU` AS `LEGAJO` FROM ((`cursa` `c` join `legajo_alumno` `la` on(`c`.`ID_ALUMNO` = `la`.`LEGAJO_ALU`)) join `materia` `m` on(`c`.`ID_MATERIA` = `m`.`ID_MATERIA`))  ;
 
 -- --------------------------------------------------------
 
@@ -875,7 +958,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `vw_nota_cursado`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_nota_cursado`  AS SELECT `al`.`DNI` AS `DNI`, `al`.`APELLIDO` AS `APELLIDO`, `m`.`NOMBRE` AS `NOMBRE`, `c`.`1ER_PARCIAL` AS `1ER_PARCIAL`, `c`.`2DO_PARCIAL` AS `2DO_PARCIAL` FROM (((`alumno` `al` join `legajo_alumno` `la` on(`la`.`DNI` = `al`.`DNI`)) join `cursa` `c` on(`c`.`ID_ALUMNO` = `la`.`LEGAJO_ALU`)) join `materia` `m` on(`m`.`ID_MATERIA` = `c`.`ID_MATERIA`))  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_nota_cursado`  AS SELECT `al`.`DNI` AS `DNI`, `al`.`APELLIDO` AS `APELLIDO`, `m`.`ASIGNATURA` AS `ASIGNATURA`, `c`.`1ER_PARCIAL` AS `1ER_PARCIAL`, `c`.`2DO_PARCIAL` AS `2DO_PARCIAL` FROM (((`alumno` `al` join `legajo_alumno` `la` on(`la`.`DNI` = `al`.`DNI`)) join `cursa` `c` on(`c`.`ID_ALUMNO` = `la`.`LEGAJO_ALU`)) join `materia` `m` on(`m`.`ID_MATERIA` = `c`.`ID_MATERIA`))  ;
 
 -- --------------------------------------------------------
 
@@ -884,7 +967,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `vw_nota_final`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_nota_final`  AS SELECT `al`.`APELLIDO` AS `APELLIDO`, `m`.`NOMBRE` AS `MATERIA`, `ef`.`FINAL` AS `FINAL`, `ef`.`ID_ACTA` AS `ID_ACTA` FROM (((`alumno` `al` join `legajo_alumno` `la` on(`la`.`DNI` = `al`.`DNI`)) join `examen_final` `ef` on(`ef`.`ID_ALUMNO` = `la`.`LEGAJO_ALU`)) join `materia` `m` on(`m`.`ID_MATERIA` = `ef`.`ID_MATERIA`))  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_nota_final`  AS SELECT `al`.`APELLIDO` AS `APELLIDO`, `m`.`ASIGNATURA` AS `MATERIA`, `r`.`NOTA` AS `NOTA`, `ef`.`LIBRO` AS `LIBRO`, `ef`.`FOLIO` AS `FOLIO` FROM ((((`alumno` `al` join `legajo_alumno` `la` on(`la`.`DNI` = `al`.`DNI`)) join `rinde` `r` on(`r`.`ID_ALUMNO` = `la`.`LEGAJO_ALU`)) join `examen_final` `ef` on(`ef`.`ID_EXAMEN_FINAL` = `r`.`ID_EXAMEN`)) join `materia` `m` on(`m`.`ID_MATERIA` = `ef`.`ID_MATERIA`))  ;
 
 -- --------------------------------------------------------
 
@@ -893,7 +976,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `vw_plan_estudio`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_plan_estudio`  AS SELECT `c`.`NOMBRE` AS `CARRERA`, `c`.`ID_CARRERA` AS `ID_CARRERA`, `m`.`ID_MATERIA` AS `ID_MATERIA`, `m`.`NOMBRE` AS `MATERIA`, `m`.`ANIO` AS `ANIO` FROM (`carrera` `c` join `materia` `m` on(`m`.`ID_CARRERA` = `c`.`ID_CARRERA`))  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_plan_estudio`  AS SELECT `c`.`NOMBRE` AS `CARRERA`, `c`.`ID_CARRERA` AS `ID_CARRERA`, `m`.`ID_MATERIA` AS `ID_MATERIA`, `m`.`ASIGNATURA` AS `ASIGNATURA`, `m`.`ANIO` AS `ANIO` FROM (`carrera` `c` join `materia` `m` on(`m`.`ID_CARRERA` = `c`.`ID_CARRERA`))  ;
 
 --
 -- Índices para tablas volcadas
@@ -953,11 +1036,19 @@ ALTER TABLE `ensenia`
   ADD KEY `FK_ID_MATERIA_ENSENIA` (`ID_MATERIA`);
 
 --
+-- Indices de la tabla `evalua_en`
+--
+ALTER TABLE `evalua_en`
+  ADD PRIMARY KEY (`ID_EVALUA`),
+  ADD KEY `FK_ID_EXAMEN_EVALUA_EN` (`ID_EXAMEN`),
+  ADD KEY `FK_ID_DOCENTE_EVALUA_EN` (`ID_DOCENTE`),
+  ADD KEY `FK_ID_MATERIA_EVALUA_EN` (`ID_MATERIA`);
+
+--
 -- Indices de la tabla `examen_final`
 --
 ALTER TABLE `examen_final`
   ADD PRIMARY KEY (`ID_EXAMEN_FINAL`),
-  ADD KEY `FK_ID_ALUMNO_EXAMEN` (`ID_ALUMNO`),
   ADD KEY `FK_ID_MATERIA_EXAM` (`ID_MATERIA`);
 
 --
@@ -987,6 +1078,15 @@ ALTER TABLE `materia`
   ADD KEY `FK_ID_CARRERA_MAT` (`ID_CARRERA`);
 
 --
+-- Indices de la tabla `rinde`
+--
+ALTER TABLE `rinde`
+  ADD PRIMARY KEY (`ID_RINDE`),
+  ADD KEY `FK_ID_EXAMEN_RINDE` (`ID_EXAMEN`),
+  ADD KEY `FK_ID_ALUMNO_RINDE` (`ID_ALUMNO`),
+  ADD KEY `FK_ID_MATERIA_RINDE` (`ID_MATERIA`);
+
+--
 -- Indices de la tabla `rol`
 --
 ALTER TABLE `rol`
@@ -1006,7 +1106,7 @@ ALTER TABLE `administrativo`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `ID_ALUMNO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID_ALUMNO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `cohorte`
@@ -1024,7 +1124,7 @@ ALTER TABLE `cursa`
 -- AUTO_INCREMENT de la tabla `docente`
 --
 ALTER TABLE `docente`
-  MODIFY `ID_DOCENTE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID_DOCENTE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `ensenia`
@@ -1033,22 +1133,34 @@ ALTER TABLE `ensenia`
   MODIFY `ID_ENSENIA` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `evalua_en`
+--
+ALTER TABLE `evalua_en`
+  MODIFY `ID_EVALUA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
 -- AUTO_INCREMENT de la tabla `examen_final`
 --
 ALTER TABLE `examen_final`
-  MODIFY `ID_EXAMEN_FINAL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `ID_EXAMEN_FINAL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `legajo_alumno`
 --
 ALTER TABLE `legajo_alumno`
-  MODIFY `ID_LEGAJO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID_LEGAJO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `legajo_docente`
 --
 ALTER TABLE `legajo_docente`
-  MODIFY `ID_LEGAJO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID_LEGAJO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `rinde`
+--
+ALTER TABLE `rinde`
+  MODIFY `ID_RINDE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -1099,10 +1211,17 @@ ALTER TABLE `ensenia`
   ADD CONSTRAINT `FK_ID_MATERIA_ENSENIA` FOREIGN KEY (`ID_MATERIA`) REFERENCES `materia` (`ID_MATERIA`);
 
 --
+-- Filtros para la tabla `evalua_en`
+--
+ALTER TABLE `evalua_en`
+  ADD CONSTRAINT `FK_ID_DOCENTE_EVALUA_EN` FOREIGN KEY (`ID_DOCENTE`) REFERENCES `legajo_docente` (`LEGAJO_DOC`),
+  ADD CONSTRAINT `FK_ID_EXAMEN_EVALUA_EN` FOREIGN KEY (`ID_EXAMEN`) REFERENCES `examen_final` (`ID_EXAMEN_FINAL`),
+  ADD CONSTRAINT `FK_ID_MATERIA_EVALUA_EN` FOREIGN KEY (`ID_MATERIA`) REFERENCES `materia` (`ID_MATERIA`);
+
+--
 -- Filtros para la tabla `examen_final`
 --
 ALTER TABLE `examen_final`
-  ADD CONSTRAINT `FK_ID_ALUMNO_EXAMEN` FOREIGN KEY (`ID_ALUMNO`) REFERENCES `legajo_alumno` (`LEGAJO_ALU`),
   ADD CONSTRAINT `FK_ID_MATERIA_EXAM` FOREIGN KEY (`ID_MATERIA`) REFERENCES `materia` (`ID_MATERIA`);
 
 --
@@ -1125,6 +1244,14 @@ ALTER TABLE `legajo_docente`
 --
 ALTER TABLE `materia`
   ADD CONSTRAINT `FK_ID_CARRERA_MAT` FOREIGN KEY (`ID_CARRERA`) REFERENCES `carrera` (`ID_CARRERA`);
+
+--
+-- Filtros para la tabla `rinde`
+--
+ALTER TABLE `rinde`
+  ADD CONSTRAINT `FK_ID_ALUMNO_RINDE` FOREIGN KEY (`ID_ALUMNO`) REFERENCES `legajo_alumno` (`LEGAJO_ALU`),
+  ADD CONSTRAINT `FK_ID_EXAMEN_RINDE` FOREIGN KEY (`ID_EXAMEN`) REFERENCES `examen_final` (`ID_EXAMEN_FINAL`),
+  ADD CONSTRAINT `FK_ID_MATERIA_RINDE` FOREIGN KEY (`ID_MATERIA`) REFERENCES `materia` (`ID_MATERIA`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

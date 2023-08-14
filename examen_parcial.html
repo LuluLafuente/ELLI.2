@@ -89,7 +89,7 @@
                             <option value="0" selected disabled>&gt; SELECCIONE UNA MATERIA &lt;</option>
                             <?php for ($i = 0; $i < $consulta2->rowCount(); $i++):
                             $idm = $resultado2[$i]['ID_MATERIA'];
-                            $mate = $resultado2[$i]['NOMBRE'];
+                            $mate = $resultado2[$i]['ASIGNATURA'];
                             $carreraId = $resultado2[$i]['ID_CARRERA']; // ID de la carrera a la que pertenece la materia
                         ?>
                             <option value="<?php echo $idm; ?>" data-carrera="<?php echo $carreraId; ?>" required>

@@ -21,7 +21,7 @@ $listaMaterias = [];
 $conexion = conexionDB();
 
 //BUSCAR LA LISTA DE ALUMNOS DE SU MATERIA
-$consulta = selectalumnosCursado($conexion, 19);
+$consulta = selectalumnosCursado($conexion, $_SESSION['u_carrera']);
 
 //GUARDO TODOS LOS RESULTADOS EN UNA VARIABLE
 $resultado = $consulta->fetchAll();

@@ -80,20 +80,20 @@
             </div>
             <div class="contenido">
                 <section class="ver_Notas_Examen">
-                    <div class="acordeon">
-                        <h2> - Notas de Examenes - Alumnos </h2>
+                    <fieldset class="datos-titulo">
+                        <legend>Notas de Examenes</legend>
                         <br>
                         <p>El Instituto Superior de Educación Tecnológica(ISET)- sito en Domingo Garcia 47-</p>
                         <br>
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Legajo</th>
-                                    <th>Alumno</th>
-                                    <th style="padding-right: 150px;padding-left: 150px;">Asignatura</th>
-                                    <th>Nota Final</th>
-                                    <th>N° Folio</th>
-                                    <th>N° Fecha</th>
+                                    <th style="padding-right: 50px;padding-left: 50px;">Legajo</th>
+                                    <th style="padding-right: 50px;padding-left: 50px;">Alumno</th>
+                                    <th style="padding-right: 110px;padding-left: 110px;">Asignatura</th>
+                                    <th  style="padding-right: 10px;padding-left: 10px;">Nota Final</th>
+                                    <th style="padding-right: 10px;padding-left: 10px;">N° Folio</th>
+                                    <th>Fecha</th>
 
 
                                 </tr>
@@ -110,28 +110,28 @@
                                     <td>
                                         <!--Alumnos-->
                                         <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                        <?php echo $resultado[$i]['APELLIDO'];?>
+                                        <?php echo $resultado[$i]['ALUMNO'];?>
                                         <hr>
                                         <?php endfor; ?>
                                     </td>
                                     <td>
                                         <!--Asignaturas-->
                                         <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                        <?php echo $resultado[$i]['NOMBRE']; ?>
+                                        <?php echo $resultado[$i]['MATERIA']; ?>
                                         <hr>
                                         <?php endfor; ?>
                                     </td>
                                     <td>
                                         <!--FINAL-->
                                         <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                        <?php echo $resultado[$i]['FINAL']; ?>
+                                        <?php echo $resultado[$i]['NOTA']; ?>
                                         <hr>
                                         <?php endfor; ?>
                                     </td>
                                     <td>
                                         <!--FOLIO-->
                                         <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                        <?php echo $resultado[$i]['ID_FOLIO']; ?>
+                                        <?php echo $resultado[$i]['LIBRO']; ?>
                                         <hr>
                                         <?php endfor; ?>
                                     </td>
@@ -145,7 +145,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
+                </fieldset>
                 </section>
             </div>
         </div>

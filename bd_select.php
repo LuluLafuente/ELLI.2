@@ -47,9 +47,7 @@
 
     // BUSCA LAS MATERIAS DISPONIBLES
     function selectMaterias($con){
-        $consulta = $con->query("SELECT ID_CARRERA,ID_MATERIA,
-                                        ANIO,
-                                        NOMBRE
+        $consulta = $con->query("SELECT *
                                    FROM Materia");
 
         return $consulta;
@@ -66,8 +64,7 @@
     // DEVUELVE EL PLAN DE ESTUDIO DEL ALUMNO, SEGUN LA CARRERA
     function selectPlanEstudio($con, $carrera){
         $consulta = $con->query("SELECT *
-                                   FROM vw_plan_estudio
-                                  WHERE anio = $carrera");
+                                   FROM vw_plan_estudio");
 
         return $consulta;
         
@@ -262,8 +259,8 @@ function selectAlumnosPorMateria($conexion, $materiaId) {
         return $consulta;
 
     }
-    function selectHistoriaAlumno($con, $apellido){
-        $consulta = $con->query("SELECT NOMBRE, FINAL, ID_FOLIO FROM vw_admin_final WHERE APELLIDO = '$apellido'");
+    function selectHistoriaAlumno($con,$legajo){
+        $consulta = $con->query("SELECT * FROM vw_admin_final WHERE LEGAJO_ALU = '$legajo'");
 
         return $consulta;
     }

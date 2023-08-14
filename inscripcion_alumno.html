@@ -81,27 +81,23 @@
             </div>
             <div class="contenido">
                 <section id="panel-central">
-                    <div class="panel-titulo">
-                        <h1>- Registro de Alumno-</h1>
-                    </div>
+                    <fieldset class="inscripcion">
+                        <legend>Registro de Alumno</legend>
+                    
                     <div class="tarjeta">
+                        <fieldset class="datos-titulo">
+                        <legend>Datos personales</legend>
                         <form action="carga_alumnos.php" method="POST" enctype="multipart/form-data">
                             <div class="tarjeta-primera-seccion">
-                                <!-- AGREGAR UNA CLASE EN EL CSS PARA PODER ORDENAR LA SECCION DE LA FOTO -->
-                                <!-- CREAR CLASE tarjeta-foto-perfil -->
                                 <div class="tarjeta-foto-perfil">
                                     <div class="tarjeta-foto">
                                         <img src="./img/images.png" alt="Foto de perfil del usuario">
                                     </div>
-                                    <!-- CREAR CLASE tarjeta-carga -->
                                     <div class="tarjeta-carga">
                                         <input type="file" id="foto" name="foto">
                                     </div>
                                 </div>
                                 <div class="tarjeta-datos-2">
-                                    <div class="datos-titulo">
-                                        <h2>Datos personales</h2>
-                                    </div>
                                     <div class="datos-entrada">
                                         <div class="campo">
                                             <div class="campo-titulo">
@@ -132,7 +128,7 @@
                                         </div>
                                         <div class="campo">
                                             <div class="campo-titulo">
-                                                <label for="nro_domicilio">Nro. domicilio:</label>
+                                                <label for="nro_domicilio">Num:</label>
                                             </div>
                                             <div class="campo-entrada">
                                                 <input type="number" id="nro_domicilio" name="nro_domicilio"
@@ -178,13 +174,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                </fieldset>
+                            </div><!--Fin 1er tarjeta-->
                             <div class="tarjeta-segunda-seccion">
                                 <div class="tarjeta-datos">
-                                    <div class="datos-titulo">
-                                        <h2>Datos académicos</h2>
-                                    </div>
+                                    <fieldset class="datos-titulo">
+                                        <legend>Datos académicos</legend>
                                     <div class="datos-entrada">
                                         <div class="campo">
                                             <div class="campo-titulo">
@@ -221,13 +216,13 @@
                                             </div>
                                         </div>
                                     </div>
+                                </fieldset>
                                 </div>
-                            </div>
+                            </div><!--Fin 2da tarjeta-->
                             <div class="tarjeta-tercera-seccion">
                                 <div class="tarjeta-datos">
-                                    <div class="datos-titulo">
-                                        <h2>Redes</h2>
-                                    </div>
+                                    <fieldset class="datos-titulo">
+                                        <legend>Redes</legend>
                                     <div class="datos-entrada">
                                         <div class="campo">
                                             <div class="campo-titulo">
@@ -261,12 +256,13 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="botones">
+                            </div><!--Fin 3er tarjeta-->
+                                <div class="botones">
                                 <button id="btn-modif-clave">Modificar Clave</button>
                                 <button id="btn-modif-perfil">Modificar Perfil</button>
                                 <button id="btn-crear-perfil">Crear Perfil</button>
                             </div>
+                            </fieldset>
                         </form>
                     </div>
                     <div>
@@ -290,6 +286,7 @@
                             <?php endif; ?>
                         </div>
                     </div>
+                </fieldset>
                 </section>
             </div>
         </div>

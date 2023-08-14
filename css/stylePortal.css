@@ -394,8 +394,11 @@ section .h2 {
 }
 
 .tarjeta-foto img {
-  width: 180px;
-  height: 180px;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #dfdfdf;
 }
 
 .tarjeta-datos {
@@ -444,8 +447,8 @@ section .h2 {
 }
 
 .campo-entrada-option {
-  height: 30px;
-  width: 130%;
+  height: 60px;
+  width: 140%;
   padding: 3px;
   /*background-color: yellowgreen;*/
   border: 2px solid black;
@@ -509,6 +512,8 @@ th {
   font-weight: 700;
   text-transform: uppercase;
   color: var(--white);
+  font-size: x-large;
+
 }
 
 td {
@@ -527,10 +532,20 @@ tr {
   border-left-style: solid;
   border-top-width: 5px;
   border-top-style: solid;
+  font-size: larger;
+  color: black;
 }
-
+.inscripcion, .datos-titulo
+{
+  width: 1000px;
+  margin: 0 auto;
+  border: 2px solid var(--blue);
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+}
 fieldset {
-  width: 500px;
+  width: 800px;
   margin: 0 auto;
   border: 2px solid var(--blue);
   padding: 20px;
@@ -540,15 +555,16 @@ fieldset {
 
 legend {
   color: var(--blue);
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
   padding: 0 5px;
 }
 
-label {
+label ,input[type="date"] {
   color: var(--blue);
   display: block;
   margin-bottom: 5px;
+  font-size: x-large;
 }
 input[type="submit"] {
 
@@ -558,23 +574,25 @@ input[type="submit"] {
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 20px;
   background-color: #2196F3;
   color: white;
   cursor: pointer;
   
 }
 select,input[type="number"]{
-  width: 100%;
+   width: 100%;
   padding: 0;
-  margin-bottom: -3px;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 20px;
 }
 select {
   background-color: #fff;
   color: var(--black1);
+  font-size: x-large;
+
 }
 
 input[type="radio"] {
@@ -622,6 +640,7 @@ input[type="radio"] {
   border: 1px solid #30D2BE;
   border-radius: 0.2em;
 }
+
 
 .form_input--message {
   resize: none;

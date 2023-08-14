@@ -92,6 +92,7 @@
                                     <th style="padding-right: 50px;padding-left: 50px;">Alumno</th>
                                     <th style="padding-right: 110px;padding-left: 110px;">Asignatura</th>
                                     <th  style="padding-right: 10px;padding-left: 10px;">Nota Final</th>
+                                    <th style="padding-right: 10px;padding-left: 10px;">Libro</th>
                                     <th style="padding-right: 10px;padding-left: 10px;">N° Folio</th>
                                     <th>Fecha</th>
 
@@ -129,9 +130,16 @@
                                         <?php endfor; ?>
                                     </td>
                                     <td>
-                                        <!--FOLIO-->
+                                        <!--Libro-->
                                         <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
                                         <?php echo $resultado[$i]['LIBRO']; ?>
+                                        <hr>
+                                        <?php endfor; ?>
+                                    </td>
+                                    <td>
+                                        <!--FOLIO-->
+                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                        <?php echo $resultado[$i]['FOLIO']; ?>
                                         <hr>
                                         <?php endfor; ?>
                                     </td>

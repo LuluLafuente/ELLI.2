@@ -64,7 +64,7 @@
     // DEVUELVE EL PLAN DE ESTUDIO DEL ALUMNO, SEGUN LA CARRERA
     function selectPlanEstudio($con, $carrera){
         $consulta = $con->query("SELECT *
-                                   FROM vw_plan_estudio");
+                                   FROM vw_plan_estudio WHERE ID_CARRERA=`$carrera';");
 
         return $consulta;
         

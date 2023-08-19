@@ -1,4 +1,4 @@
-<!--Carga de notas de examenes finales-->
+<!--Carga de mesa de examenes finales-->
 <!DOCTYPE html>
 <html lang="es">
 
@@ -32,16 +32,40 @@
                         </span>
                     </a>
                 </li>
-                <li class="hovered">
-                    <a href="examen_final.php">
-                        <span class="icon"><i class="fa-regular fa-note-sticky"></i></span>
-                        <span class="title">Notas de Examen Final</span>
+                <li>
+                    <a href="inscripcion_docente.php">
+                        <span class="icon"><i class="fa-solid fa-person-chalkboard"></i></span>
+                        <span class="title">Inscripción Docente</span>
                     </a>
                 </li>
                 <li>
-                    <a href="examen_parcial.php">
+                    <a href="inscripcion_alumno.php">
+                        <span class="icon"><i class="fa-solid fa-file-circle-plus"></i></span>
+                        <span class="title">Inscripción Alumno</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="error.html">
+                        <span class="icon"><i class="fa-solid fa-chalkboard-user"></i></span>
+                        <span class="title">Inscripción Coordinador</span>
+                    </a>
+                </li>
+                 <li class="hovered">
+                    <a href="crear_mesa.php">
+                        <span class="icon"><i class="fa-solid fa-file-circle-plus"></i></span>
+                        <span class="title">Crear Mesa de Examen</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="ver_notas_examen.php">
+                        <span class="icon"><i class="fa-regular fa-note-sticky"></i></span>
+                        <span class="title">Ver Notas Examenes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="ver_notas_cursado.php">
                         <span class="icon"><i class="fa-solid fa-receipt"></i></span>
-                        <span class="title">Notas de Parcial</span>
+                        <span class="title"> Ver Notas Cursado</span>
                     </a>
                 </li>
                 <li>
@@ -50,6 +74,7 @@
                         <span class="title">Cerrar</span>
                     </a>
                 </li>
+                
             </ul>
         </div>
         <!--Main-->
@@ -93,7 +118,6 @@
                         </select>
 
                         <label for="mesa">3. Ingrese Número de Mesa:</label>
-                        <input type="number" id="num_examen" name="num_examen" required min="1"><br>
 
                         <label for="libro">4. Ingrese Número de Libro:</label>
                         <input type="number" id="num_libro" name="num_libro" required min="1"><br>
@@ -147,7 +171,6 @@
     </div>
    <script src="js/appAlumno.js"></script>
    <script src="js/filtrar_materias.js"></script>
-   <script src="js/filtrar_alumnos.js"></script>
 </body>
 
 </html>

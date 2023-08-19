@@ -1,69 +1,63 @@
 <?php
-// Se verifica si se enviaron los datos del formulario
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtiene los datos del formulario
-    $legajo = $_POST["alumno"];
-    $materia = $_POST["materia"];
-    $nota = $_POST["nota"];
-    $folio = $_POST["folio"];
-    $num_libro = $_POST["num_libro"];
-    $fecha = $_POST["fecha"];
 
-//conexion a la base
-    $host = "127.0.0.1";
+//INICIO SESION
+session_start();
+
+if(!isset($_SESSION["usuario"])){
+    //header("location:index.php");
+    //exit;
+}
+// Verificar si se recibieron los datos necesarios
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $materia = $_POST["materia"];
+    $numExamen = $_POST["num_examen"];
+    $numLibro = $_POST["num_libro"];
+    $folio = $_POST["folio"];
+    $fecha = $_POST["fecha"];
+    $notas = $_POST["nota"];
+
+    // Realizar la conexión a la base de datos y ejecutar la inserción
+     $host = "127.0.0.1";
     $dbNombre = "bd_prueba";
     $usuario = "isetEducativo";
     $contrasenia = "unaClaveMuyDificil1";
 
+    try {
+        //EJECUTO LA CONEXION CON LA CLASE PDO DE PHP
+        $conexion = new PDO("mysql:host=$host;dbname=$dbNombre", $usuario, $contrasenia);
+        $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-try {
-    $conn = new PDO("mysql:host=$host; dbname=$dbNombre", $usuario, $contrasenia);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        // Insertar los datos en la tabla correspondiente
+        $sql = "INSERT INTO examen_final (ID_EXAMEN_FINAL, ID_MATERIA, LIBRO, FOLIO, FECHA) VALUES (:numExamen, :materia,  :numLibro, :folio, :fecha)";
+        $stmt = $conexion->prepare($sql);
+        $stmt->bindParam(":numExamen", $numExamen);
+        $stmt->bindParam(":materia", $materia);
+        $stmt->bindParam(":numLibro", $numLibro);
+        $stmt->bindParam(":folio", $folio);
+        $stmt->bindParam(":fecha", $fecha);
+        $stmt->execute();
 
-    $sql = "INSERT INTO examen_final(ID_MATERIA, LIBRO, FOLIO, FECHA) VALUES (:materia, :num_libro, :folio, :fecha)";
-
-    $stmt = $conn->prepare($sql);
-
-    $stmt->bindParam(':materia', $materia, PDO::PARAM_INT);
-    $stmt->bindParam(':num_libro', $num_libro, PDO::PARAM_INT);
-    $stmt->bindParam(':folio', $folio, PDO::PARAM_INT);
-    $stmt->bindParam(':fecha', $fecha, PDO::PARAM_STR);
-
-    if ($stmt->execute()) {
-        $lastInsertedId = $conn->lastInsertId(); // Obtén el último ID autoincremental insertado
-        
-        $sql1 = "INSERT INTO rinde(ID_EXAMEN, ID_ALUMNO, ID_MATERIA, NOTA, FECHA) VALUES (:id_examen, :legajo, :materia, :nota, :fecha)";
-        
-        $stmt1 = $conn->prepare($sql1);
-
-        // Asigna el ID_EXAMEN obtenido anteriormente
-        $stmt1->bindParam(':id_examen', $lastInsertedId, PDO::PARAM_INT);
-        $stmt1->bindParam(':legajo', $legajo, PDO::PARAM_STR);
-        $stmt1->bindParam(':materia', $materia, PDO::PARAM_INT);
-        $stmt1->bindParam(':nota', $nota, PDO::PARAM_INT);
-        $stmt1->bindParam(':fecha', $fecha, PDO::PARAM_STR);
-
-        if ($stmt1->execute()) {
-            $message = "Notas registradas con éxito.";
-        } else {
-            $message = "Error al registrar las notas en la tabla rinde: " . print_r($stmt1->errorInfo(), true);
+        // Insertar las notas de los alumnos en la tabla de notas de examen
+        foreach ($notas as $legajo => $nota) {
+            $sqlNota = "INSERT INTO rinde (ID_EXAMEN, ID_ALUMNO, ID_MATERIA, NOTA, FECHA) VALUES (:numExamen, :legajo, :materia, :nota, :fecha)";
+            $stmtNota = $conexion->prepare($sqlNota);
+            $stmtNota->bindParam(":numExamen", $numExamen);
+            $stmtNota->bindParam(":legajo", $legajo);
+            $stmtNota->bindParam(":materia", $materia);
+            $stmtNota->bindParam(":nota", $nota);
+            $stmtNota->bindParam(":fecha", $fecha);
+            $stmtNota->execute();
         }
-    } else {
-        $message = "Error al registrar las notas en la tabla examen_final: " . print_r($stmt->errorInfo(), true);
+
+        // Cerrar la conexión
+        $conexion = null;
+
+        echo "Notas guardadas exitosamente.";
+    } catch (PDOException $e) {
+        echo "Error al guardar las notas: " . $e->getMessage();
     }
-
-    echo "<script>alert('$message');</script>";
-
-} catch (PDOException $e) {
-    echo "Error en la consulta: " . $e->getMessage();
+} else {
+    echo "Acceso no autorizado.";
 }
-
-
-    // Cierra la conexión
-    $conn = null;
-}
-include('examen_final.php');
+header("location:examen_final.php");
 ?>
-
-?>
-

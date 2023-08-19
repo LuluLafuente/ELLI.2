@@ -8,24 +8,24 @@ switch ($_SESSION["u_rol"]) {
     case 1:
         session_unset();
         session_destroy();
-        header("location:index.html");
+        header("location:index.php");
         break;
 
     case 2:
         session_unset();
         session_destroy();
-        header("location:index.html");
+        header("location:index.php");
         break;
 
     case 3:
         session_unset();
         session_destroy();
-        header("location:index.html");
+        header("location:index.php");
         break;
     
     default:
         session_unset();
         session_destroy();
-        header("location:index.html");
+        header("location:index.php");
         break;
 }

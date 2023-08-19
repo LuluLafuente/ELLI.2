@@ -10,8 +10,8 @@ include 'bd_select.php';
 // REVISO QUE HAYA UNA SESION ACTIVA DE USUARIO,
 // DE LO CONTRARIO VUELVE A LA PAGINA DE INICIO.
 if(!isset($_SESSION["usuario"])){
-    //header("location:index.html");
-    //echo "Verdadero </br>";
+    //header("location:index.php");
+    //exit;
 }
 
 // DECLARAR VARIABLES

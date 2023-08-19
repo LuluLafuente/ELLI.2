@@ -48,6 +48,12 @@
                         <span class="title">Inscripción Coordinador</span>
                     </a>
                 </li>
+                 <li>
+                    <a href="crear_mesa.php">
+                        <span class="icon"><i class="fa-solid fa-file-circle-plus"></i></span>
+                        <span class="title">Crear Mesa de Examen</span>
+                    </a>
+                </li>
                 <li class="hovered">
                     <a href="ver_notas_examen.php">
                         <span class="icon"><i class="fa-regular fa-note-sticky"></i></span>
@@ -89,10 +95,9 @@
                             <thead>
                                 <tr>
                                     <th style="padding-right: 50px;padding-left: 50px;">Legajo</th>
-                                    <th style="padding-right: 50px;padding-left: 50px;">Alumno</th>
+                                    <th style="padding-right: 100px;padding-left: 100px;">Alumno</th>
                                     <th style="padding-right: 110px;padding-left: 110px;">Asignatura</th>
                                     <th  style="padding-right: 10px;padding-left: 10px;">Nota Final</th>
-                                    <th style="padding-right: 10px;padding-left: 10px;">Libro</th>
                                     <th style="padding-right: 10px;padding-left: 10px;">N° Folio</th>
                                     <th>Fecha</th>
 
@@ -130,16 +135,9 @@
                                         <?php endfor; ?>
                                     </td>
                                     <td>
-                                        <!--Libro-->
-                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                        <?php echo $resultado[$i]['LIBRO']; ?>
-                                        <hr>
-                                        <?php endfor; ?>
-                                    </td>
-                                    <td>
                                         <!--FOLIO-->
                                         <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                        <?php echo $resultado[$i]['FOLIO']; ?>
+                                        <?php echo $resultado[$i]['LIBRO']; ?>
                                         <hr>
                                         <?php endfor; ?>
                                     </td>

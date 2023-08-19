@@ -54,6 +54,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="crear_mesa.php">
+                        <span class="icon"><i class="fa-solid fa-file-circle-plus"></i></span>
+                        <span class="title">Crear Mesa de Examen</span>
+                    </a>
+                </li>
+                <li>
                     <a href="ver_notas_examen.php">
                         <span class="icon"><i class="fa-regular fa-note-sticky"></i></span>
                         <span class="title">Ver Notas Examenes</span>
@@ -84,18 +90,18 @@
                     
                     <div class="tarjeta">
                         <fieldset class="datos-titulo">
-                        <legend>Datos personales</legend>
-                        <form action="carga_docente.php" method="POST" enctype="multipart/form-data">
-                            <div class="tarjeta-primera-seccion">
-                                    <div class="tarjeta-foto-perfil">
-                                    <div class="tarjeta-foto">
-                                        <img src="./img/images.png" alt="Foto de perfil del usuario">
+                            <legend>Datos personales</legend>
+                            <form action="carga_alumnos.php" method="POST" enctype="multipart/form-data">
+                                <div class="tarjeta-primera-seccion">
+    
+                                    <div id="dropArea">
+                                        <div class="tarjeta-foto" id="alumnosContainer">
+                                            
+                                        </div>
+                                        <div class="tarjeta-carga">
+                                            <input type="file" id="foto" accept="image/*" required>
+                                        </div>
                                     </div>
-                                
-                                    <div class="tarjeta-carga">
-                                        <input type="file" id="foto" name="foto">
-                                    </div>
-                                </div>
                                 <div class="tarjeta-datos-2">
                                     <div class="datos-entrada">
                                         <div class="campo">

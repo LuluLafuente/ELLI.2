@@ -17,16 +17,12 @@
         sizes="192x192">
 
     <title>Registrar Notas de Parcial</title>
-
-</head>
+    </head>
 
 <body>
-    <?php if (isset($message)) { ?>
-    <script>alert('<?php echo $message; ?>');</script>
-    <?php } ?>
     <!--Panel lateral con opciones-->
-    <div class="container">
-        <div class="navigation">
+    <div class="container">     
+       <div class="navigation">
             <ul>
                 <li>
                     <a href="#">
@@ -90,8 +86,7 @@
                             <?php for ($i = 0; $i < $consulta2->rowCount(); $i++):
                             $idm = $resultado2[$i]['ID_MATERIA'];
                             $mate = $resultado2[$i]['ASIGNATURA'];
-                            $carreraId = $resultado2[$i]['ID_CARRERA']; // ID de la carrera a la que pertenece la materia
-                        ?>
+                            $carreraId = $resultado2[$i]['ID_CARRERA']; // ID de la carrera a la que pertenece la materia?>
                             <option value="<?php echo $idm; ?>" data-carrera="<?php echo $carreraId; ?>" required>
                                 <?php echo $mate; ?>
                             </option>
@@ -116,33 +111,37 @@
                                 <th>Nota</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <?php for ($i=0; $i < $consulta3->rowCount(); $i++): ?>
-                            <?php $legajo = $resultado3[$i]['LEGAJO']; ?>
-                            <tr>
-                                <td>
-                                    <input type="hidden" name="legajo[]" value="<?php echo $legajo; ?>">
-                                    <?php echo $legajo; ?>
-                                </td>
-                                <td>
-                                    <?php echo $resultado3[$i]['ALUMNO']; ?>
-                                </td>
-                                <td>
-                                    <input type="number" name="nota[<?php echo $legajo; ?>]" value="" required>
-                                </td>
-                            </tr>
-                            <?php endfor; ?>
+                        <tbody class="tabla-alumnos">
+                             <?php for ($i = 0; $i < $consulta3->rowCount(); $i++): ?>
+                    <?php
+                    $legajo = $resultado3[$i]['LEGAJO'];
+                    $materiaId = $resultado3[$i]['ID_MATERIA'];
+                    ?>
+                    <tr data-materia="<?php echo $materiaId; ?>">
+                        <td>
+                            <input type="hidden" name="legajo[]" value="<?php echo $legajo; ?>">
+                            <?php echo $legajo; ?>
+                        </td>
+                        <td>
+                            <?php echo $resultado3[$i]['ALUMNO']; ?>
+                        </td>
+                        <td>
+                            <input type="number" name="nota[<?php echo $legajo; ?>]" value="" required>
+                        </td>
+                    </tr>
+                <?php endfor; ?>
                         </tbody>
                     </table>
                     <br>
                     <input type="submit" value="Guardar Nota">
-                </fieldset>
                 </form>
+            </fieldset>                            
             </div>
         </div>
     </div>
     <script src="js/appAlumno.js"></script>
-    <script src="js/filtro_carga_notas_parcial.js"></script>
+   <script src="js/filtrar_materias.js"></script>
+   <script src="js/filtrar_alumnos.js"></script>
 
 </body>
 

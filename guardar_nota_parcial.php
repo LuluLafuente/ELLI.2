@@ -1,4 +1,15 @@
 <?php
+
+//INICIO SESION
+session_start();
+
+//REVISO QUE HAYA UNA SESION ACTIVA DE USUARIO,
+//DE LO CONTRARIO VUELVE A LA PAGINA DE INICIO.
+if(!isset($_SESSION["usuario"])){
+    ///header("location:index.php");
+    //exit;
+}
+
 // Verifica si se enviaron los datos del formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtiene los datos del formulario
@@ -63,10 +74,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn->rollback();
         echo "Error en la consulta: " . $e->getMessage();
     }
-
+    
     // Cierra la conexión
     $conn = null;
 }
 
-include('portal_docente.php');
+header("location:examen_parcial.php");
 ?>

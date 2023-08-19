@@ -46,6 +46,12 @@
                         <span class="title">Inscripción Coordinador</span>
                     </a>
                 </li>
+                 <li>
+                    <a href="crear_mesa.php">
+                        <span class="icon"><i class="fa-solid fa-file-circle-plus"></i></span>
+                        <span class="title">Crear Mesa de Examen</span>
+                    </a>
+                </li>
                 <li>
                     <a href="ver_notas_examen.php">
                         <span class="icon"><i class="fa-regular fa-note-sticky"></i></span>
@@ -98,36 +104,46 @@
                                     <td>
                                         <!--Legajo Alumnos-->
                                         <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                        <?php if ($resultado[$i]["1ER_PARCIAL" && "2DO_PARCIAL"] != 0): ?>
                                         <?php echo $resultado[$i]['LEGAJO_ALU'];?>
                                         <hr>
+                                        <?php endif; ?>
                                         <?php endfor; ?>
                                     </td>
                                     <td>
                                         <!--Alumnos-->
                                         <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                        <?php if ($resultado[$i]["1ER_PARCIAL" && "2DO_PARCIAL"] != 0): ?>
                                         <?php echo $resultado[$i]['ALUMNO'];?>
                                         <hr>
+                                        <?php endif; ?>
                                         <?php endfor; ?>
                                     </td>
                                     <td>
                                         <!--Asignaturas-->
                                         <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                        <?php if ($resultado[$i]["1ER_PARCIAL" || "2DO_PARCIAL"] != 0): ?>
                                         <?php echo $resultado[$i]['MATERIA']; ?>
                                         <hr>
+                                        <?php endif; ?>
                                         <?php endfor; ?>
                                     </td>
                                     <td>
                                         <!--Notas 1er Parcial-->
                                         <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                        <?php if ($resultado[$i]["1ER_PARCIAL" && "2DO_PARCIAL"] != 0): ?>
                                         <?php echo $resultado[$i]['1ER_PARCIAL']; ?>
                                         <hr>
+                                        <?php endif; ?>
                                         <?php endfor; ?>
                                     </td>
                                     <td>
                                         <!--Notas 2do Parcial-->
                                         <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                        <?php if ($resultado[$i]["1ER_PARCIAL" && "2DO_PARCIAL"] != 0): ?>
                                         <?php echo $resultado[$i]['2DO_PARCIAL']; ?>
                                         <hr>
+                                        <?php endif; ?>
                                         <?php endfor; ?>
                                     </td>
                                 </tr>

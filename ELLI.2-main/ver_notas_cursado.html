@@ -1,0 +1,160 @@
+<!--Vista notas cursadoAdministracion-->
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <link rel="shortcut icon"
+        href="https://iset-tuc.infd.edu.ar/aula/static/14.05.00-45/skins/redinfod/img/comunes/favicon.ico"
+        type="image/x-icon">
+    <link rel="stylesheet" href="./css/stylePortal.css" />
+    <script src="https://kit.fontawesome.com/c0959f9251.js" crossorigin="anonymous">
+    </script>
+    <title>Registrar Notas de Cursado | ISET Educativo</title>
+</head>
+
+<body>
+    <div class="container">
+        <!--Panel lateral con opciones-->
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa-solid fa-user-tie"></i></span>
+                        <span class="title">
+                            <?php echo $_SESSION["u_nombre"] . ", " . $_SESSION["u_apellido"] ;?>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="inscripcion_docente.php">
+                        <span class="icon"><i class="fa-solid fa-person-chalkboard"></i></span>
+                        <span class="title">Inscripción Docente</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="inscripcion_alumno.php">
+                        <span class="icon"><i class="fa-solid fa-file-circle-plus"></i></span>
+                        <span class="title">Inscripción Alumno</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="error.html">
+                        <span class="icon"><i class="fa-solid fa-chalkboard-user"></i></span>
+                        <span class="title">Inscripción Coordinador</span>
+                    </a>
+                </li>
+                 <li>
+                    <a href="crear_mesa.php">
+                        <span class="icon"><i class="fa-solid fa-file-circle-plus"></i></span>
+                        <span class="title">Crear Mesa de Examen</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="ver_notas_examen.php">
+                        <span class="icon"><i class="fa-regular fa-note-sticky"></i></span>
+                        <span class="title">Ver Notas Examenes</span>
+                    </a>
+                </li>
+                <li class="hovered">
+                    <a href="ver_notas_cursado.php">
+                        <span class="icon"><i class="fa-solid fa-receipt"></i></span>
+                        <span class="title"> Ver Notas Cursado</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="cerrar_sesion.php">
+                        <span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                        <span class="title">Cerrar</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--Menu-->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div class="user">
+                    <img src="<?php echo $_SESSION['u_foto'] ;?>" alt="Imagen de Usuario">
+                </div>
+            </div>
+            <div class="contenido">
+                <section class="ver_Notas_Cursado">
+                    <fieldset class="datos-titulo">
+                        <legend>Notas de Parciales</legend>
+                        <br>
+                        <p>El Instituto Superior de Educación Tecnológica(ISET)- sito en Domingo Garcia 47-</p>
+                        <br>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="padding-right: 50px;padding-left: 50px;">Legajo</th>
+                                    <th>Alumno</th>
+                                    <th style="padding-right: 140px;padding-left: 140px;">Asignatura</th>
+                                    <th style="padding-right: 15px;padding-left: 15px;">1er Parcial</th>
+                                    <th style="padding-right: 15px;padding-left: 15px;" >2do Parcial</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <!--Legajo Alumnos-->
+                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                        <?php if ($resultado[$i]["1ER_PARCIAL" && "2DO_PARCIAL"] != 0): ?>
+                                        <?php echo $resultado[$i]['LEGAJO_ALU'];?>
+                                        <hr>
+                                        <?php endif; ?>
+                                        <?php endfor; ?>
+                                    </td>
+                                    <td>
+                                        <!--Alumnos-->
+                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                        <?php if ($resultado[$i]["1ER_PARCIAL" && "2DO_PARCIAL"] != 0): ?>
+                                        <?php echo $resultado[$i]['ALUMNO'];?>
+                                        <hr>
+                                        <?php endif; ?>
+                                        <?php endfor; ?>
+                                    </td>
+                                    <td>
+                                        <!--Asignaturas-->
+                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                        <?php if ($resultado[$i]["1ER_PARCIAL" || "2DO_PARCIAL"] != 0): ?>
+                                        <?php echo $resultado[$i]['MATERIA']; ?>
+                                        <hr>
+                                        <?php endif; ?>
+                                        <?php endfor; ?>
+                                    </td>
+                                    <td>
+                                        <!--Notas 1er Parcial-->
+                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                        <?php if ($resultado[$i]["1ER_PARCIAL" && "2DO_PARCIAL"] != 0): ?>
+                                        <?php echo $resultado[$i]['1ER_PARCIAL']; ?>
+                                        <hr>
+                                        <?php endif; ?>
+                                        <?php endfor; ?>
+                                    </td>
+                                    <td>
+                                        <!--Notas 2do Parcial-->
+                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                        <?php if ($resultado[$i]["1ER_PARCIAL" && "2DO_PARCIAL"] != 0): ?>
+                                        <?php echo $resultado[$i]['2DO_PARCIAL']; ?>
+                                        <hr>
+                                        <?php endif; ?>
+                                        <?php endfor; ?>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script src="./js/appAlumno.js"></script>
+</body>
+
+</html>

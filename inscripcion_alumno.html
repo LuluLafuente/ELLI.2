@@ -89,14 +89,16 @@
                         <legend>Datos personales</legend>
                         <form action="carga_alumnos.php" method="POST" enctype="multipart/form-data">
                             <div class="tarjeta-primera-seccion">
-                                <div class="tarjeta-foto-perfil">
-                                    <div class="tarjeta-foto">
-                                        <img src="./img/images.png" alt="Foto de perfil del usuario">
+
+                                <div id="dropArea">
+                                    <div class="tarjeta-foto" id="alumnosContainer">
+                                        
                                     </div>
                                     <div class="tarjeta-carga">
-                                        <input type="file" id="foto" name="foto">
+                                        <input type="file" id="foto" accept="image/*" required>
                                     </div>
                                 </div>
+
                                 <div class="tarjeta-datos-2">
                                     <div class="datos-entrada">
                                         <div class="campo">

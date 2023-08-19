@@ -401,6 +401,16 @@ section .h2 {
   background: #dfdfdf;
 }
 
+#dropArea {
+  border: 2px dashed #007bff;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+}
+#dropArea.drag-over {
+  background-color: #d9edf7;
+}
+
 .tarjeta-datos {
   /*background-color: yellow;*/
   margin: 10px 10px 0px 10px;

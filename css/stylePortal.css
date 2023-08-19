@@ -400,6 +400,12 @@ section .h2 {
   object-fit: cover;
   background: #dfdfdf;
 }
+.imagen-previa {
+  max-width: 100%;
+  max-height: 200px;
+  margin-top: 10px;
+}
+
 
 #dropArea {
   border: 2px dashed #007bff;

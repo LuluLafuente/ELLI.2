@@ -131,8 +131,26 @@ function handleDrop(event) {
 
 // Función para cargar la foto desde el input de archivo
 function cargarFotoDesdeInput() {
-  const fotoFile = document.getElementById('foto').files[0]; // Obtener el archivo del input
-  cargarFoto(fotoFile); // Llamar a la función para cargar la imagen
+  const fotoInput = document.getElementById('foto');
+  const imagenPreviaContainer = document.getElementById('imagenPrevia');
+
+  if (fotoInput.files && fotoInput.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function(event) {
+      const imagenPrevia = document.createElement('img');
+      imagenPrevia.src = event.target.result;
+      imagenPrevia.classList.add('imagen-previa');
+
+      // Remover imagen previa anterior (si existe)
+      while (imagenPreviaContainer.firstChild) {
+        imagenPreviaContainer.removeChild(imagenPreviaContainer.firstChild);
+      }
+
+      imagenPreviaContainer.appendChild(imagenPrevia);
+    };
+
+    reader.readAsDataURL(fotoInput.files[0]); // Leer el archivo como URL de datos
+  }
 }
 
 // Función para cargar y mostrar la imagen

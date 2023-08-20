@@ -89,8 +89,8 @@
             </div>
             <div class="contenido">
                 <fieldset>
-                    <legend><strong>Registrar Nota de Examen Final</strong></legend>
-                    <form id="formularioNotas" action="guardar_nota.php" method="POST">
+                    <legend><strong> Crear Mesa de Examen Final</strong></legend>
+                    <form id="formularioNotas" action="guardar_mesa.php" method="POST">
                         <label for="carrera">1. Seleccione Carrera:</label>
                         <select id="carreraSelect" name="carrera">
                             <option value="0" selected disabled>&gt; SELECCIONE UNA CARRERA &lt;</option>
@@ -102,7 +102,7 @@
                                 <?php echo $carr; ?>
                             </option>
                             <?php endfor; ?>
-                        </select>
+                        </select><hr>
 
                         <label for="materia">2. Seleccione una Materia:</label>
                         <select id="materiaSelect" name="materia">
@@ -115,15 +115,17 @@
                                 <?php echo $mate; ?>
                             </option>
                             <?php endfor; ?>
-                        </select>
+                        </select><hr>
 
-                        <label for="mesa">3. Ingrese Número de Mesa:</label>
+                        <label for="mesa">3. Número de Mesa: </label>
+                        <input type="hidden" value ="<?php echo $num_mesa + 1;?>"id="mesa" name="mesa"><?php echo $num_mesa + 1; ?><hr>
 
-                        <label for="libro">4. Ingrese Número de Libro:</label>
-                        <input type="number" id="num_libro" name="num_libro" required min="1"><br>
-                        
-                        <label for="folio">5. Ingrese el Número de Folio:</label>
-                        <input type="number" id="folio" name="folio" required min="1"><br>
+                        <label for="libro">4. Número de Libro: </label>
+                        <input type="hidden" value ="<?php echo $num_libro;?>"id="libro" name="libro"><?php echo $num_libro; ?><hr>
+
+
+                        <label for="folio">5. Número de Folio: </label>
+                        <input  type="hidden" value ="<?php echo $num_folio + 1 ;?>"id="folio" name="folio"><?php echo $num_folio + 1; ?><hr>
 
                         <label for="fecha">6. Seleccione la Fecha:</label>
                         <input type="date" id="fecha" name="fecha" required><br>
@@ -138,31 +140,33 @@
                             <tr>
                                 <th>Legajo</th>
                                 <th>Alumno</th>
-                                <th>Nota</th>
+                                <th>Rinde</th>
                             </tr>
                         </thead>
                         <tbody class="tabla-alumnos">
-                             <?php for ($i = 0; $i < $consulta->rowCount(); $i++): ?>
+                             <?php for ($i = 0; $i < $consulta3->rowCount(); $i++): ?>
                     <?php
-                    $legajo = $resultado[$i]['LEGAJO'];
-                    $materiaId = $resultado[$i]['ID_MATERIA'];
+                    $legajo = $resultado3[$i]['LEGAJO'];
+                    $materiaId = $resultado3[$i]['ID_MATERIA'];
                     ?>
                     <tr data-materia="<?php echo $materiaId; ?>">
+                        
                         <td>
                             <input type="hidden" name="legajo[]" value="<?php echo $legajo; ?>">
                             <?php echo $legajo; ?>
                         </td>
                         <td>
-                            <?php echo $resultado[$i]['ALUMNO']; ?>
+                            <?php echo $resultado3[$i]['ALUMNO']; ?>
                         </td>
                         <td>
-                            <input type="number" name="nota[<?php echo $legajo; ?>]" min ="0" max = "10" value="" required>
+                           <input type="radio" name="rinde[<?php echo $legajo; ?>]" value="si">Si<br>
+                           <input type="radio" name="rinde[<?php echo $legajo; ?>]" value="no">No
+
                         </td>
                     </tr>
                 <?php endfor; ?>
                         </tbody>
                     </table>
-                    <br>
                     <input type="submit" value="Guardar Nota">
                 </form>
             </fieldset>       
@@ -171,6 +175,8 @@
     </div>
    <script src="js/appAlumno.js"></script>
    <script src="js/filtrar_materias.js"></script>
+   <script src="js/filtrar_alumnos_mesa.js"></script>
+
 </body>
 
 </html>

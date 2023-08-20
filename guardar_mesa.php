@@ -60,5 +60,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 } else {
     echo "Acceso no autorizado.";
 }
-//header("location:crear_mesa.php");
+header("location:crear_mesa.php");
 ?>

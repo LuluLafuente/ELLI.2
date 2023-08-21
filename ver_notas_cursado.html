@@ -46,7 +46,7 @@
                         <span class="title">Inscripción Coordinador</span>
                     </a>
                 </li>
-                 <li>
+                <li>
                     <a href="crear_mesa.php">
                         <span class="icon"><i class="fa-solid fa-file-circle-plus"></i></span>
                         <span class="title">Crear Mesa de Examen</span>
@@ -86,75 +86,79 @@
                 <section class="ver_Notas_Cursado">
                     <fieldset class="datos-titulo">
                         <legend>Notas de Parciales</legend>
+
                         <br>
                         <p>El Instituto Superior de Educación Tecnológica(ISET)- sito en Domingo Garcia 47-</p>
                         <br>
-                        <table>
+
+                        <!--filtro -->
+                        <fieldset>
+                            <legend>Filtrar por Asignatura:</legend>
+                                                                                  
+                                <select id="materiaSelect" name="asignatura">
+                            <option value="0" selected disabled>&gt; SELECCIONE UNA MATERIA &lt;</option>
+                            <?php for ($i = 0; $i < $consulta1->rowCount(); $i++):?>
+                            <?php
+                            $mate = $resultado1[$i]['MATERIA'];
+                            ?>
+                            <option value="<?php echo $mate; ?>" name="asignatura">
+                                <?php echo $mate; ?>
+                            </option>
+                            <?php endfor; ?>
+                                </select>
+                                <br>                            
+                        </fieldset>
+                        
+
+                        <br><br>
+
+                        <table id="notasTable">
                             <thead>
                                 <tr>
                                     <th style="padding-right: 50px;padding-left: 50px;">Legajo</th>
                                     <th>Alumno</th>
                                     <th style="padding-right: 140px;padding-left: 140px;">Asignatura</th>
                                     <th style="padding-right: 15px;padding-left: 15px;">1er Parcial</th>
-                                    <th style="padding-right: 15px;padding-left: 15px;" >2do Parcial</th>
+                                    <th style="padding-right: 15px;padding-left: 15px;">2do Parcial</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
+                            <tbody class="tabla-notas">
+                                <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                <?php $materia = $resultado[$i]['MATERIA']; ?>
+                            
+                                <tr data-materia="<?php echo $materia; ?>">                                  
                                     <td>
-                                        <!--Legajo Alumnos-->
-                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                        <?php if ($resultado[$i]["1ER_PARCIAL" && "2DO_PARCIAL"] != 0): ?>
                                         <?php echo $resultado[$i]['LEGAJO_ALU'];?>
                                         <hr>
-                                        <?php endif; ?>
-                                        <?php endfor; ?>
                                     </td>
                                     <td>
-                                        <!--Alumnos-->
-                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                        <?php if ($resultado[$i]["1ER_PARCIAL" && "2DO_PARCIAL"] != 0): ?>
-                                        <?php echo $resultado[$i]['ALUMNO'];?>
+                                        <?php echo $resultado[$i]['ALUMNO']; ?>
                                         <hr>
-                                        <?php endif; ?>
-                                        <?php endfor; ?>
                                     </td>
-                                    <td>
-                                        <!--Asignaturas-->
-                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                        <?php if ($resultado[$i]["1ER_PARCIAL" || "2DO_PARCIAL"] != 0): ?>
-                                        <?php echo $resultado[$i]['MATERIA']; ?>
+                                    <td class="asignatura">
+                                        <?php echo $materia; ?>
                                         <hr>
-                                        <?php endif; ?>
-                                        <?php endfor; ?>
                                     </td>
                                     <td>
-                                        <!--Notas 1er Parcial-->
-                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                        <?php if ($resultado[$i]["1ER_PARCIAL" && "2DO_PARCIAL"] != 0): ?>
                                         <?php echo $resultado[$i]['1ER_PARCIAL']; ?>
                                         <hr>
-                                        <?php endif; ?>
-                                        <?php endfor; ?>
                                     </td>
                                     <td>
-                                        <!--Notas 2do Parcial-->
-                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                        <?php if ($resultado[$i]["1ER_PARCIAL" && "2DO_PARCIAL"] != 0): ?>
                                         <?php echo $resultado[$i]['2DO_PARCIAL']; ?>
                                         <hr>
-                                        <?php endif; ?>
-                                        <?php endfor; ?>
                                     </td>
                                 </tr>
+                                <?php endfor; ?>
                             </tbody>
+                                                   
                         </table>
                     </fieldset>
                 </section>
             </div>
         </div>
-    </div>
+    </div>  
     <script src="./js/appAlumno.js"></script>
+  <script src="./js/filtro_tabla_admin.js"></script>
 </body>
 
 </html>

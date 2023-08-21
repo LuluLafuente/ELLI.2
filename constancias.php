@@ -22,6 +22,8 @@ $conexion = conexionDB();
 
 //BUSCAR LA LISTA DE MATERIAS
 $consulta = selectAprobadas($conexion, $_SESSION["u_legajo"]);
+$consulta1 = selectHistoriaAlumno($conexion,$_SESSION["u_legajo"]);
+
 
 //GUARDO TODOS LOS RESULTADOS EN UNA VARIABLE
 $resultado = $consulta->fetchAll();
@@ -31,7 +33,7 @@ $planEstudio = selectPlanEstudio($conexion, $_SESSION["u_carrera"]);
 
 //GUARDO LOS RESULTADOS DEL PLAN EN UNA VARIABLE
 $resultadoPlan = $planEstudio->fetchAll();
-
+$resultado1 = $consulta1->fetchAll();
 //ZONA DE PRUEBAS INICIO
 
 

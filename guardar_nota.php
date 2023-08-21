@@ -1,5 +1,4 @@
 <?php
-
 //INICIO SESION
 session_start();
 
@@ -7,17 +6,17 @@ if(!isset($_SESSION["usuario"])){
     //header("location:index.php");
     //exit;
 }
+
 // Verificar si se recibieron los datos necesarios
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $materia = $_POST["materia"];
-    $numExamen = $_POST["num_examen"];
-    $numLibro = $_POST["num_libro"];
-    $folio = $_POST["folio"];
+    $numExamen = $_POST["num_mesa"];
     $fecha = $_POST["fecha"];
-    $notas = $_POST["nota"];
+    $notas = $_POST["nota"]; //Array con las notas de alumnos que si estan
+    $rinde = $_POST["rinde"]; // Array de valores "si" o "no" presentes
 
     // Realizar la conexión a la base de datos y ejecutar la inserción
-     $host = "127.0.0.1";
+    $host = "127.0.0.1";
     $dbNombre = "bd_prueba";
     $usuario = "isetEducativo";
     $contrasenia = "unaClaveMuyDificil1";
@@ -27,26 +26,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $conexion = new PDO("mysql:host=$host;dbname=$dbNombre", $usuario, $contrasenia);
         $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // Insertar los datos en la tabla correspondiente
-        $sql = "INSERT INTO examen_final (ID_EXAMEN_FINAL, ID_MATERIA, LIBRO, FOLIO, FECHA) VALUES (:numExamen, :materia,  :numLibro, :folio, :fecha)";
-        $stmt = $conexion->prepare($sql);
-        $stmt->bindParam(":numExamen", $numExamen);
-        $stmt->bindParam(":materia", $materia);
-        $stmt->bindParam(":numLibro", $numLibro);
-        $stmt->bindParam(":folio", $folio);
-        $stmt->bindParam(":fecha", $fecha);
-        $stmt->execute();
 
-        // Insertar las notas de los alumnos en la tabla de notas de examen
-        foreach ($notas as $legajo => $nota) {
-            $sqlNota = "INSERT INTO rinde (ID_EXAMEN, ID_ALUMNO, ID_MATERIA, NOTA, FECHA) VALUES (:numExamen, :legajo, :materia, :nota, :fecha)";
-            $stmtNota = $conexion->prepare($sqlNota);
-            $stmtNota->bindParam(":numExamen", $numExamen);
-            $stmtNota->bindParam(":legajo", $legajo);
-            $stmtNota->bindParam(":materia", $materia);
-            $stmtNota->bindParam(":nota", $nota);
-            $stmtNota->bindParam(":fecha", $fecha);
-            $stmtNota->execute();
+        // Insertar las notas de los alumnos en la tabla de notas de examen si rinde = "si"
+        foreach ($rinde as $legajo => $respuesta) {
+            if ($respuesta === "si" && isset($notas[$legajo])) {
+                $nota = intval($notas[$legajo]);
+                $sqlNota = "UPDATE rinde SET NOTA = :nota WHERE ID_EXAMEN = :numExamen AND ID_ALUMNO = :legajo";
+                $stmtNota = $conexion->prepare($sqlNota);
+                $stmtNota->bindParam(":nota", $nota);
+                $stmtNota->bindParam(":numExamen", $numExamen);
+                $stmtNota->bindParam(":legajo", $legajo);
+                $stmtNota->execute();
+                
+            }
+            else{
+                $sqlAusente = "DELETE FROM rinde WHERE ID_ALUMNO= :legajo AND ID_EXAMEN = :numExamen";
+                $stmtAusente = $conexion->prepare($sqlAusente);
+                $stmtAusente->bindParam(":numExamen", $numExamen);
+                $stmtAusente->bindParam(":legajo", $legajo);
+                $stmtAusente->execute();
+            }
+
         }
 
         // Cerrar la conexión

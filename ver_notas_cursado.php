@@ -22,8 +22,11 @@ $conexion = conexionDB();
 
 //Busqueda de datos
 $consulta = selectListaParciales($conexion);
+$consulta1 = selectAlumnosCursado($conexion);
+
+
 //Se guardan datos
 $resultado = $consulta->fetchAll();
+$resultado1 = $consulta1->fetchAll();
 
 include('ver_notas_cursado.html');
-

@@ -104,7 +104,13 @@
 
         return $consulta;
     }
-     
+    //Busco a todos los alumnos que rinden en la mesa
+    function selectAlumnosFinal($con){
+        $consulta=$con->query("SELECT DISTINCT c.ALUMNO, r.ID_ALUMNO, r.ID_MATERIA FROM rinde r INNER JOIN vw_cursado c on r.ID_ALUMNO = c.LEGAJO;");
+
+        return $consulta;
+    }
+    
     // BUSCA LA CANTIDAD DE ALUMNOS INSCRIPTOS POR AÑO
     function selectAlumnosCantInsc($con, $anio){
         $consulta = $con->query("SELECT COUNT(anio)
@@ -132,8 +138,7 @@
     }
 
     function selectAlumnos($con){
-        $consulta = $con->query("SELECT LEGAJO, ALUMNO
-                                from vw_cursado");
+        $consulta = $con->query("SELECT DISTINCT LEGAJO, ALUMNO FROM vw_cursado");
         return $consulta;
 
     }

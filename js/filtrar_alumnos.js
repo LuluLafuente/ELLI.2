@@ -1,3 +1,4 @@
+ //Filtrar Alumnos
 document.addEventListener("DOMContentLoaded", function() {
     const materiaSelect = document.getElementById("materiaSelect");
     const tablaAlumnos = document.querySelector(".tabla-alumnos");
@@ -27,5 +28,3 @@ if (materiaId === selectedMateriaId || selectedMateriaId === "0") {
     // Inicialmente mostrar todos los alumnos
     mostrarTablaAlumnos();
 });
-
-

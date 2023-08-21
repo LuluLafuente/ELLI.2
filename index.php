@@ -18,28 +18,6 @@ if(isset($_SESSION['usuario'])) {
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Iniciar Sesión</title>
-    <!-- Estilos y otros elementos de la cabecera -->
-</head>
-<body>
-    <!-- Formulario de inicio de sesión -->
-</body>
-</html>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Iniciar Sesión</title>
-    <!-- Estilos y otros elementos de la cabecera -->
-</head>
-<body>
-    <!-- Formulario de inicio de sesión -->
-</body>
-</html>
-
-<!DOCTYPE html>
-<html>
 
 <head>
 	<meta charset="utf-8">
@@ -49,6 +27,11 @@ if(isset($_SESSION['usuario'])) {
 </head>
 
 <body>
+
+
+  </div>
+</div>
+
 	<div class="container">
 		<div class="card">
 			<figure>
@@ -77,7 +60,17 @@ if(isset($_SESSION['usuario'])) {
 				<a href="login_alumno.php">Ingresar</a>
 			</div>
 		</div>
-	</div>
-</body>
+		<div class="card">
+			<figure>
+				<img src="img/support.svg">
+			</figure>
+			<div class="contenido">
+				<h3>Información de Contacto</h3>
+				<p>Nombre: Equipo ELLI</p>
+				<p>Email: elli@gmail.com</p>
+				<p>Teléfono: 381-806-662</p>
+			</div>
+  		</div>
+	</body>
 
 </html>

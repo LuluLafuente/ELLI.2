@@ -25,11 +25,15 @@ $consulta = selectAlumnosCursado($conexion);
 $consulta1 = selectCarrera($conexion);
 $consulta2 = selectMaterias($conexion);
 $consulta3 = selectIdExamen($conexion);
+$consulta4 = selectAlumnosFinal($conexion);
+
 
 //GUARDO TODOS LOS RESULTADOS EN UNA VARIABLE
 $resultado = $consulta->fetchAll();
 $resultado1 = $consulta1->fetchAll();
 $resultado2 = $consulta2->fetchAll();
 $resultado3 = $consulta3->fetchAll();
+$resultado4 = $consulta4->fetchAll();
+
 
 include('examen_final.html');

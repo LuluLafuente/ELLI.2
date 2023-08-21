@@ -15,7 +15,6 @@
         href="https://iset-tuc.infd.edu.ar/sitio/wp-content/plugins/edupress-escuela/public/skins/redinfod/img/favicon_192x192.png"
         sizes="192x192">
     <title>Registrar Notas de Examen Final</title>
-
 </head>
 
 <body>
@@ -111,26 +110,29 @@
                                 ?>
                                 <tr data-materia="<?php echo $materiaId; ?>">
                                     <td>
-                                        <input type="hidden" name="mesa" value="">
+                                        <input type="hidden" name="num_mesa"
+                                            value="<?php echo $resultado3[$i]['ID_EXAMEN_FINAL']; ?>">
                                         <?php echo $resultado3[$i]['ID_EXAMEN_FINAL']; ?>
                                     </td>
                                     <td>
-                                        <input type="hidden" name="libro" value="">
+                                        <input type="hidden" name="num_libro"
+                                            value="<?php echo $resultado3[$i]['LIBRO']; ?>">
                                         <?php echo $resultado3[$i]['LIBRO']; ?>
                                     </td>
                                     <td>
-                                        <input type="hidden" name="folio" value="">
+                                        <input type="hidden" name="num_folio"
+                                            value="<?php echo $resultado3[$i]['FOLIO']; ?>">
                                         <?php echo $resultado3[$i]['FOLIO']; ?>
                                     </td>
                                 </tr>
                                 <?php endfor; ?>
                             </tbody>
                         </table>
-                    </form>
                 </fieldset>
                 <br>
 
                 <fieldset>
+                    <br>
                     <legend><strong>Tabla de Alumnos</strong></legend>
                     <!-- La tabla para mostrar los alumnos -->
                     <table>
@@ -143,11 +145,12 @@
                             </tr>
                         </thead>
                         <tbody class="tabla-alumnos">
-                            <?php for ($i = 0; $i < $consulta->rowCount(); $i++): ?>
-                            <?php
-                $legajo = $resultado[$i]['LEGAJO'];
-                $materiaId = $resultado[$i]['ID_MATERIA'];
-                ?>
+                            <?php for ($i = 0; $i < $consulta4->rowCount(); $i++): ?>
+                            <?php 
+                            $legajo = $resultado4[$i]['ID_ALUMNO'];
+                            $materiaId = $resultado4[$i]['ID_MATERIA'];
+                            $alumno = $resultado4[$i]['ALUMNO'];
+                        ?>
                             <tr data-materia="<?php echo $materiaId; ?>">
                                 <td>
                                     <input type="radio" name="rinde[<?php echo $legajo; ?>]" value="si">Si<br>
@@ -158,27 +161,27 @@
                                     <?php echo $legajo; ?>
                                 </td>
                                 <td>
-                                    <?php echo $resultado[$i]['ALUMNO']; ?>
+                                    <?php echo $alumno; ?>
                                 </td>
                                 <td>
-                                    <input type="number" name="nota[<?php echo $legajo; ?>]" min="0" max="10" value=""
-                                        required>
+                                    <input type="number" name="nota[<?php echo $legajo; ?>]" min="0" max="10" value="">
                                 </td>
                             </tr>
                             <?php endfor; ?>
                         </tbody>
-                    </table>
+                    </table>             
+
                     <br>
-                    <input type="submit" value="Guardar Notas">
+                    <input type="submit" value="Cargar datos">
+
                     </form>
                 </fieldset>
             </div>
         </div>
     </div>
     <script src="js/appAlumno.js"></script>
-    <script src="js/filtrar_materias.js"></script>
-    <script src="js/filtrar_alumnos.js"></script>
     <script src="js/buscar_mesa.js"></script>
+    <script src="js/filtrar_alumnos.js"></script>
 </body>
 
 </html>

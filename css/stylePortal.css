@@ -236,6 +236,7 @@ html {
 }
 
 .acordeon .bloque.active .contenido
+
 /*Dependiendo la cantidad de contenido cambiar altura*/
   {
   height: 4em;
@@ -320,6 +321,7 @@ section .h2 {
   flex-direction: row;
   justify-content: space-between;
 }
+
 .btn button {
   margin-right: 20px;
   border-radius: 20px;
@@ -400,12 +402,18 @@ section .h2 {
   object-fit: cover;
   background: #dfdfdf;
 }
+
 .imagen-previa {
   max-width: 100%;
   max-height: 200px;
   margin-top: 10px;
 }
 
+.cambio-texto {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 
 #dropArea {
   border: 2px dashed #007bff;
@@ -413,6 +421,7 @@ section .h2 {
   padding: 20px;
   cursor: pointer;
 }
+
 #dropArea.drag-over {
   background-color: #d9edf7;
 }
@@ -551,8 +560,9 @@ tr {
   font-size: larger;
   color: black;
 }
-.inscripcion, .datos-titulo
-{
+
+.inscripcion,
+.datos-titulo {
   width: 1000px;
   margin: 0 auto;
   border: 2px solid var(--blue);
@@ -560,6 +570,7 @@ tr {
   background-color: white;
   border-radius: 10px;
 }
+
 fieldset {
   width: 800px;
   margin: 0 auto;
@@ -576,12 +587,14 @@ legend {
   padding: 0 5px;
 }
 
-label ,input[type="date"] {
+label,
+input[type="date"] {
   color: var(--blue);
   display: block;
   margin-bottom: 5px;
   font-size: x-large;
 }
+
 input[type="submit"] {
 
   width: 100%;
@@ -594,22 +607,27 @@ input[type="submit"] {
   background-color: #2196F3;
   color: white;
   cursor: pointer;
-  
+
 }
-select,input[type="number"]{
-   width: 100%;
+
+select,
+input[type="number"] {
+  width: 100%;
   padding: 0;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 20px;
 }
+
 select {
   background-color: #fff;
   color: var(--black1);
   font-size: x-large;
 
 }
+
+
 
 input[type="radio"] {
   margin-right: 5px;
@@ -767,6 +785,7 @@ input[type="radio"] {
     width: 100%;
   }
 }
+
 @media only screen and (max-width: 700px) {
 
   .navegador {

@@ -158,3 +158,6 @@ function valCarrera(car, campo){
 
     return mensaje;
 }
+
+
+

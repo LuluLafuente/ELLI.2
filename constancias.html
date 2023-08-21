@@ -15,7 +15,7 @@
         sizes="192x192">
 
     <link rel="stylesheet" href="./css/stylePortal.css" />
-
+    <link rel="stylesheet" href="./css/style.css">
 
 
     <title>Portal Alumno Constancia</title>
@@ -88,80 +88,91 @@
                 <!-- esto se abre al hacer click en libreta o estado academico Tablas e info-->
                 <section>
                     <h2>Constancias</h2>
-                        <div id="cont-constancia">
-                            <div id="cont-constancia-seleccionables">
-                                <div id="cont-constancia-tipo">
-                                    <div>
-                                        <input type="radio" name="alumno-constancia" id="alumno-regular" value="0">
-                                        <label for="alumno-regular">Alumno Regular</label>
-                                    </div>
-                                    <div>
-                                        <input type="radio" name="alumno-constancia" id="alumno-examen" value="1">
-                                        <label for="alumno-examen">Examen</label>
-                                    </div>
-                                    <div>
-                                        <input type="radio" name="alumno-constancia" id="alumno-aprobadas" value="2">
-                                        <label for="alumno-aprobadas">Materias Aprobadas</label>
-                                    </div>
+                    <div id="cont-constancia">
+                        <div id="cont-constancia-seleccionables">
+                            <div id="cont-constancia-tipo">
+                                <div>
+                                    <input type="radio" name="alumno-constancia" id="alumno-regular" value="0">
+                                    <label for="alumno-regular">Alumno Regular</label>
                                 </div>
-                                <hr>
-                                <div id="cont-constancia-rellenable">
-                                    <div class="rellenable">
-                                        <label for="interesado">Interesado</label>
-                                        <input type="text" name="interesado" id="interesado-campo">
-                                    </div>
-                                    <div class="rellenable">
-                                        <label for="cant-copias">Cantidad de copias</label>
-                                        <input type="number" name="cant-copias" id="cant-copias-campo" value="1" min="1"
-                                            max="5">
-                                    </div>
-                                    <div class="rellenable">
-                                        <label for="observaciones">Observaciones</label>
-                                        <input type="text" name="observaciones" id="observaciones-campo">
-                                    </div>
+                                <div>
+                                    <input type="radio" name="alumno-constancia" id="alumno-examen" value="1">
+                                    <label for="alumno-examen">Examen</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="alumno-constancia" id="alumno-aprobadas" value="2">
+                                    <label for="alumno-aprobadas">Materias Aprobadas</label>
                                 </div>
                             </div>
-                            <div id="cont-constancia-titulo">
-                                <img src="img/imagen-certificado-1.png" alt="">
-                                <h2>Instituto Superior de Educación Tecnológica</h2>
+                            <hr>
+                            <div id="cont-constancia-rellenable">
+                                <div class="rellenable">
+                                    <label for="interesado">Interesado</label>
+                                    <input type="text" name="interesado" id="interesado-campo">
+                                </div>
+                                <div class="rellenable">
+                                    <label for="cant-copias">Cantidad de copias</label>
+                                    <input type="number" name="cant-copias" id="cant-copias-campo" value="1" min="1"
+                                        max="5">
+                                </div>
+                                <div class="rellenable">
+                                    <label for="observaciones">Observaciones</label>
+                                    <input type="text" name="observaciones" id="observaciones-campo">
+                                </div>
                             </div>
-                            <div id="cont-constancia-sub-titulo">
-                                <h3>Certificado <span id="certificado-titulo">Alumno Regular</span></h3>
-                            </div>
+                        </div>
+                        <div id="cont-constancia-titulo">
+                            <img src="img/imagen-certificado-1.png" alt="">
+                            <h2>Instituto Superior de Educación Tecnológica</h2>
+                        </div>
+                        <div id="cont-cambio-texto" class="cambio-texto">
+
+                            <h3>Certificado <span id="certificado-titulo">Alumno Regular</span></h3>
+
                             <div id="cont-constancia-textos">
                                 <p>
-                                    El Instituto Superior de Educación Tecnológica certifica que el alumno <span
-                                        id="alumno">
+                                    Por la presente, se hace constar que el(la) estudiante <span id="alumno">
                                         <?php echo $_SESSION["u_nombre"] . " " . $_SESSION["u_apellido"] ;?>
                                     </span>
-                                    con legajo <span id="legajo">
+                                    con numero de matricula <span id="legajo">
                                         <?php echo $_SESSION["u_legajo"] ;?>
                                     </span> y dni <span id="dni">
                                         <?php echo $_SESSION["u_dni"] ;?>
-                                    </span> , actualmente se encuentra en condición de regular
-                                    en la carrera <span id="carrera">
+                                    </span> perteneciente a la carrera de <span id="carrera">
                                         <?php echo $resultadoPlan[0]["CARRERA"]; ?>
-                                    </span> con resolución <span id="resolucion">Resol. Minist. N°513/5(Med)-2014</span> habiendo ingresado en el año
-                                    <span id="fdi-ingreso">
-                                        <?php echo $_SESSION["u_anio"]; ?>
-                                    </span>. <br><br>
-                                    Se emite el presente certificado para ser presentado ante <span
-                                        id="interesado"></span>,
-                                    se extiende el mismo en la ciudad de San Miguel de Tucumán, a los <span
-                                        id="fdh-dia"></span>
-                                    días del mes de <span id="fdh-mes"></span> de <span id="fdh-anio"></span>.
-                                </p>
+                                    </span> ha sido otorgado(a) el permiso para presentar el siguiente examen con
+                                    resolución
+                                    <span id="resolucion">Resol. Minist. N°513/5(Med)-2014</span>
+                                    Materia: [Nombre de la materia]
+                                    Fecha del examen: [Fecha del examen]
+                                    Horario: 19 a 22 hs
+
+
                                 <div id="cont-constancia-validacion">
                                     <h4>Código de validación</h4>
                                     <img src="img/imagen-certificado-2.png" alt="">
                                     <h4>&rarr; <span id="codigo-validacion"></span> &larr;</h4>
                                 </div>
                                 <p>
-                                    El presente certificado puede ser validado en la pagina de la institución <span
-                                        id="pagina-validacion"></span> ingresando el código que se detalla arriba.
+                                    Este permiso ha sido otorgado de acuerdo con las regulaciones y procedimientos
+                                    establecidos por la institución, y el estudiante ha cumplido con los requisitos
+                                    necesarios para la presentación del examen en cuestión.
+
+                                    Se recuerda al estudiante la importancia de llegar puntualmente al lugar del examen
+                                    y de
+                                    cumplir con las normas de conducta y ética durante el proceso de evaluación.
 
                                     El certificado cuenta con una vigencia de <span id="dias-vigencia"></span> día/s a
                                     partir de la fecha de emisión del mismo.<br><br>
+                                    Esta constancia se emite a solicitud del interesado para los fines que considere
+                                    pertinentes.
+                                    Atentamente,
+
+
+                                    Instituto Superior de Educacion Tecnologica
+                                    [Teléfono de contacto]
+                                    [Correo electrónico de contacto]
+
                                 </p>
                                 <p>
                                     <strong>Observaciones</strong>:
@@ -172,13 +183,15 @@
                                 <p>Fecha de emisión de la constancia: <span id="fecha-completa"></span>.</p>
                             </div>
                         </div>
+                    </div>
                 </section>
             </div>
         </div>
     </div>
-    
+
     <script src="js/appAlumno.js"></script>
-    <script src="./js/constancia_alumno.js"></script>
+    <script src="js/constancia.js"></script>
+    <script src="js/constancia_alumnos.js"></script>
 </body>
 
 </html>

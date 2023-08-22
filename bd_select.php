@@ -147,7 +147,7 @@
     function selectNroDeAlumnosInscriptos($con, $carrera, $anio){
         $consulta = $con->query("SELECT inscriptos
                                    FROM vw_alumnos_insc_cohorte
-                                  WHERE CARRERA = '$carrera' AND ANIO = $anio;");
+                                  WHERE ANIO = $anio;");
 
         if(is_object($consulta)){   
             if($consulta->rowCount() === 0){

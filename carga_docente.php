@@ -36,7 +36,12 @@
   /***************************************************************************************/
   // VALIDACION DE NOMBRE
   if(conDatos($_POST['nombre'])){
-    $nombre = sanitizarString($_POST['nombre']);
+    if(validarString($_POST['nombre'])){
+      $nombre = sanitizarString($_POST['nombre']);
+    }
+    else{
+      $errores .= "<p>Por favor ingrese un nombre válido. Este no debe contener números.</p>";  
+    }
   }
   else{
     $errores .= "<p>Por favor ingrese un nombre válido.</p>";
@@ -44,7 +49,12 @@
 
   // VALIDACION DE APELLIDO
   if(conDatos($_POST['apellido'])){
-    $apellido = sanitizarString($_POST['apellido']);
+    if(validarString($_POST['apellido'])){
+      $apellido = sanitizarString($_POST['apellido']);
+    }
+    else{
+      $errores .= "<p>Por favor ingrese un apellido válido. Este no debe contener números.</p>";  
+    }
   }
   else{
     $errores .= "<p>Por favor ingrese un apellido válido.</p>";
@@ -99,7 +109,7 @@
   $rol = $_SESSION['viene_de'];
 
   // ASIGNACION DE CONTRASEÑA
-  $contrasenia = $dni;
+  $contrasenia = hash('sha512', $dni);
 
   // ASIGNACION DE CARRERA
   if(isset($_POST['carrera'])){
@@ -120,6 +130,9 @@
   // ASIGNACION DE LEGAJO
   if($errores === ""){
     $legajo = legajoFinal($conexion, $carrera, $anio, $rol, ROL_DOCENTE);
+  }
+  else{
+    $legajo = "null";
   }
 
   // VALIDACION DE REDES
@@ -242,8 +255,6 @@
   /***************************************************************************************/
   // INICIO DE GUARDADO EN BASE DE DATOS
   /***************************************************************************************/
-
-  
   if($errores === ""){
     // ENVIO LOS DATOS A LA BD
     $insert = agregarDocente(

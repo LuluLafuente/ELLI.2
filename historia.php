@@ -22,11 +22,13 @@ $conexion = conexionDB();
 //BUSCAR LA LISTA DE MATERIAS
 $planEstudio = selectPlanEstudio($conexion, $_SESSION["u_carrera"]);
 $consulta = selectHistoriaAlumno($conexion,$_SESSION["u_legajo"]);
+$consulta1 = selectAprobadas($conexion, $_SESSION["u_legajo"]);
+
 
 //GUARDO TODOS LOS RESULTADOS EN UNA VARIABLE
 $resultado = $consulta->fetchAll();
 $resultadoPlan = $planEstudio->fetchAll();
-//$resultado2 = $consulta2->fetchAll();
+$resultado1 = $consulta1->fetchAll();
 
 
 include('historia.html');

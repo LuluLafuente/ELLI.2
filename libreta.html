@@ -85,6 +85,12 @@
                 <section class="libreta" id="libreta">
                     <div class="acordeon">
                         <h2>Libreta</h2>
+                        <?php if ($consulta->rowCount() == 0):?>
+                        <div class="sinNotas">
+                            <p> Actualmente no posees registro de notas, en caso que sea un error, por favor comunicate desde el area de "Ayuda" desde alli nuestros tecnicos </p>
+                        </div>
+                        <?php else: ?>
+                        
                         <div class="bloque">
                             <h2 class="h2">1er Año</h2>
                             <ul>
@@ -127,6 +133,7 @@
                                 <?php endfor; ?>
                             </ul>
                         </div>
+                        <?php endif; ?>
                     </div>
                 </section>
             </div>

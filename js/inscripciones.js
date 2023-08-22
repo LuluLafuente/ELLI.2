@@ -124,14 +124,15 @@ function handleDragLeave(event) {
 
 // Función para manejar el evento de soltar en el área
 function handleDrop(event) {
-  event.preventDefault(); // Prevenir el comportamiento predeterminado del navegador
-  dropArea.classList.remove('drag-over'); // Remover clase de resaltado
-  const fotoFile = event.dataTransfer.files[0]; // Obtener el archivo de la transferencia
-
-  // Verificar si el archivo es una imagen
-  if (fotoFile.type.startsWith('image/')) {
-    cargarFoto(fotoFile); // Llamar a la función para cargar la imagen
-  } else {
+  event.preventDefault();
+  dropArea.classList.remove('drag-over');
+  const fotoFile = event.dataTransfer.files[0];
+  
+  // Asignar la imagen al input
+  if (fotoFile && fotoFile.type.startsWith('image/')) {
+    fotoInput.files = event.dataTransfer.files;
+    cargarFoto(fotoFile);
+  }else {
     alert('Por favor, selecciona un archivo de imagen.'); // Mostrar alerta si no es una imagen
   }
 }

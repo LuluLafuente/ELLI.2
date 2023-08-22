@@ -48,7 +48,7 @@
     // BUSCA LAS MATERIAS DISPONIBLES
     function selectMaterias($con){
         $consulta = $con->query("SELECT *
-                                   FROM Materia");
+                                   FROM materia");
 
         return $consulta;
     }

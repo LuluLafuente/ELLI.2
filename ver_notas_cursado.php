@@ -23,10 +23,17 @@ $conexion = conexionDB();
 //Busqueda de datos
 $consulta = selectListaParciales($conexion);
 $consulta1 = selectAlumnosCursado($conexion);
+$consulta2 = selectMaterias($conexion);
+$consulta3 = selectCarrera($conexion);
 
 
 //Se guardan datos
 $resultado = $consulta->fetchAll();
 $resultado1 = $consulta1->fetchAll();
+$resultado2 = $consulta2->fetchAll();
+$resultado3 = $consulta3->fetchAll();
+
+
+
 
 include('ver_notas_cursado.html');

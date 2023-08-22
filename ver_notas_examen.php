@@ -21,9 +21,13 @@ $listaMaterias = [];
 $conexion = conexionDB();
 //Busqueda de datos
 $consulta = selectListaNotas($conexion);
+$consulta1 = selectCarrera($conexion);
+$consulta2 = selectMaterias($conexion);
 
 
 //Se guardan datos
 $resultado = $consulta->fetchAll();
+$resultado1 = $consulta1->fetchAll();
+$resultado2 = $consulta2->fetchAll();
 
 include('ver_notas_examen.html');

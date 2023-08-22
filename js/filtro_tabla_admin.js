@@ -1,25 +1,41 @@
- // Obtener referencias a los elementos select
- const materiaSelect = document.getElementById('materiaSelect');
- const notasTable = document.getElementById('notasTable');
- const tablaNotas = notasTable.querySelector('.tabla-notas');
+document.addEventListener("DOMContentLoaded", function () {
+    const carreraSelect = document.getElementById("carreraSelect");
+    const materiaSelect = document.getElementById("materiaSelect");
+    const tablaMesas = document.querySelector(".tabla-mesas");
 
- // Agregar event listeners a los selects
- materiaSelect.addEventListener('change', applyFilters);
+    // Copia de seguridad de todas las filas de mesas
+    const todasLasFilas = Array.from(tablaMesas.querySelectorAll("tr"));
 
- function applyFilters() {
-     const selectedMateria = materiaSelect.value;
+    // Evento para filtrar las materias por carrera
+    carreraSelect.addEventListener("change", function () {
+        const carreraSeleccionada = carreraSelect.value;
 
-     // Recorrer las filas de la tabla y mostrar/ocultar según los filtros
-     for (const row of tablaNotas.querySelectorAll('tr')) {
-         const materia = row.getAttribute('data-materia');
+        // Filtrar las opciones de materia en función de la carrera
+        const opcionesMateria = Array.from(materiaSelect.options);
+        opcionesMateria.forEach(opcion => {
+            const carreraData = opcion.getAttribute("data-carrera");
+            if (carreraSeleccionada === "0" || carreraSeleccionada === carreraData) {
+                opcion.style.display = "block";
+            } else {
+                opcion.style.display = "none";
+            }
+        });
 
-         const materiaMatch = selectedMateria === '0' || materia === selectedMateria;
+        // Restablecer el valor de materia
+        materiaSelect.value = "0";
 
-         // Mostrar la fila si ambos filtros coinciden, o si ambos filtros están en su valor predeterminado
-         if (materiaMatch) {
-             row.style.display = 'table-row';
-         } else {
-             row.style.display = 'none';
-         }
-     }
- }
+        // Restaurar todas las filas de mesas
+        tablaMesas.innerHTML = "";
+        todasLasFilas.forEach(fila => tablaMesas.appendChild(fila));
+    });
+
+    // Evento para mostrar las mesas relacionadas con la materia elegida
+    materiaSelect.addEventListener("change", function () {
+        const materiaSeleccionada = materiaSelect.value;
+
+        // Filtrar y mostrar solo las filas de mesas relacionadas con la materia
+        const filas = todasLasFilas.filter(fila => fila.getAttribute("data-materia") === materiaSeleccionada);
+        tablaMesas.innerHTML = "";
+        filas.forEach(fila => tablaMesas.appendChild(fila));
+    });
+});

@@ -36,3 +36,4 @@ $resultado2 = $consulta2->fetchAll();
 //ZONA DE PRUEBAS FIN
 
 include('libreta.html');
+

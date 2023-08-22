@@ -84,7 +84,7 @@
                 </div>
             </div>
             <div class="contenido">
-
+                <form action="generar_constancia.php" method="post">
                 <section>
                     <h2>Constancias</h2>
                     <div id="cont-constancia">
@@ -119,6 +119,20 @@
                                     <input type="text" name="observaciones" id="observaciones-campo">
                                 </div>
                             </div>
+                        </div>
+                        <div>
+                            <input type="hidden" id="alu"  name="alu"  value="<?php echo $_SESSION["u_nombre"] . " " . $_SESSION["u_apellido"] ;?>">
+                            <input type="hidden" id="leg" name="leg" value="<?php echo $_SESSION["u_legajo"] ;?>">
+                            <input type="hidden" id="dni" name="dni" value="<?php echo $_SESSION["u_dni"] ;?>">
+                            <input type="hidden" id="car" name="car" value="<?php echo $_SESSION["u_carrera"] ;?>">
+                            <input type="hidden" id="res" name="res" value="<?php echo $_SESSION["u_dni"] ;?>">
+                            <input type="hidden" id="ing" name="ing" value="<?php echo $_SESSION["u_dni"] ;?>">
+                            <input type="hidden" id="dvi" name="dvi" value="30">
+                            <input type="hidden" id="mat" name="mat" value="<?php echo $resultado[0]['ASIGNATURA'] ;?>">
+                            <input type="hidden" id="fex" name="fex" value="<?php echo $examenes[0]['FECHA'] ;?>">
+                        </div>
+                        <div>
+                            <input type="submit" value="Generar constancia">
                         </div>
                         <div id="cont-constancia-titulo">
                             <img src="img/imagen-certificado-1.png" alt="">
@@ -162,7 +176,7 @@
                                     <br>
                                     Materia:
                                     <br>
-                                    Fecha del examen:
+                                    Fecha del examen: <?php echo $examenes[0]['FECHA'] ;?>
                                     <br>
                                     Horario:
                                     <br>

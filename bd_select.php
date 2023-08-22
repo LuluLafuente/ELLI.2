@@ -48,7 +48,7 @@
     // BUSCA LAS MATERIAS DISPONIBLES
     function selectMaterias($con){
         $consulta = $con->query("SELECT *
-                                   FROM Materia");
+                                   FROM materia");
 
         return $consulta;
     }
@@ -262,4 +262,11 @@
         return $consulta;
     }
 
+    function selectExamenes($con){
+        $consulta = $con->query("SELECT ID_MATERIA,
+                                        DATE(FECHA) AS FECHA
+                                   FROM examen_final");
+
+        return $consulta;
+    }
 ?>

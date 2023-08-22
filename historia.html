@@ -81,11 +81,17 @@
                     <img src="<?php echo $_SESSION['u_foto'] ;?>" alt="Imagen de Usuario">
                 </div>
             </div>
+           
             <div class="contenido">
-                <!-- esto se abre al hacer click en historia o estado academico Tablas e  info-->
+                
                 <section class="historia" id="historia">
                     <h2>Constancia de Situación Académica Analítica</h2>
                     <br>
+                    <?php if ($consulta1->rowCount() == 0):?>
+                <div class="sinNotas">
+                    <p> Actualmente no posees registro de notas, en caso que sea un error, por favor comunicate desde el area de "Ayuda" desde alli nuestros tecnicos </p>
+                </div>
+                <?php else: ?>
                     <p>El Instituto Superior de Educación Tecnológica(ISET)- sito en Domingo Garcia 47-, hace
                         constar que
                         <?php echo $_SESSION["u_apellido"] . ", ". $_SESSION["u_nombre"];?>
@@ -94,7 +100,7 @@
                         N°513/5(Med)-2014, tiene las siguientes materias aprobadas:
                     </p>
                     <br>
-
+                    
                     <table>
                         <thead>
                             <tr>
@@ -151,6 +157,8 @@
                         </tbody>
                     </table>
                 </section>
+                <?php endif; ?>
+
             </div>
         </div>
     </div>

@@ -16,84 +16,84 @@ carrera.onchange = legajoFinal;
 
 // FUNCIONES DE CAMPOS
 // LA FUNCION ASIGNA EL LEGAJO TENTATIVO DEL ALUMNO
-function legajoFinal(){
-    legajo.value = legajoCarrera() + "-" + legajoAnio() + "-" + legajoNro() + "-" + legajoRol();
+function legajoFinal() {
+  legajo.value = legajoCarrera() + "-" + legajoAnio() + "-" + legajoNro() + "-" + legajoRol();
 }
 
 // LA FUNCION ASIGNA LA FECHA DE INSCRIPCION
-function legajoAnio(){
-    let asignarAnio = 0;
+function legajoAnio() {
+  let asignarAnio = 0;
 
-    if(anio.value === ""){
-        asignarAnio = 0;
-    }
-    else if(anio.value >= 2000 && anio.value <= 3000){
-        asignarAnio = anio.value - 2000;
-    }
-    else{
-        asignarAnio = fechaAnio - 2000;
-    }
+  if (anio.value === "") {
+    asignarAnio = 0;
+  }
+  else if (anio.value >= 2000 && anio.value <= 3000) {
+    asignarAnio = anio.value - 2000;
+  }
+  else {
+    asignarAnio = fechaAnio - 2000;
+  }
 
-    return asignarAnio;
+  return asignarAnio;
 }
 
 // LA FUNCION ASIGNA LA ABREVIATURA DE LA CARRERA
-function legajoCarrera(){
-    let asignarCarrera = 0;
-    let nroCarrera = parseInt(carrera.value);
+function legajoCarrera() {
+  let asignarCarrera = 0;
+  let nroCarrera = parseInt(carrera.value);
 
-    switch (nroCarrera) {
-        case 1:
-            asignarCarrera = "TSDS";
-            break;
+  switch (nroCarrera) {
+    case 1:
+      asignarCarrera = "TSDS";
+      break;
 
-        case 2:
-            asignarCarrera = "TSB";
-            break;
+    case 2:
+      asignarCarrera = "TSB";
+      break;
 
-        case 3:
-            asignarCarrera = "TSGA";
-            break;
+    case 3:
+      asignarCarrera = "TSGA";
+      break;
 
-        case 4:
-            asignarCarrera = "TSARI";
-            break;
-    
-        default:
-            if(carrera == 0)
-                alert("Debe elejir una carrera");
-            break;
-    }
+    case 4:
+      asignarCarrera = "TSARI";
+      break;
 
-    return asignarCarrera;
+    default:
+      if (carrera == 0)
+        alert("Debe elejir una carrera");
+      break;
+  }
+
+  return asignarCarrera;
 }
 
-function legajoNro(){
-    return "002";
+function legajoNro() {
+  return "002";
 }
 
 // LA FUNCION ASIGNA EL ROL PARA EL LEJAJO
-function legajoRol(){
-    let asignarRol = "";
+function legajoRol() {
+  let asignarRol = "";
 
-    switch (rol.value) {
-        case "Alumno":
-            asignarRol = "AL";
-            break;
+  switch (rol.value) {
+    case "Alumno":
+      asignarRol = "AL";
+      break;
 
-        case "Administrativo":
-            asignarRol = "AD";
-            break;
+    case "Administrativo":
+      asignarRol = "AD";
+      break;
 
-        case "Docente":
-            asignarRol = "DC";
-            break;
-    
-        default:
-            break;
-    }
+    case "Docente":
+      asignarRol = "DC";
+      break;
 
-    return asignarRol;
+    default:
+      break;
+  }
+
+  return asignarRol;
 }
 // Obtener el elemento del área de arrastre
 const dropArea = document.getElementById('dropArea');
@@ -102,6 +102,13 @@ const dropArea = document.getElementById('dropArea');
 dropArea.addEventListener('dragover', handleDragOver);
 dropArea.addEventListener('dragleave', handleDragLeave);
 dropArea.addEventListener('drop', handleDrop);
+
+// Obtener el input de archivo
+const fotoInput = document.getElementById('foto');
+
+// Agregar listener de evento para el input de archivo
+fotoInput.addEventListener('change', cargarFotoDesdeInput);
+
 
 // Función para manejar el evento de arrastre sobre el área
 function handleDragOver(event) {
@@ -128,54 +135,31 @@ function handleDrop(event) {
     alert('Por favor, selecciona un archivo de imagen.'); // Mostrar alerta si no es una imagen
   }
 }
-
-// Función para cargar la foto desde el input de archivo
 function cargarFotoDesdeInput() {
-  const fotoInput = document.getElementById('foto');
-  const imagenPreviaContainer = document.getElementById('imagenPrevia');
-<<<<<<< HEAD
+  const fotoFile = fotoInput.files[0];
+  cargarFoto(fotoFile); // Mostrar la vista previa de la imagen
+}
 
-  if (fotoInput.files && fotoInput.files[0]) {
+// Función para cargar y mostrar la imagen
+function cargarFoto(fotoFile) {
+  if (fotoFile) {
     const reader = new FileReader();
-    reader.onload = function(event) {
+    reader.onload = function (event) {
+      const fotoUrl = event.target.result;
       const imagenPrevia = document.createElement('img');
-      imagenPrevia.src = event.target.result;
+      imagenPrevia.src = fotoUrl;
       imagenPrevia.classList.add('imagen-previa');
 
-      // Remover imagen previa anterior (si existe)
-      while (imagenPreviaContainer.firstChild) {
-        imagenPreviaContainer.removeChild(imagenPreviaContainer.firstChild);
-      }
-
+      const imagenPreviaContainer = document.getElementById('imagen-previa');
+      imagenPreviaContainer.innerHTML = ''; // Limpiar contenido anterior
       imagenPreviaContainer.appendChild(imagenPrevia);
     };
 
-    reader.readAsDataURL(fotoInput.files[0]); // Leer el archivo como URL de datos
-  }
-}
-=======
->>>>>>> 53d3ba90297e27d17411a77a8e970a189acc1f2b
-
-  if (fotoInput.files && fotoInput.files[0]) {
-    const reader = new FileReader();
-    reader.onload = function(event) {
-      const imagenPrevia = document.createElement('img');
-      imagenPrevia.src = event.target.result;
-      imagenPrevia.classList.add('imagen-previa');
-
-      // Remover imagen previa anterior (si existe)
-      while (imagenPreviaContainer.firstChild) {
-        imagenPreviaContainer.removeChild(imagenPreviaContainer.firstChild);
-      }
-
-      imagenPreviaContainer.appendChild(imagenPrevia);
-    };
-
-    reader.readAsDataURL(fotoInput.files[0]); // Leer el archivo como URL de datos
+    reader.readAsDataURL(fotoFile); // Leer el archivo como URL de datos
+  } else {
+    alert('Por favor, selecciona una foto.');
   }
 }
 
-// Función para agregar un alumno al hacer clic en el botón
-function agregarFoto() {
-  cargarFotoDesdeInput();
-}
+
+

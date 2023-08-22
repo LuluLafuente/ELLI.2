@@ -91,24 +91,36 @@
                         <p>El Instituto Superior de Educación Tecnológica(ISET)- sito en Domingo Garcia 47-</p>
                         <br>
 
-                        <!--filtro -->
-                        <fieldset>
-                            <legend>Filtrar por Asignatura:</legend>
-                                                                                  
-                                <select id="materiaSelect" name="asignatura">
-                            <option value="0" selected disabled>&gt; SELECCIONE UNA MATERIA &lt;</option>
-                            <?php for ($i = 0; $i < $consulta1->rowCount(); $i++):?>
-                            <?php
-                            $mate = $resultado1[$i]['MATERIA'];
-                            ?>
-                            <option value="<?php echo $mate; ?>" name="asignatura">
-                                <?php echo $mate; ?>
-                            </option>
-                            <?php endfor; ?>
-                                </select>
-                                <br>                            
+                         <!--filtro -->
+                         <fieldset>
+                            <legend>Filtrar Notas:</legend>
+                            <label for="carrera">1. Seleccione Carrera:</label>
+                            <select id="carreraSelect" name="carrera">
+                                <option value="0" selected disabled>&gt; SELECCIONE UNA CARRERA &lt;</option>
+                                <?php for ($i = 0; $i < $consulta3->rowCount(); $i++):
+                                        $idc = $resultado3[$i]['id_carrera'];
+                                        $carr = $resultado3[$i]['nombre'];
+                                    ?>
+                                <option value="<?php echo $idc; ?>" id="carrera" name="carrera" required>
+                                    <?php echo $carr; ?>
+                                </option>
+                                <?php endfor; ?>
+                            </select>
+    
+                            <label for="materia">2. Seleccione una Materia:</label>
+                            <select id="materiaSelect" name="materia">
+                                <option value="0" selected disabled>&gt; SELECCIONE UNA MATERIA &lt;</option>
+                                <?php for ($i = 0; $i < $consulta2->rowCount(); $i++):
+                                $idm = $resultado2[$i]['ID_MATERIA'];
+                                $mate = $resultado2[$i]['ASIGNATURA'];
+                                $carreraId = $resultado2[$i]['ID_CARRERA']; // ID de la carrera a la que pertenece la materia?>
+                                <option value="<?php echo $mate; ?>" data-carrera="<?php echo $carreraId; ?>" required>
+                                    <?php echo $mate; ?>
+                                </option>
+                                <?php endfor; ?>
+                            </select>
+                               
                         </fieldset>
-                        
 
                         <br><br>
 
@@ -122,7 +134,7 @@
                                     <th style="padding-right: 15px;padding-left: 15px;">2do Parcial</th>
                                 </tr>
                             </thead>
-                            <tbody class="tabla-notas">
+                            <tbody class="tabla-mesas">
                                 <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
                                 <?php $materia = $resultado[$i]['MATERIA']; ?>
                             

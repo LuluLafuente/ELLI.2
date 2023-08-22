@@ -17,17 +17,11 @@ if(!isset($_SESSION["usuario"])){
 //CONEXION CON LA BASE DE DATOS
 $conexion = conexionDB();
 
-//BUSCAR LA LISTA DE MATERIAS
-$consulta = selectAprobadas($conexion, $_SESSION["u_legajo"]);
-
-//GUARDO TODOS LOS RESULTADOS EN UNA VARIABLE
-$resultado = $consulta->fetchAll();
-
 //BUSCAR PLAN DE ESTUDIOS
-$planEstudio = selectPlanEstudio($conexion, $_SESSION["u_carrera"]);
+$consulta = selectPlanEstudio($conexion, $_SESSION["u_carrera"]);
 
 //GUARDO LOS RESULTADOS DEL PLAN EN UNA VARIABLE
-$resultadoPlan = $planEstudio->fetchAll();
+$resultado = $consulta->fetchAll();
 
 //ZONA DE PRUEBAS INICIO
 

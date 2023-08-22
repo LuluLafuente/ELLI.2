@@ -78,3 +78,49 @@ body{
 	background: #2fb4cc;
 	color: #fff;
 }
+
+/*************************************/
+/************* MOBILE ****************/
+/*************************************/
+
+@media only screen and (max-width: 740px) {
+	body{
+	  flex-direction: column;
+	}
+	
+	.titulo{
+	  font-size: 2rem;
+	  width: 80%;
+	  text-align: center;
+	}
+	
+	.container{
+	  flex-direction: row;
+	  overflow-x: scroll;
+	  max-width: 740px;
+	}
+	
+	
+	.card{
+	  overflow: hidden;
+	  margin: 10px;
+	}
+}
+  
+@media only screen and (max-width: 370px) {
+	body{
+		flex-direction: column;
+		height: 190vh;
+	}
+	.container{
+		flex-direction: column;
+		max-width: 370px;
+		overflow-y: scroll;
+		padding: 4px;
+		align-items: center;
+	}
+
+	.card{
+		width: 95%;
+	}
+}

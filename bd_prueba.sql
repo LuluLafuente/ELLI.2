@@ -828,6 +828,37 @@ INSERT INTO `CURSA` (`ID_CURSADO`, `ID_MATERIA`, `ID_ALUMNO`, `FECHA`, `CICLO`, 
 (54, 27, 'TSDS-19-004-AL', CURRENT_TIMESTAMP, 2023, 6, 6, 6, 'Regular'), /*No tengo las notas de los parciales de esta materia*/
 (55, 28, 'TSDS-19-004-AL', CURRENT_TIMESTAMP, 2023, 6, 6, 6, 'Regular'); /*No tengo las notas de los parciales de esta materia*/
 
+
+/*Lorente Ignacio*/
+INSERT INTO `CURSA` (`ID_MATERIA`, `ID_ALUMNO`, `FECHA`, `CICLO`, `1ER_PARCIAL`, `2DO_PARCIAL`, `FINAL`, `ESTADO`) VALUES
+(1, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(2, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(3, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(4, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(5, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(6, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(7, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(8, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(9, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(10, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(11, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(12, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(13, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(14, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(15, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(16, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(17, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(18, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(19, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(20, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(21, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(22, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(23, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(24, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(25, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(26, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'), 
+(27, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(28, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos');
 /* No se cuentan con información de nota de parciales, solo notas finales */
 /* Notas Ramón */
 INSERT INTO `CURSA` (`ID_MATERIA`, `ID_ALUMNO`, `FECHA`, `CICLO`, `1ER_PARCIAL`, `2DO_PARCIAL`, `FINAL`, `ESTADO`) VALUES

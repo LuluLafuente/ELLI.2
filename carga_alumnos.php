@@ -36,12 +36,7 @@
   /***************************************************************************************/
   // VALIDACION DE NOMBRE
   if(conDatos($_POST['nombre'])){
-    if(validarString($_POST['nombre'])){
-      $nombre = sanitizarString($_POST['nombre']);
-    }
-    else{
-      $errores .= "<p>Por favor ingrese un nombre válido. Este no debe contener números.</p>";  
-    }
+    $nombre = sanitizarString($_POST['nombre']);
   }
   else{
     $errores .= "<p>Por favor ingrese un nombre válido.</p>";
@@ -49,12 +44,7 @@
 
   // VALIDACION DE APELLIDO
   if(conDatos($_POST['apellido'])){
-    if(validarString($_POST['apellido'])){
-      $apellido = sanitizarString($_POST['apellido']);
-    }
-    else{
-      $errores .= "<p>Por favor ingrese un apellido válido. Este no debe contener números.</p>";  
-    }
+    $apellido = sanitizarString($_POST['apellido']);
   }
   else{
     $errores .= "<p>Por favor ingrese un apellido válido.</p>";
@@ -109,7 +99,7 @@
   $rol = $_SESSION['viene_de'];
 
   // ASIGNACION DE CONTRASEÑA
-  $contrasenia = hash('sha512', $dni);
+  $contrasenia = $dni;
 
   // ASIGNACION DE CARRERA
   if(isset($_POST['carrera'])){
@@ -130,9 +120,6 @@
   // ASIGNACION DE LEGAJO
   if($errores === ""){
     $legajo = legajoFinal($conexion, $carrera, $anio, $rol, ROL_ALUMNO);
-  }
-  else{
-    $legajo = "null";
   }
 
   // VALIDACION DE REDES

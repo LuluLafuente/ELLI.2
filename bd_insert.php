@@ -9,37 +9,49 @@ function agregarAlumno(
     $red_ig, $red_tw, $foto, $fecha,
     &$error
 ) {
-    // EJECUTO LA CONSULTA CON LOS DATOS RECIBIDOS
-    $alu_i = inscribirAlumno(
-        $con,
-        $dni, $nombre, $apellido, $rol,
-        $usuario, $contrasenia, $domicilio, $domicilioNro,
-        $celular, $red_fb, $red_ig, $red_tw,
-        $foto
-    );
+    $con->beginTransaction();
+    try{
+            // EJECUTO LA CONSULTA CON LOS DATOS RECIBIDOS
+            $alu_i = inscribirAlumno(
+                $con,
+                $dni, $nombre, $apellido, $rol,
+                $usuario, $contrasenia, $domicilio, $domicilioNro,
+                $celular, $red_fb, $red_ig, $red_tw,
+                $foto
+            );
 
-    if (!$alu_i) {
-        $error .= "<p>Error al inscribir al alumno.</p>";
-        return false;
+            if (!$alu_i) {
+                $error .= "<p>Error al inscribir al alumno.</p>";
+                return false;
+            }
+
+            // BUSCO EL ID DE LA COHORTE DEL ALUMNO
+            $cohorte = cohorteAlumno($con, $carrera, $anio, $error);
+
+            if ($cohorte === 0) {
+                return false;
+            }
+
+            // REGISTRO EL LEGAJO DEL DOCENTE EN LA BD
+            $alu_l = inscribirLegajoAlu($con, $dni, $legajo, $carrera, $cohorte, $fecha);
+
+            if (!$alu_l) {
+                $error .= "<p>Error al inscribir el legajo del alumno.</p>";
+                return false;
+            }
+            $con->commit();
+
+        } catch(PDOException $e) {
+    // Si ocurre un error, deshacemos la transacción y mostramos el mensaje de error
+            $con->rollback();
+            echo "Error en la consulta: " . $e->getMessage();
+            return false;
     }
 
-    // BUSCO EL ID DE LA COHORTE DEL ALUMNO
-    $cohorte = cohorteAlumno($con, $carrera, $anio, $error);
-
-    if ($cohorte === 0) {
-        return false;
-    }
-
-    // REGISTRO EL LEGAJO DEL DOCENTE EN LA BD
-    $alu_l = inscribirLegajoAlu($con, $dni, $legajo, $carrera, $cohorte, $fecha);
-
-    if (!$alu_l) {
-        $error .= "<p>Error al inscribir el legajo del alumno.</p>";
-        return false;
-    }
 
     // DEVUELVO EL RESULTADO DE LA OPERACION
     return true;
+}
 }
 
 function cohorteAlumno($con, $carrera, $anio, &$error)

@@ -140,29 +140,27 @@
                         </div>
                         <div id="cont-cambio-texto" class="cambio-texto">
                             <div id="text-0">
-                                <h3>Certificado Alumno Regular</h3>
+                                <h3 style="text-align: center; margin-top: 20px;">Certificado Alumno Regular</h3>
                                 <p>
-                                    El Instituto Superior de Educación Tecnológica certifica que el alumno <span
-                                        id="alumno">
+                                    Por la presente, se hace constar que el(la) estudiante <span id="alumno">
                                         <?php echo $_SESSION["u_nombre"] . " " . $_SESSION["u_apellido"] ;?>
                                     </span>
                                     con matricula <span id="legajo">
                                         <?php echo $_SESSION["u_legajo"] ;?>
                                     </span> y dni <span id="dni">
                                         <?php echo $_SESSION["u_dni"] ;?>
-                                    </span> , actualmente se encuentra en condición de regular
-                                    en la carrera <span id="carrera">
+                                    </span> perteneciente a la carrera de <span id="carrera">
                                         <?php echo $resultadoPlan[0]["CARRERA"]; ?>
                                     </span> con resolución <span id="resolucion">Resol. Minist.
                                         N°513/5(Med)-2014</span> habiendo ingresado en el año
                                     <span id="fdi-ingreso">
                                         <?php echo $_SESSION["u_anio"]; ?>
-                                    </span>. 
+                                    </span>.
                                 </p>
                             </div>
 
                             <div id="text-1">
-                                <h3>Certificado de Examen</h3>
+                                <h3 style="text-align: center; margin-top: 20px;">Certificado de Examen</h3>
                                 <p>
                                     Por la presente, se hace constar que el(la) estudiante <span id="alumno">
                                         <?php echo $_SESSION["u_nombre"] . " " . $_SESSION["u_apellido"] ;?>
@@ -176,11 +174,11 @@
                                     </span> ha sido otorgado(a) el permiso para presentar el siguiente examen
                                     con resolución<span id="resolucion">Resol. Minist. N°513/5(Med)-2014</span>
                                     <br>
-                                    Materia: <?php echo $resultado[0]['ASIGNATURA'] ;?>
+                                    Materia:
                                     <br>
                                     Fecha del examen: <?php echo $examenes[0]['FECHA'] ;?>
                                     <br>
-                                    Horario: 19 a 22 hs.
+                                    Horario:
                                     <br>
                                     <br>
                                     Este permiso ha sido otorgado de acuerdo con las regulaciones y procedimientos
@@ -194,7 +192,7 @@
                                 </p>
                             </div>
                             <div id="text-2">
-                                <h3>Certificado <span id="certificado-titulo">Materias Aprobadas</span></h3>
+                                <h3 style="text-align: center; margin-top: 20px;">Certificado <span id="certificado-titulo">Materias Aprobadas</span></h3>
                                 <div id="cont-constancia-textos">
                                     <p>
                                         Por medio de la presente, se certifica que
@@ -222,51 +220,49 @@
                                     </p>
                                 </div>
                             </div>
-                            </div>
-                            <p>
-                                <br><br>
-                                    Se emite el presente certificado para ser presentado ante <span
-                                        id="interesado"></span>,
-                                    se extiende el mismo en la ciudad de San Miguel de Tucumán, a los <span
-                                        id="fdh-dia"></span>
-                                    días del mes de <span id="fdh-mes"></span> de <span id="fdh-anio"></span>.
-                                    <br><br>
-                                Atentamente,
-                                            Instituto Superior de Educacion Tecnologica <br>
-                                            Dirección: Domingo Gracia 47 (Av. Saenz Peña y Las Piedras)- S. M. de
-                                            Tucumán <br>
-                                            Teléfono: 3814526310.<br>
-                                            E-mail de consultas: correoiset@yahoo.com.ar <br>
-                                            URL: http://iset.tuc.infd.edu.ar
-                            </p>
-
-                            <div id="cont-constancia-validacion">
-                                <h4>Código de validación</h4>
-                                <img src="img/imagen-certificado-2.png" alt="">
-                                <h4>&rarr; <span id="codigo-validacion">
-                                        <?php echo $_SESSION["u_legajo"]?>
-                                    </span> &larr;</h4>
-                            </div>
-                            <p>
-                                El presente certificado puede ser validado en la pagina de la institución <span
-                                    id="pagina-validacion"></span> ingresando el código que se detalla arriba.
-
-                                El certificado cuenta con una vigencia de <span id="dias-vigencia"></span> día/s
-                                a
-                                partir de la fecha de emisión del mismo.<br><br>
-                            </p>
-                            <p>
-                                <strong>Observaciones</strong>:
-                            </p>
-                            <p id="observaciones"></p>
                         </div>
-                        <div>
-                            <p>Fecha de emisión de la constancia: <span id="fecha-completa"></span>.</p>
+                        <p>
+                            <br><br>
+                            Se emite el presente certificado para ser presentado ante <span id="interesado"></span>,
+                            se extiende el mismo en la ciudad de San Miguel de Tucumán, a los <span id="fdh-dia"></span>
+                            días del mes de <span id="fdh-mes"></span> de <span id="fdh-anio"></span>.
+                            <br><br>
+                            Atentamente,
+                            Instituto Superior de Educacion Tecnologica <br>
+                            Dirección: Domingo Gracia 47 (Av. Saenz Peña y Las Piedras)- S. M. de
+                            Tucumán <br>
+                            Teléfono: 3814526310.<br>
+                            E-mail de consultas: correoiset@yahoo.com.ar <br>
+                            URL: http://iset.tuc.infd.edu.ar
+                        </p>
+
+                        <div id="cont-constancia-validacion">
+                            <h4>Código de validación</h4>
+                            <img src="img/imagen-certificado-2.png" alt="">
+                            <h4>&rarr; <span id="codigo-validacion">
+                                    <?php echo $_SESSION["u_legajo"]?>
+                                </span> &larr;</h4>
                         </div>
-                </section>
-                </form>
+                        <p>
+                            El presente certificado puede ser validado en la pagina de la institución <span
+                                id="pagina-validacion"></span> ingresando el código que se detalla arriba.
+
+                            El certificado cuenta con una vigencia de <span id="dias-vigencia"></span> día/s
+                            a
+                            partir de la fecha de emisión del mismo.<br><br>
+                        </p>
+                        <p>
+                            <strong>Observaciones</strong>:
+                        </p>
+                        <p id="observaciones"></p>
+                    </div>
+                    <div>
+                        <p>Fecha de emisión de la constancia: <span id="fecha-completa"></span>.</p>
+                    </div>
             </div>
+            </section>
         </div>
+    </div>
     </div>
 
     <script src="js/appAlumno.js"></script>
@@ -274,5 +270,3 @@
     <script src="./js/constancia.js"></script>
 
 </body>
-
-</html>

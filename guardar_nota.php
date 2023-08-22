@@ -2,6 +2,10 @@
 //INICIO SESION
 session_start();
 
+// AGREGO LAS FUNCIONES NECESARIAS PARA EL FUNCIONAMIENTO DE LA CARGA DE ALUMNOS
+include_once 'bd_conexion.php';
+include_once 'bd_select.php';
+
 if(!isset($_SESSION["usuario"])){
     //header("location:index.php");
     //exit;
@@ -15,18 +19,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $notas = $_POST["nota"]; //Array con las notas de alumnos que si estan
     $rinde = $_POST["rinde"]; // Array de valores "si" o "no" presentes
 
-    // Realizar la conexión a la base de datos y ejecutar la inserción
-    $host = "127.0.0.1";
-    $dbNombre = "bd_prueba";
-    $usuario = "isetEducativo";
-    $contrasenia = "unaClaveMuyDificil1";
+    
 
     try {
         //EJECUTO LA CONEXION CON LA CLASE PDO DE PHP
-        $conexion = new PDO("mysql:host=$host;dbname=$dbNombre", $usuario, $contrasenia);
+        $conexion = conexionDB();
         $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-
+        // Utilizamos transacciones para asegurar que todas las actualizaciones se realicen correctamente
+        $conexion->beginTransaction();
         // Insertar las notas de los alumnos en la tabla de notas de examen si rinde = "si"
         foreach ($rinde as $legajo => $respuesta) {
             if ($respuesta === "si" && isset($notas[$legajo])) {
@@ -48,16 +49,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
 
         }
+ // Confirmamos la transacción si todas las actualizaciones fueron exitosas
+            $conexion->commit();
 
-        // Cerrar la conexión
-        $conexion = null;
+            $message = "Notas registradas con éxito.";
+            echo "<script>alert('$message');</script>";
 
-        echo "Notas guardadas exitosamente.";
-    } catch (PDOException $e) {
-        echo "Error al guardar las notas: " . $e->getMessage();
-    }
-} else {
-    echo "Acceso no autorizado.";
+        } catch (PDOException $e) {
+                // Si ocurre un error, deshacemos la transacción y mostramos el mensaje de error
+                $conexion->rollback();
+                echo "Error en la consulta: " . $e->getMessage();
+            }
+
+    // Cierra la conexión
+    $conexion = null;
 }
 header("location:examen_final.php");
 ?>

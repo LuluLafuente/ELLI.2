@@ -13,7 +13,8 @@ $rol = 0;
 
 // RECUPERO DATOS DEL FORMULARIO
 $usuario = $_POST["usuario"];
-$clave = $_POST["clave"];
+$clave =  $_POST["clave"];
+$claveEnc = hash('sha512', $clave);
 
 // ASIGNO EL USUARIO A VARIABLE DE SESION
 $_SESSION['usuario'] = $usuario;
@@ -49,7 +50,7 @@ switch($rol){
     case 1:
         try {
             // COMPRUEBO QUE LOS DATOS DE ACCESO SEAN CORRECTOS
-            $consulta = selectAdministrativo($conexion, $usuario, $clave);
+            $consulta = selectAdministrativo($conexion, $usuario, $claveEnc);
             
             // BUSCO LOS RESULTADOS
             $resultado = $consulta->fetchAll();
@@ -76,7 +77,7 @@ switch($rol){
     case 2:
         try {
             // COMPRUEBO QUE LOS DATOS DE ACCESO SEAN CORRECTOS
-            $consulta = selectEmpleado($conexion, $usuario, $clave);
+            $consulta = selectEmpleado($conexion, $usuario, $claveEnc);
 
             // BUSCO LOS RESULTADOS
             $resultado = $consulta->fetchAll();
@@ -104,7 +105,7 @@ switch($rol){
     case 3:
         try {
             // COMPRUEBO QUE LOS DATOS DE ACCESO SEAN CORRECTOS
-            $consulta = selectAlumno($conexion, $usuario, $clave);
+            $consulta = selectAlumno($conexion, $usuario, $claveEnc);
     
             // BUSCO LOS RESULTADOS
             $resultado = $consulta->fetchAll();

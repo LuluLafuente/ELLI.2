@@ -1147,14 +1147,14 @@ SELECT COUNT(la.dni) AS 'INSCRIPTOS',
 -- VISTA alumnos_inscriptos_carrera
 
 CREATE OR REPLACE VIEW vw_alumnos_insc_carrera AS
-SELECT ca.ABREVIADO  AS 'CARRERA',
-       COUNT(la.dni) AS 'INSCRIPTOS',
-       co.NUMERO     AS 'COHORTE',
-       YEAR(co.ANIO) AS 'ANIO'
-  FROM legajo_alumno la
-  JOIN cohorte co ON co.ID_COHORTE = la.COHORTE
-  JOIN carrera ca ON ca.ID_CARRERA = la.CARRERA
-  GROUP BY la.CARRERA;
+  SELECT ca.ABREVIADO  AS 'CARRERA',
+         COUNT(la.COHORTE) AS 'INSCRIPTOS',
+         co.NUMERO     AS 'COHORTE',
+         YEAR(co.ANIO) AS 'ANIO'
+    FROM legajo_alumno la
+    JOIN cohorte co ON co.ID_COHORTE = la.COHORTE
+    JOIN carrera ca ON ca.ID_CARRERA = la.CARRERA
+GROUP BY la.COHORTE;
 
 -- VISTA admin_examen
 -- En esta vista se agregó un JOIN para que funcione de acuerdo a la nueba bd

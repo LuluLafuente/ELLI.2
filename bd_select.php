@@ -146,7 +146,7 @@
     // BUSCA LA CANTIDAD DE ALUMNOS INSCRIPTOS EN UNA CARRERA Y AÑO DETERMINADO
     function selectNroDeAlumnosInscriptos($con, $carrera, $anio){
         $consulta = $con->query("SELECT inscriptos
-                                   FROM vw_alumnos_insc_carrera
+                                   FROM vw_alumnos_insc_cohorte
                                   WHERE CARRERA = '$carrera' AND ANIO = $anio;");
 
         if(is_object($consulta)){   

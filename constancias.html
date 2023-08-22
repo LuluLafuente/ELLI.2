@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="./css/stylePortal.css" />
     <link rel="stylesheet" href="./css/style.css">
 
-
     <title>Portal Alumno Constancia</title>
 </head>
 
@@ -85,7 +84,7 @@
                 </div>
             </div>
             <div class="contenido">
-                <!-- esto se abre al hacer click en libreta o estado academico Tablas e info-->
+
                 <section>
                     <h2>Constancias</h2>
                     <div id="cont-constancia">
@@ -126,10 +125,28 @@
                             <h2>Instituto Superior de Educación Tecnológica</h2>
                         </div>
                         <div id="cont-cambio-texto" class="cambio-texto">
+                            <div id="text-0">
+                                <h3 style="text-align: center; margin-top: 20px;">Certificado Alumno Regular</h3>
+                                <p>
+                                    Por la presente, se hace constar que el(la) estudiante <span id="alumno">
+                                        <?php echo $_SESSION["u_nombre"] . " " . $_SESSION["u_apellido"] ;?>
+                                    </span>
+                                    con matricula <span id="legajo">
+                                        <?php echo $_SESSION["u_legajo"] ;?>
+                                    </span> y dni <span id="dni">
+                                        <?php echo $_SESSION["u_dni"] ;?>
+                                    </span> perteneciente a la carrera de <span id="carrera">
+                                        <?php echo $resultadoPlan[0]["CARRERA"]; ?>
+                                    </span> con resolución <span id="resolucion">Resol. Minist.
+                                        N°513/5(Med)-2014</span> habiendo ingresado en el año
+                                    <span id="fdi-ingreso">
+                                        <?php echo $_SESSION["u_anio"]; ?>
+                                    </span>.
+                                </p>
+                            </div>
 
-                            <h3>Certificado <span id="certificado-titulo">Alumno Regular</span></h3>
-
-                            <div id="cont-constancia-textos">
+                            <div id="text-1">
+                                <h3 style="text-align: center; margin-top: 20px;">Certificado de Examen</h3>
                                 <p>
                                     Por la presente, se hace constar que el(la) estudiante <span id="alumno">
                                         <?php echo $_SESSION["u_nombre"] . " " . $_SESSION["u_apellido"] ;?>
@@ -140,58 +157,104 @@
                                         <?php echo $_SESSION["u_dni"] ;?>
                                     </span> perteneciente a la carrera de <span id="carrera">
                                         <?php echo $resultadoPlan[0]["CARRERA"]; ?>
-                                    </span> ha sido otorgado(a) el permiso para presentar el siguiente examen con
-                                    resolución
-                                    <span id="resolucion">Resol. Minist. N°513/5(Med)-2014</span>
-                                    Materia: [Nombre de la materia]
-                                    Fecha del examen: [Fecha del examen]
-                                    Horario: 19 a 22 hs
-
-
-                                <div id="cont-constancia-validacion">
-                                    <h4>Código de validación</h4>
-                                    <img src="img/imagen-certificado-2.png" alt="">
-                                    <h4>&rarr; <span id="codigo-validacion"></span> &larr;</h4>
-                                </div>
-                                <p>
+                                    </span> ha sido otorgado(a) el permiso para presentar el siguiente examen
+                                    con resolución<span id="resolucion">Resol. Minist. N°513/5(Med)-2014</span>
+                                    <br>
+                                    Materia:
+                                    <br>
+                                    Fecha del examen:
+                                    <br>
+                                    Horario:
+                                    <br>
+                                    <br>
                                     Este permiso ha sido otorgado de acuerdo con las regulaciones y procedimientos
                                     establecidos por la institución, y el estudiante ha cumplido con los requisitos
                                     necesarios para la presentación del examen en cuestión.
-
                                     Se recuerda al estudiante la importancia de llegar puntualmente al lugar del examen
                                     y de
-                                    cumplir con las normas de conducta y ética durante el proceso de evaluación.
-
-                                    El certificado cuenta con una vigencia de <span id="dias-vigencia"></span> día/s a
-                                    partir de la fecha de emisión del mismo.<br><br>
-                                    Esta constancia se emite a solicitud del interesado para los fines que considere
-                                    pertinentes.
-                                    Atentamente,
-
-
-                                    Instituto Superior de Educacion Tecnologica
-                                    [Teléfono de contacto]
-                                    [Correo electrónico de contacto]
-
+                                    cumplir con las normas de conducta y ética durante el proceso de evaluación. <br>
+                                    Esta constancia se expide a solicitud del interesado para los fines que
+                                    estime convenientes.
                                 </p>
-                                <p>
-                                    <strong>Observaciones</strong>:
-                                </p>
-                                <p id="observaciones"></p>
                             </div>
-                            <div>
-                                <p>Fecha de emisión de la constancia: <span id="fecha-completa"></span>.</p>
+                            <div id="text-2">
+                                <h3 style="text-align: center; margin-top: 20px;">Certificado <span id="certificado-titulo">Materias Aprobadas</span></h3>
+                                <div id="cont-constancia-textos">
+                                    <p>
+                                        Por medio de la presente, se certifica que
+                                        <?php echo $_SESSION["u_nombre"] . " " . $_SESSION["u_apellido"] ;?>,
+                                        identificado(a)
+                                        con
+                                        <?php echo $_SESSION["u_dni"] ;?>ha aprobado satisfactoriamente las siguientes
+                                        materias correspondientes al plan de estudios del Instituto Superior de
+                                        Educacion Tecnologica de la <span id="carrera">
+                                            <?php echo $resultadoPlan[0]["CARRERA"]; ?>
+                                            <br>
+                                            <br>
+                                            <?php for ($i=0; $i < $consulta1->rowCount(); $i++): ?>
+                                            <hr>
+                                            <?php echo $resultado1[$i]['MATERIA'] . ".</br>" . "Nota: " . $resultado1[$i]['NOTA'] .".</br>"; ?>
+                                            <hr>
+                                            <?php endfor; ?>
+                                            <br>
+                                            La calificación obtenida en cada una de estas materias refleja el esfuerzo y
+                                            el compromiso del estudiante en su proceso de aprendizaje. Las notas han
+                                            sido calculadas de acuerdo con los criterios de evaluación establecidos por
+                                            la institución.<br>
+                                            Esta constancia se expide a solicitud del interesado para los fines que
+                                            estime convenientes.<br>
+                                    </p>
+                                </div>
                             </div>
                         </div>
+                        <p>
+                            <br><br>
+                            Se emite el presente certificado para ser presentado ante <span id="interesado"></span>,
+                            se extiende el mismo en la ciudad de San Miguel de Tucumán, a los <span id="fdh-dia"></span>
+                            días del mes de <span id="fdh-mes"></span> de <span id="fdh-anio"></span>.
+                            <br><br>
+                            Atentamente,
+                            Instituto Superior de Educacion Tecnologica <br>
+                            Dirección: Domingo Gracia 47 (Av. Saenz Peña y Las Piedras)- S. M. de
+                            Tucumán <br>
+                            Teléfono: 3814526310.<br>
+                            E-mail de consultas: correoiset@yahoo.com.ar <br>
+                            URL: http://iset.tuc.infd.edu.ar
+                        </p>
+
+                        <div id="cont-constancia-validacion">
+                            <h4>Código de validación</h4>
+                            <img src="img/imagen-certificado-2.png" alt="">
+                            <h4>&rarr; <span id="codigo-validacion">
+                                    <?php echo $_SESSION["u_legajo"]?>
+                                </span> &larr;</h4>
+                        </div>
+                        <p>
+                            El presente certificado puede ser validado en la pagina de la institución <span
+                                id="pagina-validacion"></span> ingresando el código que se detalla arriba.
+
+                            El certificado cuenta con una vigencia de <span id="dias-vigencia"></span> día/s
+                            a
+                            partir de la fecha de emisión del mismo.<br><br>
+                        </p>
+                        <p>
+                            <strong>Observaciones</strong>:
+                        </p>
+                        <p id="observaciones"></p>
                     </div>
-                </section>
+                    <div>
+                        <p>Fecha de emisión de la constancia: <span id="fecha-completa"></span>.</p>
+                    </div>
             </div>
+            </section>
         </div>
+    </div>
     </div>
 
     <script src="js/appAlumno.js"></script>
-    <script src="js/constancia.js"></script>
-    <script src="js/constancia_alumnos.js"></script>
+    <script src="./js/constancia_alumnos.js"></script>
+    <script src="./js/constancia.js"></script>
+
 </body>
 
 </html>

@@ -48,7 +48,7 @@
                         <span class="title">Inscripción Coordinador</span>
                     </a>
                 </li>
-                 <li>
+                <li>
                     <a href="crear_mesa.php">
                         <span class="icon"><i class="fa-solid fa-file-circle-plus"></i></span>
                         <span class="title">Crear Mesa de Examen</span>
@@ -91,72 +91,83 @@
                         <br>
                         <p>El Instituto Superior de Educación Tecnológica(ISET)- sito en Domingo Garcia 47-</p>
                         <br>
-                        <table>
+                        <!--filtro -->
+                        <fieldset>
+                            <legend>Filtrar por Asignatura:</legend>
+
+                            <select id="materiaSelect" name="asignatura">
+                                <option value="0" selected disabled>&gt; SELECCIONE UNA MATERIA &lt;</option>
+                                <?php for ($i = 0; $i < $consulta->rowCount(); $i++):?>
+                                <?php
+                            $mate = $resultado[$i]['MATERIA'];
+                            ?>
+                                <option value="<?php echo $mate; ?>" name="asignatura">
+                                    <?php echo $mate; ?>
+                                </option>
+                                <?php endfor; ?>
+                            </select>
+
+                        </fieldset>
+                        <br>
+                        <br>
+
+                        <table id="notasTable" style="width: 100%; font-size: small;">
                             <thead>
                                 <tr>
-                                    <th style="padding-right: 50px;padding-left: 50px;">Legajo</th>
-                                    <th style="padding-right: 100px;padding-left: 100px;">Alumno</th>
-                                    <th style="padding-right: 110px;padding-left: 110px;">Asignatura</th>
-                                    <th  style="padding-right: 10px;padding-left: 10px;">Nota Final</th>
+                                    <th style="padding-right: 50px;padding-left: 30px;">Legajo</th>
+                                    <th style="padding-right: 100px;padding-left: 30px;">Alumno</th>
+                                    <th style="padding-right: 110px;padding-left: 17px;">Asignatura</th>
+                                    <th style="padding-right: 10px;padding-left: 10px;">Nota Final</th>
+                                    <th style="padding-right: 10px;padding-left: 10px;">N° Libro</th>
                                     <th style="padding-right: 10px;padding-left: 10px;">N° Folio</th>
-                                    <th>Fecha</th>
-
-
+                                    <th style="padding-right: 10px;padding-left: 10px;">Fecha</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
+                            <tbody class="tabla-notas">
+                                <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
+                                <?php $materia = $resultado[$i]['MATERIA']; ?>
+
+                                <tr data-materia="<?php echo $materia; ?>">
                                     <td>
                                         <!--Legajo Alumno-->
-                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
                                         <?php echo $resultado[$i]['LEGAJO_ALU']; ?>
-                                        <hr>
-                                        <?php endfor; ?>
                                     </td>
                                     <td>
                                         <!--Alumnos-->
-                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
                                         <?php echo $resultado[$i]['ALUMNO'];?>
-                                        <hr>
-                                        <?php endfor; ?>
                                     </td>
-                                    <td>
+                                    <td class="asignatura">
                                         <!--Asignaturas-->
-                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
                                         <?php echo $resultado[$i]['MATERIA']; ?>
-                                        <hr>
-                                        <?php endfor; ?>
                                     </td>
                                     <td>
                                         <!--FINAL-->
-                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
                                         <?php echo $resultado[$i]['NOTA']; ?>
-                                        <hr>
-                                        <?php endfor; ?>
+                                    </td>
+                                    <td>
+                                        <!--LIBRO-->
+                                        <?php echo $resultado[$i]['LIBRO']; ?>
                                     </td>
                                     <td>
                                         <!--FOLIO-->
-                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                        <?php echo $resultado[$i]['LIBRO']; ?>
-                                        <hr>
-                                        <?php endfor; ?>
+                                        <?php echo $resultado[$i]['FOLIO']; ?>
                                     </td>
                                     <td>
                                         <!--FECHA-->
-                                        <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
                                         <?php echo $resultado[$i]['FECHA']; ?>
-                                        <hr>
-                                        <?php endfor; ?>
                                     </td>
                                 </tr>
+                                <?php endfor; ?>
+
                             </tbody>
                         </table>
-                </fieldset>
+                    </fieldset>
                 </section>
             </div>
         </div>
     </div>
     <script src="./js/appAlumno.js"></script>
+    <script src="./js/filtro_tabla_admin.js"></script>
 </body>
 
 </html>

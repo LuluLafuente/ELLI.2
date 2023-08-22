@@ -91,7 +91,7 @@ if(isset($_SESSION['usuario'])) {
             Ingresar
           </button>
         </div>
-        <img src="img/educador.svg" class="image" alt="" />
+        <img src="img/register.svg" class="image" alt="" />
       </div>
     </div>
   </div>

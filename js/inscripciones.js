@@ -133,6 +133,7 @@ function handleDrop(event) {
 function cargarFotoDesdeInput() {
   const fotoInput = document.getElementById('foto');
   const imagenPreviaContainer = document.getElementById('imagenPrevia');
+<<<<<<< HEAD
 
   if (fotoInput.files && fotoInput.files[0]) {
     const reader = new FileReader();
@@ -152,36 +153,25 @@ function cargarFotoDesdeInput() {
     reader.readAsDataURL(fotoInput.files[0]); // Leer el archivo como URL de datos
   }
 }
+=======
+>>>>>>> 53d3ba90297e27d17411a77a8e970a189acc1f2b
 
-// Función para cargar y mostrar la imagen
-function cargarFoto(fotoFile) {
-  if (fotoFile) {
+  if (fotoInput.files && fotoInput.files[0]) {
     const reader = new FileReader();
     reader.onload = function(event) {
-      const fotoUrl = event.target.result;
+      const imagenPrevia = document.createElement('img');
+      imagenPrevia.src = event.target.result;
+      imagenPrevia.classList.add('imagen-previa');
 
-      // Crear elementos para mostrar la imagen y el nombre del alumno
-      const alumnoDiv = document.createElement('div');
-     
-  
-      const alumnoImg = document.createElement('img');
-      alumnoImg.src = fotoUrl;
-  
-      const alumnoNombre = document.createElement('p');
-  
-      // Agregar elementos al contenedor de alumnos
-      alumnoDiv.appendChild(alumnoImg);
-  
-      const alumnosContainer = document.getElementById('alumnosContainer');
-      alumnosContainer.appendChild(alumnoDiv);
-  
-      // Limpiar campos de nombre y foto
-      document.getElementById('foto').value = '';
+      // Remover imagen previa anterior (si existe)
+      while (imagenPreviaContainer.firstChild) {
+        imagenPreviaContainer.removeChild(imagenPreviaContainer.firstChild);
+      }
+
+      imagenPreviaContainer.appendChild(imagenPrevia);
     };
-  
-    reader.readAsDataURL(fotoFile); // Leer el archivo como URL de datos
-  } else {
-    alert('Por favor, selecciona una foto.');
+
+    reader.readAsDataURL(fotoInput.files[0]); // Leer el archivo como URL de datos
   }
 }
 

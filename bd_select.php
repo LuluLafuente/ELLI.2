@@ -104,32 +104,13 @@
 
         return $consulta;
     }
+    //Busco a todos los alumnos que rinden en la mesa
+    function selectAlumnosFinal($con){
+        $consulta=$con->query("SELECT DISTINCT c.ALUMNO, r.ID_ALUMNO, r.ID_MATERIA FROM rinde r INNER JOIN vw_cursado c on r.ID_ALUMNO = c.LEGAJO;");
 
-// Función para obtener los alumnos inscritos en una materia específica
-function selectAlumnosPorMateria($conexion, $materiaId) {
-    try {
-        // Preparar la consulta SQL
-        $consulta = $conexion->prepare("SELECT * FROM vw_cursado WHERE ID_MATERIA = :materiaId");
-        
-        // Asignar el valor del parámetro de la materia
-        $consulta->bindParam(':materiaId', $materiaId, PDO::PARAM_INT);
-
-        // Ejecutar la consulta
-        $consulta->execute();
-
-        // Obtener los resultados en un array PHP
-        $alumnos = $consulta->fetchAll(PDO::FETCH_ASSOC);
-
-        // Devolver el array PHP con los datos de los alumnos
-        return $alumnos;
-    } catch (PDOException $e) {
-        // Manejar el error si ocurre una excepción
-        // Puedes agregar aquí el código para registrar el error o mostrar un mensaje de error al usuario
-        die("Error al obtener los alumnos por materia: " . $e->getMessage());
+        return $consulta;
     }
-}
     
-     
     // BUSCA LA CANTIDAD DE ALUMNOS INSCRIPTOS POR AÑO
     function selectAlumnosCantInsc($con, $anio){
         $consulta = $con->query("SELECT COUNT(anio)
@@ -157,8 +138,7 @@ function selectAlumnosPorMateria($conexion, $materiaId) {
     }
 
     function selectAlumnos($con){
-        $consulta = $con->query("SELECT LEGAJO, ALUMNO
-                                from vw_cursado");
+        $consulta = $con->query("SELECT DISTINCT LEGAJO, ALUMNO FROM vw_cursado");
         return $consulta;
 
     }
@@ -270,6 +250,14 @@ function selectAlumnosPorMateria($conexion, $materiaId) {
         $consulta = $con->query("SELECT ID_CARRERA,
                                         NOMBRE
                                    FROM CARRERA;");
+
+        return $consulta;
+    }
+
+    //Busca ID de examen, libro y folio
+    function selectIdExamen($con)
+    {
+        $consulta = $con->query("SELECT * FROM examen_final");
 
         return $consulta;
     }

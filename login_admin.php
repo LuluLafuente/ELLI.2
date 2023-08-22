@@ -67,7 +67,6 @@ if(isset($_SESSION['usuario'])) {
         </form>
       </div>
     </div>
-
     <div class="panels-container">
       <div class="panel left-panel">
         <div class="content">
@@ -91,7 +90,7 @@ if(isset($_SESSION['usuario'])) {
             Ingresar
           </button>
         </div>
-        <img src="img/social.svg" class="image" alt="" />
+        <img src="img/register.svg" class="image" alt="" />
       </div>
     </div>
   </div>

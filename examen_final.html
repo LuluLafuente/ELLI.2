@@ -1,12 +1,11 @@
-<!--Carga de notas de examenes finales-->
+<!--Carga de notas de examen final-->
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/c0959f9251.js" crossorigin="anonymous">
-    </script>
+    <script src="https://kit.fontawesome.com/c0959f9251.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="./css/stylePortal.css" />
     <link rel="icon"
@@ -15,12 +14,10 @@
     <link rel="icon"
         href="https://iset-tuc.infd.edu.ar/sitio/wp-content/plugins/edupress-escuela/public/skins/redinfod/img/favicon_192x192.png"
         sizes="192x192">
-
     <title>Registrar Notas de Examen Final</title>
 </head>
 
 <body>
-    <!--Panel lateral con opciones-->
     <div class="container">
         <div class="navigation">
             <ul>
@@ -66,88 +63,125 @@
                 <fieldset>
                     <legend><strong>Registrar Nota de Examen Final</strong></legend>
                     <form id="formularioNotas" action="guardar_nota.php" method="POST">
-                        <label for="carrera">1. Seleccione Carrera:</label>
+
+                        <label for="fecha">1. Indique fecha de examen:</label>
+                        <input type="date" id="fecha" name="fecha" required><br>
+
+                        <label for="carrera">2. Seleccione Carrera:</label>
                         <select id="carreraSelect" name="carrera">
                             <option value="0" selected disabled>&gt; SELECCIONE UNA CARRERA &lt;</option>
                             <?php for ($i = 0; $i < $consulta1->rowCount(); $i++):
-                                    $idc = $resultado1[$i]['id_carrera'];
-                                    $carr = $resultado1[$i]['nombre'];
-                                ?>
+                                        $idc = $resultado1[$i]['id_carrera'];
+                                        $carr = $resultado1[$i]['nombre'];
+                                    ?>
                             <option value="<?php echo $idc; ?>" id="carrera" name="carrera" required>
                                 <?php echo $carr; ?>
                             </option>
                             <?php endfor; ?>
                         </select>
 
-                        <label for="materia">2. Seleccione una Materia:</label>
+                        <label for="materia">3. Seleccione una Materia:</label>
                         <select id="materiaSelect" name="materia">
                             <option value="0" selected disabled>&gt; SELECCIONE UNA MATERIA &lt;</option>
                             <?php for ($i = 0; $i < $consulta2->rowCount(); $i++):
-                            $idm = $resultado2[$i]['ID_MATERIA'];
-                            $mate = $resultado2[$i]['ASIGNATURA'];
-                            $carreraId = $resultado2[$i]['ID_CARRERA']; // ID de la carrera a la que pertenece la materia?>
-                            <option value="<?php echo $idm; ?>" data-carrera="<?php echo $carreraId; ?>" required>
+                                        $idm = $resultado2[$i]['ID_MATERIA'];
+                                        $mate = $resultado2[$i]['ASIGNATURA']; 
+                                        $carreraId = $resultado2[$i]['ID_CARRERA']; // ID de la carrera a la que pertenece la materia
+                                    ?>
+                            <option value="<?php echo $idm; ?>" id="materia" name="materia"
+                                data-carrera="<?php echo $carreraId; ?>" required>
                                 <?php echo $mate; ?>
                             </option>
                             <?php endfor; ?>
                         </select>
-
-                        <label for="mesa">3. Ingrese Número de Mesa:</label>
-                        <input type="number" id="num_examen" name="num_examen" required min="1"><br>
-
-                        <label for="libro">4. Ingrese Número de Libro:</label>
-                        <input type="number" id="num_libro" name="num_libro" required min="1"><br>
-                        
-                        <label for="folio">5. Ingrese el Número de Folio:</label>
-                        <input type="number" id="folio" name="folio" required min="1"><br>
-
-                        <label for="fecha">6. Seleccione la Fecha:</label>
-                        <input type="date" id="fecha" name="fecha" required><br>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Mesa</th>
+                                    <th>Libro</th>
+                                    <th>Folio</th>
+                                </tr>
+                            </thead>
+                            <tbody class="tabla-mesas">
+                                <?php for ($i = 0; $i < $consulta3->rowCount(); $i++): ?>
+                                <?php
+                                $idExamen = $resultado3[$i]['ID_EXAMEN_FINAL'];
+                                $materiaId = $resultado3[$i]['ID_MATERIA'];
+                                ?>
+                                <tr data-materia="<?php echo $materiaId; ?>">
+                                    <td>
+                                        <input type="hidden" name="num_mesa"
+                                            value="<?php echo $resultado3[$i]['ID_EXAMEN_FINAL']; ?>">
+                                        <?php echo $resultado3[$i]['ID_EXAMEN_FINAL']; ?>
+                                    </td>
+                                    <td>
+                                        <input type="hidden" name="num_libro"
+                                            value="<?php echo $resultado3[$i]['LIBRO']; ?>">
+                                        <?php echo $resultado3[$i]['LIBRO']; ?>
+                                    </td>
+                                    <td>
+                                        <input type="hidden" name="num_folio"
+                                            value="<?php echo $resultado3[$i]['FOLIO']; ?>">
+                                        <?php echo $resultado3[$i]['FOLIO']; ?>
+                                    </td>
+                                </tr>
+                                <?php endfor; ?>
+                            </tbody>
+                        </table>
                 </fieldset>
                 <br>
 
                 <fieldset>
+                    <br>
                     <legend><strong>Tabla de Alumnos</strong></legend>
                     <!-- La tabla para mostrar los alumnos -->
                     <table>
                         <thead>
                             <tr>
+                                <th>Presente</th>
                                 <th>Legajo</th>
                                 <th>Alumno</th>
                                 <th>Nota</th>
                             </tr>
                         </thead>
                         <tbody class="tabla-alumnos">
-                             <?php for ($i = 0; $i < $consulta->rowCount(); $i++): ?>
-                    <?php
-                    $legajo = $resultado[$i]['LEGAJO'];
-                    $materiaId = $resultado[$i]['ID_MATERIA'];
-                    ?>
-                    <tr data-materia="<?php echo $materiaId; ?>">
-                        <td>
-                            <input type="hidden" name="legajo[]" value="<?php echo $legajo; ?>">
-                            <?php echo $legajo; ?>
-                        </td>
-                        <td>
-                            <?php echo $resultado[$i]['ALUMNO']; ?>
-                        </td>
-                        <td>
-                            <input type="number" name="nota[<?php echo $legajo; ?>]" min ="0" max = "10" value="" required>
-                        </td>
-                    </tr>
-                <?php endfor; ?>
+                            <?php for ($i = 0; $i < $consulta4->rowCount(); $i++): ?>
+                            <?php 
+                            $legajo = $resultado4[$i]['ID_ALUMNO'];
+                            $materiaId = $resultado4[$i]['ID_MATERIA'];
+                            $alumno = $resultado4[$i]['ALUMNO'];
+                        ?>
+                            <tr data-materia="<?php echo $materiaId; ?>">
+                                <td>
+                                    <input type="radio" name="rinde[<?php echo $legajo; ?>]" value="si">Si<br>
+                                    <input type="radio" name="rinde[<?php echo $legajo; ?>]" value="no">No
+                                </td>
+                                <td>
+                                    <input type="hidden" name="legajo[]" value="<?php echo $legajo; ?>">
+                                    <?php echo $legajo; ?>
+                                </td>
+                                <td>
+                                    <?php echo $alumno; ?>
+                                </td>
+                                <td>
+                                    <input type="number" name="nota[<?php echo $legajo; ?>]" min="0" max="10" value="">
+                                </td>
+                            </tr>
+                            <?php endfor; ?>
                         </tbody>
-                    </table>
+                    </table>             
+
                     <br>
-                    <input type="submit" value="Guardar Nota">
-                </form>
-            </fieldset>       
+                    <input type="submit" value="Cargar datos">
+
+                    </form>
+                </fieldset>
             </div>
         </div>
     </div>
-   <script src="js/appAlumno.js"></script>
-   <script src="js/filtrar_materias.js"></script>
-   <script src="js/filtrar_alumnos.js"></script>
+    <script src="js/appAlumno.js"></script>
+    <script src="js/buscar_mesa.js"></script>
+    <script src="js/filtrar_alumnos.js"></script>
 </body>
 
 </html>

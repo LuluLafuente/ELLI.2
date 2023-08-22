@@ -1,4 +1,3 @@
- //Filtrar Alumnos
 document.addEventListener("DOMContentLoaded", function() {
     const materiaSelect = document.getElementById("materiaSelect");
     const tablaAlumnos = document.querySelector(".tabla-alumnos");
@@ -10,14 +9,14 @@ const rows = tablaAlumnos.querySelectorAll("tr");
 
 rows.forEach(row => {
 const materiaId = row.getAttribute("data-materia");
-const notaInput = row.querySelector("input[name^='nota[']");
+const rindeInput = row.querySelector("input[name^='rinde[']");
 
 if (materiaId === selectedMateriaId || selectedMateriaId === "0") {
     row.style.display = "table-row";
-    notaInput.disabled = false;
+    rindeInput.disabled = false;
 } else {
     row.style.display = "none";
-    notaInput.disabled = true;
+    rindeInput.disabled = true;
 }
 });
 }

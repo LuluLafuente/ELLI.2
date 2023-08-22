@@ -9,9 +9,14 @@
     return filter_var($var, FILTER_SANITIZE_STRING);
   }
 
+  function validarString($var){
+    return preg_match('/^[a-zA-ZáÁéÉíÍóÓúÚ]+$/', $var);
+  }
+
   function sanitizarInt($var){
     return filter_var($var, FILTER_SANITIZE_NUMBER_INT);
   }
+
 
   function valMail($var){
     return filter_var($var, FILTER_VALIDATE_EMAIL);
@@ -165,8 +170,8 @@
     if($nro < 10){
       $inscriptos = "00" . $nro;
     }
-    else if($inscriptos < 100){
-      $inscriptos = "0" . $inscriptos;
+    else if($nro < 100){
+      $inscriptos = "0" . $nro;
     }
 
     return $inscriptos;

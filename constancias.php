@@ -24,6 +24,10 @@ $conexion = conexionDB();
 $consulta = selectAprobadas($conexion, $_SESSION["u_legajo"]);
 $consulta1 = selectHistoriaAlumno($conexion,$_SESSION["u_legajo"]);
 
+// BUSCA UNA LISTA DE EXAMENES
+$buscarExam = selectExamenes($conexion);
+// GUARDO EN UNA VARIABLE LOS EXAMENES
+$examenes = $buscarExam->fetchAll();
 
 //GUARDO TODOS LOS RESULTADOS EN UNA VARIABLE
 $resultado = $consulta->fetchAll();

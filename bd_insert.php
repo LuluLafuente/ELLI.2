@@ -52,7 +52,7 @@ function agregarAlumno(
     // DEVUELVO EL RESULTADO DE LA OPERACION
     return true;
 }
-}
+
 
 function cohorteAlumno($con, $carrera, $anio, &$error)
 {

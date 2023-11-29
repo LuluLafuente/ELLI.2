@@ -1,13 +1,7 @@
--- Creación de la base de datos
 CREATE DATABASE bd_prueba;
 
--- Selección de la base de datos creada
 USE bd_prueba;
 
--- Creación del usuario que utilizará la base de datos
-GRANT SELECT, INSERT, UPDATE ON `bd_prueba`.* to 'isetEducativo'@'%' IDENTIFIED BY 'unaClaveMuyDificil1';
-
--- Creación de tablas de la base de datos
 CREATE TABLE `ROL`(
      `ID_ROL` INT         NOT NULL AUTO_INCREMENT,
      `ROL`    VARCHAR(30) NOT NULL,
@@ -52,7 +46,7 @@ CREATE TABLE `ADMINISTRATIVO`(
     `APELLIDO`           VARCHAR(30)  NOT NULL,
     `ROL_ADMINISTRATIVO` INT          NOT NULL,
     `USUARIO`            VARCHAR(50)  NOT NULL,
-    `CONTRASENIA`        VARCHAR(128)  NOT NULL,
+    `CONTRASENIA`        VARCHAR(20)  NOT NULL,
     `DOMICILIO`          VARCHAR(50)  NOT NULL,
     `NRO_DOMICILIO`      INT              NULL,
     `CELULAR`            INT              NULL,
@@ -70,7 +64,7 @@ CREATE TABLE `DOCENTE`(
     `APELLIDO`      VARCHAR(30)  NOT NULL,
     `ROL_DOCENTE`   INT          NOT NULL,
     `USUARIO`       VARCHAR(50)  NOT NULL,
-    `CONTRASENIA`   VARCHAR(128)  NOT NULL,
+    `CONTRASENIA`   VARCHAR(20)  NOT NULL,
     `DOMICILIO`     VARCHAR(50)  NOT NULL,
     `NRO_DOMICILIO` INT              NULL,
     `CELULAR`       INT              NULL,
@@ -115,7 +109,7 @@ CREATE TABLE `ALUMNO`(
      `APELLIDO`      VARCHAR(50)  NOT NULL,
      `ROL_ALUMNO`    INT          NOT NULL,
      `USUARIO`       VARCHAR(50)  NOT NULL,
-     `CONTRASENIA`   VARCHAR(128)  NOT NULL,
+     `CONTRASENIA`   VARCHAR(20)  NOT NULL,
      `DOMICILIO`     VARCHAR(100) NOT NULL,
      `NRO_DOMICILIO` INT              NULL,
      `CELULAR`       INT(10) ZEROFILL NULL,
@@ -650,39 +644,39 @@ INSERT INTO `MATERIA`(`ID_MATERIA`, `ID_CARRERA`, `ASIGNATURA`, `ANIO`, `DESCRIP
 -- Insert Administrativos
 
 INSERT INTO `ADMINISTRATIVO` (`LEGAJO_ADM`, `DNI`, `NOMBRE`, `APELLIDO`, `ROL_ADMINISTRATIVO`, `USUARIO`, `CONTRASENIA`, `DOMICILIO`, `NRO_DOMICILIO`, `CELULAR`, `FOTO_ADM`, `FECHA_INSC`)
-     VALUES ('TSDS-19-1-A', 1, 'Rosana', 'Salomon', 1, 'rsaolomon@iset.com.ar', '4dff4ea340f0a823f15d3f4f01ab62eae0e5da579ccb851f8db9dfe84c58b2b37b89903a740e1ee172da793a6e79d560e5f7f9bd058a12a280433ed6fa46510a', 'calle', 123, 38100001, '.\\img_profile\\perfil.png', '2023-07-18 18:05:10');
+     VALUES ('TSDS-19-1-A', 1, 'Rosana', 'Salomon', 1, 'rsaolomon@iset.com.ar', 1, 'calle', 123, 38100001, '.\\img_profile\\perfil.png', '2023-07-18 18:05:10');
 
 INSERT INTO `ADMINISTRATIVO` (`LEGAJO_ADM`, `DNI`, `NOMBRE`, `APELLIDO`, `ROL_ADMINISTRATIVO`, `USUARIO`, `CONTRASENIA`, `DOMICILIO`, `NRO_DOMICILIO`, `CELULAR`, `FOTO_ADM`, `FECHA_INSC`)
-     VALUES ('TSDS-19-2-A', 2, 'Paula', 'Vázquez', 1, 'pvazquez@iset.com.ar', '4dff4ea340f0a823f15d3f4f01ab62eae0e5da579ccb851f8db9dfe84c58b2b37b89903a740e1ee172da793a6e79d560e5f7f9bd058a12a280433ed6fa46510a', 'calle', 123, 38100001, '.\\img_profile\\perfil.png', '2023-07-18 18:05:10');
+     VALUES ('TSDS-19-2-A', 2, 'Paula', 'Vázquez', 1, 'pvazquez@iset.com.ar', 1, 'calle', 123, 38100001, '.\\img_profile\\perfil.png', '2023-07-18 18:05:10');
 
 INSERT INTO `ADMINISTRATIVO` (`LEGAJO_ADM`, `DNI`, `NOMBRE`, `APELLIDO`, `ROL_ADMINISTRATIVO`, `USUARIO`, `CONTRASENIA`, `DOMICILIO`, `NRO_DOMICILIO`, `CELULAR`, `FOTO_ADM`, `FECHA_INSC`)
-     VALUES ('TSDS-19-3-A', 3, 'Celia', 'Valenzuela', 1, 'cvalenzuela@iset.com.ar', '4dff4ea340f0a823f15d3f4f01ab62eae0e5da579ccb851f8db9dfe84c58b2b37b89903a740e1ee172da793a6e79d560e5f7f9bd058a12a280433ed6fa46510a', 'calle', 123, 38100001, '.\\img_profile\\perfil.png', '2023-07-18 18:05:10');
+     VALUES ('TSDS-19-3-A', 3, 'Celia', 'Valenzuela', 1, 'cvalenzuela@iset.com.ar', 1, 'calle', 123, 38100001, '.\\img_profile\\perfil.png', '2023-07-18 18:05:10');
 
 INSERT INTO `ADMINISTRATIVO` (`LEGAJO_ADM`, `DNI`, `NOMBRE`, `APELLIDO`, `ROL_ADMINISTRATIVO`, `USUARIO`, `CONTRASENIA`, `DOMICILIO`, `NRO_DOMICILIO`, `CELULAR`, `FOTO_ADM`, `FECHA_INSC`)
-     VALUES ('TSDS-19-4-A', 4, 'Pablo', 'Zelaya', 1, 'pzelaya@iset.com.ar', '4dff4ea340f0a823f15d3f4f01ab62eae0e5da579ccb851f8db9dfe84c58b2b37b89903a740e1ee172da793a6e79d560e5f7f9bd058a12a280433ed6fa46510a', 'calle', 123, 38100001, '.\\img_profile\\perfil.png', '2023-07-18 18:05:10');
+     VALUES ('TSDS-19-4-A', 4, 'Pablo', 'Zelaya', 1, 'pzelaya@iset.com.ar', 1, 'calle', 123, 38100001, '.\\img_profile\\perfil.png', '2023-07-18 18:05:10');
 
 -- Insert Docentes
 
 INSERT INTO `DOCENTE` (`DNI`, `NOMBRE`, `APELLIDO`, `ROL_DOCENTE`, `USUARIO`, `CONTRASENIA`, `DOMICILIO`, `NRO_DOMICILIO`, `CELULAR`, `RED_FACEBOOK`, `RED_INSTAGRAM`, `RED_TWITTER`, `FOTO_DOC`)
-     VALUES (1, 'Oscar', 'Niemeyer', 2, 'oniemeyer@iset.com.ar', '31bca02094eb78126a517b206a88c73cfa9ec6f704c7030d18212cace820f025f00bf0ea68dbf3f3a5436ca63b53bf7bf80ad8d5de7d8359d0b7fed9dbc3ab99', 'calle', 123, 38100001, 'https://www.facebook.com/us', 'https://www.instagram.com/us', 'https://www.instagram.com/us', '.\\img_profile\\perfil.png');
+     VALUES (1, 'Oscar', 'Niemeyer', 2, 'oniemeyer@iset.com.ar', 0, 'calle', 123, 38100001, 'https://www.facebook.com/us', 'https://www.instagram.com/us', 'https://www.instagram.com/us', '.\\img_profile\\perfil.png');
 
 INSERT INTO `DOCENTE` (`DNI`, `NOMBRE`, `APELLIDO`, `ROL_DOCENTE`, `USUARIO`, `CONTRASENIA`, `DOMICILIO`, `NRO_DOMICILIO`, `CELULAR`, `RED_FACEBOOK`, `RED_INSTAGRAM`, `RED_TWITTER`, `FOTO_DOC`)
-     VALUES (2, 'María', 'Costilla', 2, 'mcostilla@iset.com.ar', '31bca02094eb78126a517b206a88c73cfa9ec6f704c7030d18212cace820f025f00bf0ea68dbf3f3a5436ca63b53bf7bf80ad8d5de7d8359d0b7fed9dbc3ab99', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
+     VALUES (2, 'María', 'Costilla', 2, 'mcostilla@iset.com.ar', 0, 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
 
 INSERT INTO `DOCENTE` (`DNI`, `NOMBRE`, `APELLIDO`, `ROL_DOCENTE`, `USUARIO`, `CONTRASENIA`, `DOMICILIO`, `NRO_DOMICILIO`, `CELULAR`, `RED_FACEBOOK`, `RED_INSTAGRAM`, `RED_TWITTER`, `FOTO_DOC`)
-     VALUES (3, 'Buckminster', 'Fuller', 2, 'bfuller@iset.com.ar', '31bca02094eb78126a517b206a88c73cfa9ec6f704c7030d18212cace820f025f00bf0ea68dbf3f3a5436ca63b53bf7bf80ad8d5de7d8359d0b7fed9dbc3ab99', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
+     VALUES (3, 'Buckminster', 'Fuller', 2, 'bfuller@iset.com.ar', 0, 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
 
 INSERT INTO `DOCENTE` (`DNI`, `NOMBRE`, `APELLIDO`, `ROL_DOCENTE`, `USUARIO`, `CONTRASENIA`, `DOMICILIO`, `NRO_DOMICILIO`, `CELULAR`, `RED_FACEBOOK`, `RED_INSTAGRAM`, `RED_TWITTER`, `FOTO_DOC`)
-     VALUES (4, 'Santiago', 'Calatrava', 2, 'scalatrava@iset.com.ar', '31bca02094eb78126a517b206a88c73cfa9ec6f704c7030d18212cace820f025f00bf0ea68dbf3f3a5436ca63b53bf7bf80ad8d5de7d8359d0b7fed9dbc3ab99', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
+     VALUES (4, 'Santiago', 'Calatrava', 2, 'scalatrava@iset.com.ar', 0, 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
 
 INSERT INTO `DOCENTE` (`DNI`, `NOMBRE`, `APELLIDO`, `ROL_DOCENTE`, `USUARIO`, `CONTRASENIA`, `DOMICILIO`, `NRO_DOMICILIO`, `CELULAR`, `RED_FACEBOOK`, `RED_INSTAGRAM`, `RED_TWITTER`, `FOTO_DOC`)
-     VALUES (5, 'Diego', 'Figueroa', 2, 'dfigueroa@iset.com.ar', '31bca02094eb78126a517b206a88c73cfa9ec6f704c7030d18212cace820f025f00bf0ea68dbf3f3a5436ca63b53bf7bf80ad8d5de7d8359d0b7fed9dbc3ab99', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
+     VALUES (5, 'Diego', 'Figueroa', 2, 'dfigueroa@iset.com.ar', 0, 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
 
 INSERT INTO `DOCENTE` (`DNI`, `NOMBRE`, `APELLIDO`, `ROL_DOCENTE`, `USUARIO`, `CONTRASENIA`, `DOMICILIO`, `NRO_DOMICILIO`, `CELULAR`, `RED_FACEBOOK`, `RED_INSTAGRAM`, `RED_TWITTER`, `FOTO_DOC`)
-     VALUES (6, 'Jorge', 'Leiva', 2, 'jleiva@iset.com.ar', '31bca02094eb78126a517b206a88c73cfa9ec6f704c7030d18212cace820f025f00bf0ea68dbf3f3a5436ca63b53bf7bf80ad8d5de7d8359d0b7fed9dbc3ab99', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
+     VALUES (6, 'Jorge', 'Leiva', 2, 'jleiva@iset.com.ar', 0, 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
 
 INSERT INTO `DOCENTE` (`DNI`, `NOMBRE`, `APELLIDO`, `ROL_DOCENTE`, `USUARIO`, `CONTRASENIA`, `DOMICILIO`, `NRO_DOMICILIO`, `CELULAR`, `RED_FACEBOOK`, `RED_INSTAGRAM`, `RED_TWITTER`, `FOTO_DOC`)
-     VALUES (7, 'Viktor', 'Frankenstein', 2, 'vfrankenstein@iset.com.ar', '31bca02094eb78126a517b206a88c73cfa9ec6f704c7030d18212cace820f025f00bf0ea68dbf3f3a5436ca63b53bf7bf80ad8d5de7d8359d0b7fed9dbc3ab99', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
+     VALUES (7, 'Viktor', 'Frankenstein', 2, 'vfrankenstein@iset.com.ar', 0, 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
 
 -- Insert Legajo Docente
      
@@ -710,31 +704,31 @@ INSERT INTO `LEGAJO_DOCENTE` (`DNI`, `LEGAJO_DOC`, `CARRERA`, `FECHA_INSCRIPCION
 -- Insert Alumnos
 
 INSERT INTO `ALUMNO` (`DNI`, `NOMBRE`, `APELLIDO`, `ROL_ALUMNO`, `USUARIO`, `CONTRASENIA`, `DOMICILIO`, `NRO_DOMICILIO`, `CELULAR`, `RED_FACEBOOK`, `RED_INSTAGRAM`, `RED_TWITTER`, `FOTO_ALU`)
-     VALUES (1, 'Lourdes', 'La Fuente', 3, 'llafuente@iset.com.ar', '31bca02094eb78126a517b206a88c73cfa9ec6f704c7030d18212cace820f025f00bf0ea68dbf3f3a5436ca63b53bf7bf80ad8d5de7d8359d0b7fed9dbc3ab99', 'calle', 123, 38100001, 'https://www.facebook.com/usuario', 'https://www.instagram.com/usuario', 'https://www.instagram.com/usuario', '.\\img_profile\\perfil.png');
+     VALUES (1, 'Lourdes', 'Lafuente', 3, 'llafuente@iset.com.ar', 0, 'calle', 123, 38100001, 'https://www.facebook.com/usuario', 'https://www.instagram.com/usuario', 'https://www.instagram.com/usuario', '.\\img_profile\\perfil.png');
      
 INSERT INTO `ALUMNO` (`DNI`, `NOMBRE`, `APELLIDO`, `ROL_ALUMNO`, `USUARIO`, `CONTRASENIA`, `DOMICILIO`, `NRO_DOMICILIO`, `CELULAR`, `RED_FACEBOOK`, `RED_INSTAGRAM`, `RED_TWITTER`, `FOTO_ALU`)
-     VALUES (2, 'Ignacio', 'Llorente', 3, 'illorente@iset.com.ar', '31bca02094eb78126a517b206a88c73cfa9ec6f704c7030d18212cace820f025f00bf0ea68dbf3f3a5436ca63b53bf7bf80ad8d5de7d8359d0b7fed9dbc3ab99', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
+     VALUES (2, 'Ignacio', 'Llorente', 3, 'illorente@iset.com.ar', 0, 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
 
 INSERT INTO `ALUMNO` (`DNI`, `NOMBRE`, `APELLIDO`, `ROL_ALUMNO`, `USUARIO`, `CONTRASENIA`, `DOMICILIO`, `NRO_DOMICILIO`, `CELULAR`, `RED_FACEBOOK`, `RED_INSTAGRAM`, `RED_TWITTER`, `FOTO_ALU`)
-     VALUES (3, 'Lucas', 'Villagran', 3, 'lvillagran@iset.com.ar', '31bca02094eb78126a517b206a88c73cfa9ec6f704c7030d18212cace820f025f00bf0ea68dbf3f3a5436ca63b53bf7bf80ad8d5de7d8359d0b7fed9dbc3ab99', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
+     VALUES (3, 'Lucas', 'Villagran', 3, 'lvillagran@iset.com.ar', 0, 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
 
 INSERT INTO `ALUMNO` (`DNI`, `NOMBRE`, `APELLIDO`, `ROL_ALUMNO`, `USUARIO`, `CONTRASENIA`, `DOMICILIO`, `NRO_DOMICILIO`, `CELULAR`, `RED_FACEBOOK`, `RED_INSTAGRAM`, `RED_TWITTER`, `FOTO_ALU`)
-     VALUES (4, 'David', 'Carrazana', 3, 'dcarrazana@iset.com.ar', '31bca02094eb78126a517b206a88c73cfa9ec6f704c7030d18212cace820f025f00bf0ea68dbf3f3a5436ca63b53bf7bf80ad8d5de7d8359d0b7fed9dbc3ab99', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
+     VALUES (4, 'David', 'Carrazana', 3, 'dcarrazana@iset.com.ar', 0, 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
 
 INSERT INTO `ALUMNO` (`DNI`, `NOMBRE`, `APELLIDO`, `ROL_ALUMNO`, `USUARIO`, `CONTRASENIA`, `DOMICILIO`, `NRO_DOMICILIO`, `CELULAR`, `RED_FACEBOOK`, `RED_INSTAGRAM`, `RED_TWITTER`, `FOTO_ALU`)
-     VALUES (5, 'Ariel', 'Kasiañuk', 3, 'akasiañuk@iset.com.ar', '31bca02094eb78126a517b206a88c73cfa9ec6f704c7030d18212cace820f025f00bf0ea68dbf3f3a5436ca63b53bf7bf80ad8d5de7d8359d0b7fed9dbc3ab99', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
+     VALUES (5, 'Ariel', 'Kasiañuk', 3, 'akasiañuk@iset.com.ar', 0, 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
 
 INSERT INTO `ALUMNO` (`DNI`, `NOMBRE`, `APELLIDO`, `ROL_ALUMNO`, `USUARIO`, `CONTRASENIA`, `DOMICILIO`, `NRO_DOMICILIO`, `CELULAR`, `RED_FACEBOOK`, `RED_INSTAGRAM`, `RED_TWITTER`, `FOTO_ALU`)
-     VALUES (6, 'Carlos', 'Namen', 3, 'cnamen@iset.com.ar', '31bca02094eb78126a517b206a88c73cfa9ec6f704c7030d18212cace820f025f00bf0ea68dbf3f3a5436ca63b53bf7bf80ad8d5de7d8359d0b7fed9dbc3ab99', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
+     VALUES (6, 'Carlos', 'Namen', 3, 'cnamen@iset.com.ar', 0, 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
 
 INSERT INTO `ALUMNO` (`DNI`, `NOMBRE`, `APELLIDO`, `ROL_ALUMNO`, `USUARIO`, `CONTRASENIA`, `DOMICILIO`, `NRO_DOMICILIO`, `CELULAR`, `RED_FACEBOOK`, `RED_INSTAGRAM`, `RED_TWITTER`, `FOTO_ALU`)
-     VALUES (7, 'Ramon', 'Gutierrez', 3, 'rgutierrez@iset.com.ar', '31bca02094eb78126a517b206a88c73cfa9ec6f704c7030d18212cace820f025f00bf0ea68dbf3f3a5436ca63b53bf7bf80ad8d5de7d8359d0b7fed9dbc3ab99', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
+     VALUES (7, 'Ramon', 'Gutierrez', 3, 'rgutierrez@iset.com.ar', 0, 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
 
 INSERT INTO `ALUMNO` (`DNI`, `NOMBRE`, `APELLIDO`, `ROL_ALUMNO`, `USUARIO`, `CONTRASENIA`, `DOMICILIO`, `NRO_DOMICILIO`, `CELULAR`, `RED_FACEBOOK`, `RED_INSTAGRAM`, `RED_TWITTER`, `FOTO_ALU`)
-     VALUES (8, 'Ricardo', 'Mejias Villejas', 3, 'rmejias@iset.com.ar', '31bca02094eb78126a517b206a88c73cfa9ec6f704c7030d18212cace820f025f00bf0ea68dbf3f3a5436ca63b53bf7bf80ad8d5de7d8359d0b7fed9dbc3ab99', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
+     VALUES (8, 'Ricardo', 'Mejias Villejas', 3, 'rmejias@iset.com.ar', 0, 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
 
 INSERT INTO `ALUMNO` (`DNI`, `NOMBRE`, `APELLIDO`, `ROL_ALUMNO`, `USUARIO`, `CONTRASENIA`, `DOMICILIO`, `NRO_DOMICILIO`, `CELULAR`, `RED_FACEBOOK`, `RED_INSTAGRAM`, `RED_TWITTER`, `FOTO_ALU`)
-     VALUES (9, 'Norma del Carmen', 'Navarro', 3, 'nnavarro@iset.com.ar', '31bca02094eb78126a517b206a88c73cfa9ec6f704c7030d18212cace820f025f00bf0ea68dbf3f3a5436ca63b53bf7bf80ad8d5de7d8359d0b7fed9dbc3ab99', 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
+     VALUES (9, 'Norma del Carmen', 'Navarro', 3, 'nnavarro@iset.com.ar', 0, 'calle', 123, 38100001, NULL, NULL, NULL, '.\\img_profile\\perfil.png');
 
 -- Insert Legajo Alumno
 
@@ -796,7 +790,8 @@ INSERT INTO `CURSA` (`ID_CURSADO`, `ID_MATERIA`, `ID_ALUMNO`, `FECHA`, `CICLO`, 
 (24, 24, 'TSDS-19-001-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
 (25, 25, 'TSDS-19-001-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
 (26, 26, 'TSDS-19-001-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
-(27, 27, 'TSDS-19-001-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos');
+(27, 27, 'TSDS-19-001-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
+(56, 28, 'TSDS-19-001-AL', CURRENT_TIMESTAMP, 2023, 6, 6, 6, 'Regular');
 
 INSERT INTO `CURSA` (`ID_CURSADO`, `ID_MATERIA`, `ID_ALUMNO`, `FECHA`, `CICLO`, `1ER_PARCIAL`, `2DO_PARCIAL`, `FINAL`, `ESTADO`) VALUES
 (28, 1, 'TSDS-19-004-AL', CURRENT_TIMESTAMP, 2023, 7, 8, 7, 'Promoción'),
@@ -828,8 +823,7 @@ INSERT INTO `CURSA` (`ID_CURSADO`, `ID_MATERIA`, `ID_ALUMNO`, `FECHA`, `CICLO`, 
 (54, 27, 'TSDS-19-004-AL', CURRENT_TIMESTAMP, 2023, 6, 6, 6, 'Regular'), /*No tengo las notas de los parciales de esta materia*/
 (55, 28, 'TSDS-19-004-AL', CURRENT_TIMESTAMP, 2023, 6, 6, 6, 'Regular'); /*No tengo las notas de los parciales de esta materia*/
 
-
-/*Lorente Ignacio*/
+/*Ignacio Lorente*/
 INSERT INTO `CURSA` (`ID_MATERIA`, `ID_ALUMNO`, `FECHA`, `CICLO`, `1ER_PARCIAL`, `2DO_PARCIAL`, `FINAL`, `ESTADO`) VALUES
 (1, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
 (2, 'TSDS-19-002-AL', CURRENT_TIMESTAMP, 2023, -1, -1, -1, 'Sin Datos'),
@@ -1146,7 +1140,6 @@ SELECT COUNT(la.dni) AS 'INSCRIPTOS',
 
 -- VISTA alumnos_inscriptos_carrera
 
-CREATE OR REPLACE VIEW vw_alumnos_insc_carrera AS
   SELECT ca.ABREVIADO  AS 'CARRERA',
          COUNT(la.COHORTE) AS 'INSCRIPTOS',
          co.NUMERO     AS 'COHORTE',
@@ -1157,7 +1150,7 @@ CREATE OR REPLACE VIEW vw_alumnos_insc_carrera AS
 GROUP BY la.COHORTE;
 
 -- VISTA admin_examen
--- En esta vista se agregó un JOIN para que funcione de acuerdo a la nueba bd
+-- En esta vista se agregó un JOIN para que funcione de acuerdo a la nueva bd
 
 CREATE OR REPLACE VIEW `vw_admin_examen` AS
 SELECT la.`LEGAJO_ALU`                         AS `LEGAJO_ALU`, 
@@ -1179,8 +1172,8 @@ SELECT la.`LEGAJO_ALU`                         AS `LEGAJO_ALU`,
        m.`ASIGNATURA`                          AS `MATERIA`, 
        r.`NOTA`                                AS `NOTA`,
        ef.`LIBRO`                              AS `LIBRO`,
-       ef.`FOLIO`                              AS `FOLIO`,
-       ef.`FECHA`                              AS `FECHA` 
+	ef.`FOLIO`			       AS `FOLIO`,
+	ef.`FECHA`			       AS`FECHA`
   FROM `alumno` al 
   JOIN `legajo_alumno` la ON la.DNI = al.DNI
   JOIN `rinde`         r  ON r.ID_ALUMNO = la.LEGAJO_ALU

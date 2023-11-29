@@ -2,6 +2,10 @@
 //INICIO SESION
 session_start();
 
+// AGREGO LAS FUNCIONES NECESARIAS PARA EL FUNCIONAMIENTO DE LA CARGA DE ALUMNOS
+include_once 'bd_conexion.php';
+include_once 'bd_select.php';
+
 if (!isset($_SESSION["usuario"])) {
     //header("location:index.php");
     //exit;
@@ -18,15 +22,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $legajos = $_POST["legajo"];
     $nota = 0;
 
-    $host = "127.0.0.1";
-    $dbNombre = "bd_prueba";
-    $usuario = "isetEducativo";
-    $contrasenia = "unaClaveMuyDificil1";
 
     try {
-        $conexion = new PDO("mysql:host=$host;dbname=$dbNombre", $usuario, $contrasenia);
+        $conexion = conexionDB();
         $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $conexion->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+        $conexion->beginTransaction();
 
         $sqlExamen = "INSERT INTO examen_final (ID_EXAMEN_FINAL, ID_MATERIA, LIBRO, FOLIO, FECHA) VALUES (:mesa, :materia, :libro, :folio, :fecha)";
         $stmtExamen = $conexion->prepare($sqlExamen);
@@ -50,15 +51,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $stmtAlumno->execute();
             }
         }
+  // Confirmamos la transacción si todas las actualizaciones fueron exitosas
+            $conexion->commit();
 
-        $conexion = null;
+            $message = "Notas registradas con éxito.";
+            echo "<script>alert('$message');</script>";
 
-        echo "Notas guardadas exitosamente.";
-    } catch (PDOException $e) {
-        echo "Error al guardar las notas: " . $e->getMessage();
-    }
-} else {
-    echo "Acceso no autorizado.";
+        } catch (PDOException $e) {
+                // Si ocurre un error, deshacemos la transacción y mostramos el mensaje de error
+                $conexion->rollback();
+                echo "Error en la consulta: " . $e->getMessage();
+            }
+
+            // Cierra la conexión
+    $conexion = null;
 }
 header("location:crear_mesa.php");
 ?>

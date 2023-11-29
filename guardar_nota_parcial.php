@@ -1,7 +1,10 @@
 <?php
-
 //INICIO SESION
 session_start();
+
+// AGREGO LAS FUNCIONES NECESARIAS PARA EL FUNCIONAMIENTO DE LA CARGA DE ALUMNOS
+include_once 'bd_conexion.php';
+include_once 'bd_select.php';
 
 //REVISO QUE HAYA UNA SESION ACTIVA DE USUARIO,
 //DE LO CONTRARIO VUELVE A LA PAGINA DE INICIO.
@@ -21,14 +24,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $notas = $_POST["nota"];
    
     // Aquí puedes realizar la conexión a la base de datos con tus credenciales
-    $host = "127.0.0.1";
-    $dbNombre = "bd_prueba";
-    $usuario = "isetEducativo";
-    $contrasenia = "unaClaveMuyDificil1";
-
+    
     try {
         //EJECUTO LA CONEXION CON LA CLASE PDO DE PHP
-        $conn = new PDO("mysql:host=$host;dbname=$dbNombre", $usuario, $contrasenia);
+        $conn = conexionDB();
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Utilizamos transacciones para asegurar que todas las actualizaciones se realicen correctamente

@@ -1077,13 +1077,13 @@ INSERT INTO `EVALUA_EN` (`ID_EXAMEN`, `ID_DOCENTE`, `ID_MATERIA`, `FECHA`) VALUE
 -- VISTA nota_alumno
 
 CREATE OR REPLACE VIEW vw_nota_alumno AS
-SELECT m.id_materia  AS 'MATERIA',
-       m.asignatura  AS 'ASIGNATURA',
-       m.anio        AS 'ANIO',
-       c.final       AS 'NOTA',
-       c.estado      AS 'CONDICION',
-       la.LEGAJO_ALU AS 'LEGAJO'
-  FROM `cursa` c
+SELECT m.`ÌD_MATERIA`  AS 'MATERIA',
+       m.`ASIGNATURA`  AS 'ASIGNATURA',
+       m.`ANIO`        AS 'ANIO',
+       c.`FINAL`       AS 'NOTA',
+       c.`ESTADO`      AS 'CONDICION',
+       la.`LEGAJO_ALU` AS 'LEGAJO'
+  FROM `CURSA` c
   JOIN legajo_alumno la  ON c.id_alumno = la.LEGAJO_ALU
   JOIN materia m ON c.id_materia = m.id_materia;
 

@@ -40,6 +40,13 @@
                     </a>
                 </li>
                 <li>
+                    <a href="inscripcion_materias.php">
+                        <span class="icon"><i class="fa-regular fa-file-lines"></i></span>
+                        <span class="title">Inscripci&oacute;n materias</span>
+
+                    </a>
+                </li>
+                <li>
                     <a href="historia.php">
                         <span class="icon"><i class="fa-solid fa-graduation-cap"></i></span>
                         <span class="title">Historia académica</span>
@@ -90,12 +97,12 @@
                             <ul>
                                 <hr>
                                 <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                <?php if ($resultado[$i]["ANIO"] == 1): ?>
-                                <li class="contenido">
-                                    <?php echo "ID Materia: " . $resultado[$i]["MATERIA"] . ". Nombre: " . $resultado[$i]['ASIGNATURA'] . ".</br>" . "Nota: " . $resultado[$i]['NOTA'] . ". Condición: " . $resultado[$i]['CONDICION'] . ".</br>"; ?>
-                                </li>
-                                <hr>
-                                <?php endif; ?>
+                                    <?php if ($resultado[$i]["ANIO"] == 1): ?>
+                                        <li class="contenido">
+                                            <?php echo "ID Materia: " . $resultado[$i]["MATERIA"] . ". Nombre: " . $resultado[$i]['ASIGNATURA'] . ".</br>" . "Nota: " . $resultado[$i]['NOTA'] . ". Condición: " . $resultado[$i]['CONDICION'] . ".</br>"; ?>
+                                        </li>
+                                        <hr>
+                                    <?php endif; ?>
                                 <?php endfor; ?>
                             </ul>
                         </div>
@@ -104,12 +111,12 @@
                             <ul>
                                 <hr>
                                 <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                <?php if ($resultado[$i]["ANIO"] == 2): ?>
-                                <li class="contenido">
-                                    <?php echo "ID Materia: " . $resultado[$i]["MATERIA"] . ". Nombre: " . $resultado[$i]['ASIGNATURA'] . ".</br>" . "Nota: " . $resultado[$i]['NOTA'] . ". Condición: " . $resultado[$i]['CONDICION'] . ".</br>"; ?>
-                                </li>
-                                <hr>
-                                <?php endif; ?>
+                                    <?php if ($resultado[$i]["ANIO"] == 2): ?>
+                                        <li class="contenido">
+                                            <?php echo "ID Materia: " . $resultado[$i]["MATERIA"] . ". Nombre: " . $resultado[$i]['ASIGNATURA'] . ".</br>" . "Nota: " . $resultado[$i]['NOTA'] . ". Condición: " . $resultado[$i]['CONDICION'] . ".</br>"; ?>
+                                        </li>
+                                        <hr>
+                                    <?php endif; ?>
                                 <?php endfor; ?>
                             </ul>
                         </div>
@@ -118,12 +125,12 @@
                             <ul>
                                 <hr>
                                 <?php for ($i=0; $i < $consulta->rowCount(); $i++): ?>
-                                <?php if ($resultado[$i]["ANIO"] == 3): ?>
-                                <li class="contenido">
-                                    <?php echo "ID Materia: " . $resultado[$i]["MATERIA"] . ". Nombre: " . $resultado[$i]['ASIGNATURA'] . ".</br>" . "Nota: " . $resultado[$i]['NOTA'] . ". Condición: " . $resultado[$i]['CONDICION'] . ".</br>"; ?>
-                                </li>
-                                <hr>
-                                <?php endif; ?>
+                                    <?php if ($resultado[$i]["ANIO"] == 3): ?>
+                                        <li class="contenido">
+                                            <?php echo "ID Materia: " . $resultado[$i]["MATERIA"] . ". Nombre: " . $resultado[$i]['ASIGNATURA'] . ".</br>" . "Nota: " . $resultado[$i]['NOTA'] . ". Condición: " . $resultado[$i]['CONDICION'] . ".</br>"; ?>
+                                        </li>
+                                        <hr>
+                                    <?php endif; ?>
                                 <?php endfor; ?>
                             </ul>
                         </div>

@@ -13,7 +13,7 @@ $rol = 0;
 
 // RECUPERO DATOS DEL FORMULARIO
 $usuario = $_POST["usuario"];
-$clave = $_POST["clave"];
+$clave = hash("sha512", $_POST["clave"]);
 
 // ASIGNO EL USUARIO A VARIABLE DE SESION
 $_SESSION['usuario'] = $usuario;

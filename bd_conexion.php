@@ -14,7 +14,4 @@
         //DEVUELVO EL RESULTADO DE LA OPERACION
         return $conexion;
     }
-
-    
-
 ?>
